@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Protocolo Alpha</title>
+    <!-- Facebook Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1819107922060720');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1819107922060720&ev=PageView&noscript=1"/></noscript>
+    <!-- End Facebook Pixel -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1312,6 +1324,7 @@
     }
 
     function animateResults() {
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
         setTimeout(() => { document.getElementById('after-1').style.width = '90%'; }, 300);
         setTimeout(() => { document.getElementById('after-2').style.width = '87%'; }, 500);
         setTimeout(() => { document.getElementById('after-3').style.width = '91%'; }, 700);
@@ -1320,6 +1333,7 @@
 
     // ── CHECKOUT ──
     window.checkout = function() {
+        if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
         const ch = localStorage.getItem('tiktok_channel') || currentChannel;
         setDoc(doc(db, 'sessions', sid), {
             'events.checkout': serverTimestamp(),
