@@ -183,29 +183,32 @@
         }
 
         /* ── AGE CARDS ── */
-        .age-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+        .age-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
         .age-card {
-            border: 2px solid var(--border);
-            border-radius: 16px;
+            border-radius: 14px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
             background: #fff;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
         }
-        .age-card:hover, .age-card.selected {
-            border-color: var(--primary);
-            box-shadow: 0 4px 16px rgba(22, 163, 74, 0.2);
-        }
-        .age-card img { width: 100%; height: 200px; object-fit: cover; object-position: top center; display: block; }
+        .age-card:hover { transform: scale(1.02); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .age-card:active { transform: scale(0.98); }
+        .age-card img { width: 100%; height: 300px; object-fit: cover; object-position: center 15%; display: block; }
         .age-card-label {
-            padding: 10px;
-            text-align: center;
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: var(--primary);
+            padding: 11px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             font-weight: 800;
-            font-size: 13px;
-            color: var(--text);
-            background: #fff;
+            font-size: 14px;
+            color: #fff;
         }
-        .age-card.selected .age-card-label { color: var(--primary); background: var(--accent); }
+        .age-card-label .arrow { font-size: 16px; opacity: 0.9; }
 
         /* ── BODY TYPE CARDS ── */
         .body-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
@@ -541,24 +544,24 @@
             <div class="divider"></div>
 
             <div class="q-text" style="text-align: center; margin-bottom: 4px;">Qual a sua faixa de idade?</div>
-            <div class="q-hint" style="text-align: center; margin-bottom: 16px;">Selecione para começar sua avaliação personalizada</div>
+            <div class="q-hint" style="text-align: center; margin-bottom: 14px;">Selecione para começar sua avaliação personalizada</div>
 
             <div class="age-grid">
                 <div class="age-card" onclick="selectAge('18-30')">
                     <img src="https://i.im.ge/e4ZT1C/grok-image-d995384f-ce47-4909-845b-bf499b42a5ee.jpg" alt="18-30 anos">
-                    <div class="age-card-label">18 – 30 anos</div>
+                    <div class="age-card-label"><span>18 – 30 anos</span><span class="arrow">›</span></div>
                 </div>
                 <div class="age-card" onclick="selectAge('31-45')">
                     <img src="https://i.im.ge/e4ZMH4/grok-image-4b767c5c-d482-40ef-ab74-19815eeaecb1.jpg" alt="31-45 anos">
-                    <div class="age-card-label">31 – 45 anos</div>
+                    <div class="age-card-label"><span>31 – 45 anos</span><span class="arrow">›</span></div>
                 </div>
                 <div class="age-card" onclick="selectAge('46-55')">
                     <img src="https://i.im.ge/e4WGaY/grok-image-aa3e0cac-83db-4726-b35c-69d3d61a0242_1_.jpg" alt="46-55 anos">
-                    <div class="age-card-label">46 – 55 anos</div>
+                    <div class="age-card-label"><span>46 – 55 anos</span><span class="arrow">›</span></div>
                 </div>
                 <div class="age-card" onclick="selectAge('56+')">
                     <img src="https://i.im.ge/e4WeAD/grok-image-d11e7f82-b9c0-4800-845b-d9907bbc73bc.jpg" alt="56+ anos">
-                    <div class="age-card-label">56 anos ou mais</div>
+                    <div class="age-card-label"><span>56+ anos</span><span class="arrow">›</span></div>
                 </div>
             </div>
         </div>
