@@ -574,7 +574,7 @@
         <div class="card">
             <div class="million-section">
                 <div class="million-text">Mais de <span class="green">1 milhão</span> de homens brasileiros escolheram o Protocolo Alpha</div>
-                <img src="https://i.im.ge/e4W8YJ/grok-image-da1cd7db-d13e-4085-b3a7-e535a4ae7848.jpg" alt="Resultados Protocolo Alpha" class="million-img" onerror="this.style.display='none'">
+                <img src="https://i.im.ge/eBqIeq/grok-image-049820a1-faae-4f84-b631-68b3546778bf.jpg" alt="Resultados Protocolo Alpha" class="million-img" onerror="this.style.display='none'">
             </div>
             <button class="btn" onclick="goScreen(3)">Continuar minha avaliação →</button>
         </div>
@@ -638,7 +638,7 @@
             <div class="info-box">
                 <strong>O desempenho masculino depende da força do assoalho pélvico.</strong> Com o tempo, essa musculatura enfraquece, mas fortalecê-la garante ereções mais firmes, maior controle da ejaculação e mais resistência.
             </div>
-            <img src="https://i.im.ge/e4WRBy/grok-image-23b0bd0f-489d-43a8-87ff-8845ae2cd543.jpg" alt="Assoalho Pélvico" class="full-img" onerror="this.style.display='none'">
+            <img src="https://i.im.ge/eBqalD/grok-image-3f37db57-957c-43e5-a5ab-afc0706ed7cd.jpg" alt="Assoalho Pélvico" class="full-img" onerror="this.style.display='none'">
             <button class="btn" onclick="goScreen(6)">Entendi, continuar →</button>
         </div>
     </div>
@@ -704,7 +704,7 @@
                 <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'sim', 9, 10)"><div class="opt-icon">💪</div>Sim, já fiz</button>
                 <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'nao', 9, 10)"><div class="opt-icon">❌</div>Não, nunca treinei</button>
                 <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'ouvi_falar', 9, 10)"><div class="opt-icon">👂</div>Não, mas já ouvi falar</button>
-                <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'nao_sei', 9, 10)"><div class="opt-icon">🤷</div>O que são os músculos do assoalho pélvico?</button>
+
             </div>
         </div>
     </div>
@@ -827,11 +827,31 @@
         <div class="card">
             <div class="q-number">Passo 12</div>
             <div class="q-text">Qual é o seu nível de atividade física?</div>
-            <div class="options">
-                <button class="opt" onclick="selectOpt(this, 'atividade_fisica', 'regular', 17, 18)"><div class="opt-icon">🏋️</div>Eu me exercito regularmente</button>
-                <button class="opt" onclick="selectOpt(this, 'atividade_fisica', 'as_vezes', 17, 18)"><div class="opt-icon">🚶</div>Eu me exercito de vez em quando</button>
-                <button class="opt" onclick="selectOpt(this, 'atividade_fisica', 'pouco', 17, 18)"><div class="opt-icon">🛋️</div>Sou pouco ativo</button>
-                <button class="opt" onclick="selectOpt(this, 'atividade_fisica', 'nao', 17, 18)"><div class="opt-icon">❌</div>Não me exercito nunca</button>
+            <div class="options" id="atv-opts">
+                <button class="opt" onclick="selectAtividade(this, 'nao', '71', 'A maioria dos nossos usuários estava na mesma situação. O Protocolo Alpha vai criar o hábito certo para você.')">
+                    <div class="opt-icon">😴</div>Não me exercito nunca
+                </button>
+                <button class="opt" onclick="selectAtividade(this, 'pouco', '54', 'Você já tem alguma consciência corporal. O Protocolo vai potencializar muito seus resultados.')">
+                    <div class="opt-icon">🚶</div>Sou pouco ativo
+                </button>
+                <button class="opt" onclick="selectAtividade(this, 'as_vezes', '38', 'Ótimo ponto de partida! Com consistência, seus resultados virão ainda mais rápido.')">
+                    <div class="opt-icon">🏃</div>Eu me exercito de vez em quando
+                </button>
+                <button class="opt" onclick="selectAtividade(this, 'regular', '19', 'Você já está à frente da maioria! O Protocolo vai levar sua performance ao próximo nível.')">
+                    <div class="opt-icon">🏋️</div>Eu me exercito regularmente
+                </button>
+            </div>
+
+            <!-- Feedback box (oculto inicialmente) -->
+            <div id="atv-feedback" style="display:none; margin-top:20px; animation: fadeUp 0.3s ease;">
+                <div style="background: #1d4ed8; border-radius: 14px; padding: 16px 18px; margin-bottom: 8px;">
+                    <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px;">
+                        🏃 <span id="atv-pct-text">Você calculou mais de 71% dos usuários</span>
+                    </div>
+                    <div id="atv-msg" style="font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.5;"></div>
+                </div>
+                <div style="font-size: 11px; color: var(--text2); margin-bottom: 16px;">*Usuários do Protocolo Alpha que fizeram o teste</div>
+                <button class="btn" onclick="goScreen(18)">Entendi →</button>
             </div>
         </div>
     </div>
@@ -1263,6 +1283,25 @@
         }
         track('goals_selected', { goals: answers.goals });
         goScreen(nextS);
+    };
+
+    window.selectAtividade = function(el, val, pct, msg) {
+        // highlight selected
+        document.querySelectorAll('#atv-opts .opt').forEach(b => b.classList.remove('selected'));
+        el.classList.add('selected');
+        answers.atividade_fisica = val;
+        track('answer_atividade_fisica', { answer: val });
+
+        const pctEl = document.getElementById('atv-pct-text');
+        if (val === 'nao') {
+            pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
+        } else {
+            pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
+        }
+
+        document.getElementById('atv-msg').textContent = msg;
+        document.getElementById('atv-feedback').style.display = 'block';
+        setTimeout(() => document.getElementById('atv-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
     };
 
     window.selectAge = function(range) {
