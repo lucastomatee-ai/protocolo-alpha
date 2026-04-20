@@ -109,6 +109,7 @@
         .screen { display: none; }
         .screen.active { display: block; animation: fadeUp 0.35s ease; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse-icon { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
         /* ── CARD ── */
         .card {
@@ -573,7 +574,6 @@
     <div id="screen-2" class="screen">
         <div class="card">
             <div class="million-section">
-                <div class="million-text">Mais de <span class="green">1 milhão</span> de homens brasileiros escolheram o Protocolo Alpha</div>
                 <img src="https://i.im.ge/eBqIeq/grok-image-049820a1-faae-4f84-b631-68b3546778bf.jpg" alt="Resultados Protocolo Alpha" class="million-img" onerror="this.style.display='none'">
             </div>
             <button class="btn" onclick="goScreen(3)">Continuar minha avaliação →</button>
@@ -954,40 +954,56 @@
     <!-- TELA 24: LOADING / ANÁLISE -->
     <!-- ═══════════════════════════════════════ -->
     <div id="screen-24" class="screen">
-        <div class="card">
-            <div class="loading-wrap">
-                <div class="loader-ring"></div>
-                <div class="loader-label">Montando seu plano personalizado...</div>
-                <div class="loader-sub">Um especialista está analisando suas respostas</div>
+        <div class="card" style="text-align:center; padding: 32px 24px;">
+
+            <!-- Header -->
+            <div style="margin-bottom: 28px;">
+                <div style="font-size: 48px; margin-bottom: 12px; animation: pulse-icon 1.5s ease-in-out infinite;">🧬</div>
+                <div style="font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--text); letter-spacing: 1px; margin-bottom: 6px;">Analisando seu perfil...</div>
+                <div style="font-size: 14px; color: var(--text2); font-weight: 600;">Um especialista está montando seu plano exclusivo</div>
             </div>
-            <div class="analysis-steps" id="analysis-steps">
+
+            <!-- Barra de progresso geral -->
+            <div style="background: #e5e7eb; border-radius: 99px; height: 10px; margin-bottom: 28px; overflow: hidden;">
+                <div id="main-progress-bar" style="height:100%; width:0%; background: linear-gradient(90deg, #16a34a, #22c55e); border-radius:99px; transition: width 0.4s ease;"></div>
+            </div>
+
+            <!-- Steps -->
+            <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px; text-align:left;">
                 <div class="analysis-step" id="step-a1">
                     <div class="step-icon">🩺</div>
-                    <span style="flex:0 0 auto; min-width:130px; font-size:12px;">Analisando saúde sexual</span>
+                    <span style="flex:1; font-size:13px; font-weight:700;">Analisando histórico de saúde sexual</span>
                     <div class="step-bar-wrap"><div class="step-bar" id="bar-a1"></div></div>
                     <div class="step-check">✅</div>
                 </div>
                 <div class="analysis-step" id="step-a2">
-                    <div class="step-icon">💪</div>
-                    <span style="flex:0 0 auto; min-width:130px; font-size:12px;">Avaliando desempenho</span>
+                    <div class="step-icon">⚡</div>
+                    <span style="flex:1; font-size:13px; font-weight:700;">Avaliando nível de desempenho</span>
                     <div class="step-bar-wrap"><div class="step-bar" id="bar-a2"></div></div>
                     <div class="step-check">✅</div>
                 </div>
                 <div class="analysis-step" id="step-a3">
                     <div class="step-icon">🎯</div>
-                    <span style="flex:0 0 auto; min-width:130px; font-size:12px;">Criando protocolo</span>
+                    <span style="flex:1; font-size:13px; font-weight:700;">Identificando pontos de melhora</span>
                     <div class="step-bar-wrap"><div class="step-bar" id="bar-a3"></div></div>
                     <div class="step-check">✅</div>
                 </div>
                 <div class="analysis-step" id="step-a4">
                     <div class="step-icon">📋</div>
-                    <span style="flex:0 0 auto; min-width:130px; font-size:12px;">Finalizando plano</span>
+                    <span style="flex:1; font-size:13px; font-weight:700;">Criando protocolo personalizado</span>
                     <div class="step-bar-wrap"><div class="step-bar" id="bar-a4"></div></div>
                     <div class="step-check">✅</div>
                 </div>
+                <div class="analysis-step" id="step-a5">
+                    <div class="step-icon">🏆</div>
+                    <span style="flex:1; font-size:13px; font-weight:700;">Finalizando seu plano exclusivo</span>
+                    <div class="step-bar-wrap"><div class="step-bar" id="bar-a5"></div></div>
+                    <div class="step-check">✅</div>
+                </div>
             </div>
-            <!-- Depoimentos durante loading -->
-            <div id="loading-testi">
+
+            <!-- Depoimentos rotativos -->
+            <div style="position:relative; min-height: 100px;">
                 <div class="testi-mini" id="testi-slide-0">
                     <div class="testi-mini-quote">"Em 3 semanas já senti diferença enorme. Mais controle, mais firmeza. Minha parceira notou antes de mim!"</div>
                     <div class="testi-mini-author">Carlos M., 34 anos — São Paulo</div>
@@ -1003,7 +1019,13 @@
                     <div class="testi-mini-author">Paulo S., 51 anos — Minas Gerais</div>
                     <div class="testi-mini-result">✓ Melhora significativa em 25 dias</div>
                 </div>
+                <div class="testi-mini" id="testi-slide-3" style="display:none;">
+                    <div class="testi-mini-quote">"Resultado rápido e sem complicação. Minha autoconfiança voltou do zero ao máximo em poucas semanas."</div>
+                    <div class="testi-mini-author">Felipe A., 29 anos — Brasília</div>
+                    <div class="testi-mini-result">✓ Confiança totalmente recuperada</div>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -1332,37 +1354,49 @@
     };
 
     function runAnalysis() {
-        const bars = ['bar-a1','bar-a2','bar-a3','bar-a4'];
-        const steps = ['step-a1','step-a2','step-a3','step-a4'];
-        const testis = ['testi-slide-0','testi-slide-1','testi-slide-2'];
+        const bars  = ['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'];
+        const steps = ['step-a1','step-a2','step-a3','step-a4','step-a5'];
+        const testis = ['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];
         let tIdx = 0;
+        const TOTAL = 5000; // 5 seconds
+        const STEP_INTERVAL = TOTAL / bars.length; // 1000ms per step
 
-        // Animate bars
+        // Animate each step bar sequentially
         bars.forEach((barId, i) => {
             setTimeout(() => {
                 const bar = document.getElementById(barId);
-                if (bar) { bar.style.width = '100%'; }
+                if (bar) bar.style.width = '100%';
                 setTimeout(() => {
                     const step = document.getElementById(steps[i]);
                     if (step) step.classList.add('step-done');
-                }, 900);
-            }, i * 900);
+                }, 800);
+            }, i * STEP_INTERVAL);
         });
 
-        // Rotate testimonials every 1.3s (3 slides fit within 4s)
+        // Animate main progress bar smoothly over 5s
+        const mainBar = document.getElementById('main-progress-bar');
+        let pct = 0;
+        const progInterval = setInterval(() => {
+            pct += 1;
+            if (mainBar) mainBar.style.width = pct + '%';
+            if (pct >= 100) clearInterval(progInterval);
+        }, TOTAL / 100);
+
+        // Rotate testimonials every 1.25s (4 slides × 1.25s = 5s)
         const testiInterval = setInterval(() => {
             document.getElementById(testis[tIdx]).style.display = 'none';
             tIdx = (tIdx + 1) % testis.length;
             document.getElementById(testis[tIdx]).style.display = 'block';
-        }, 1300);
+        }, 1250);
 
-        // After 4s go to result
+        // After 5s go to result
         setTimeout(() => {
             clearInterval(testiInterval);
+            clearInterval(progInterval);
             track('loading_done');
             goScreen(25);
             animateResults();
-        }, 4000);
+        }, TOTAL);
     }
 
     function animateResults() {
