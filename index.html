@@ -933,9 +933,39 @@
             <div class="q-number">Passo 17</div>
             <div class="q-text">Você já tentou soluções de efeito rápido para melhorar sua vida íntima?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this, 'solucoes_rapidas', 'frequente', 22, 23)"><div class="opt-icon">💊</div>Sim, uso com frequência</button>
-                <button class="opt" onclick="selectOpt(this, 'solucoes_rapidas', 'algumas_vezes', 22, 23)"><div class="opt-icon">🧪</div>Sim, já usei algumas vezes</button>
-                <button class="opt" onclick="selectOpt(this, 'solucoes_rapidas', 'nunca', 22, 23)"><div class="opt-icon">🚫</div>Não, nunca usei</button>
+                <button class="opt" onclick="selectOpt(this, 'solucoes_rapidas', 'frequente', 22, '22b')"><div class="opt-icon">💊</div>Sim, uso com frequência</button>
+                <button class="opt" onclick="selectOpt(this, 'solucoes_rapidas', 'algumas_vezes', 22, '22b')"><div class="opt-icon">🧪</div>Sim, já usei algumas vezes</button>
+                <button class="opt" onclick="selectOpt(this, 'solucoes_rapidas', 'nunca', 22, '22b')"><div class="opt-icon">🚫</div>Não, nunca usei</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 22b: SATISFAÇÃO COM O TAMANHO -->
+    <!-- ═══════════════════════════════════════ -->
+    <div id="screen-22b" class="screen">
+        <div class="card">
+            <div class="q-number">Última pergunta</div>
+            <div class="q-text">O quanto você está satisfeito com o tamanho do seu <span style="color:var(--primary); font-weight:900;">companheiro</span>? 👇</div>
+            <div class="q-hint" style="margin-bottom: 4px;">1 = Muito insatisfeito · 5 = Muito satisfeito</div>
+
+            <div class="scale-row" id="satisf-opts">
+                <button class="scale-btn" onclick="selectSatisf(this, 1)">1</button>
+                <button class="scale-btn" onclick="selectSatisf(this, 2)">2</button>
+                <button class="scale-btn" onclick="selectSatisf(this, 3)">3</button>
+                <button class="scale-btn" onclick="selectSatisf(this, 4)">4</button>
+                <button class="scale-btn" onclick="selectSatisf(this, 5)">5</button>
+            </div>
+            <div class="scale-labels"><span>Muito insatisfeito</span><span>Muito satisfeito</span></div>
+
+            <!-- Feedback dinâmico -->
+            <div id="satisf-feedback" style="display:none; margin-top:20px; animation: fadeUp 0.3s ease;">
+                <div id="satisf-box" style="border-radius:14px; padding:18px; margin-bottom:8px;">
+                    <div id="satisf-emoji" style="font-size:32px; margin-bottom:8px;"></div>
+                    <div id="satisf-title" style="font-size:15px; font-weight:900; color:#fff; margin-bottom:6px; line-height:1.4;"></div>
+                    <div id="satisf-msg" style="font-size:13px; color:rgba(255,255,255,0.85); line-height:1.6;"></div>
+                </div>
+                <button class="btn" onclick="goScreen(23)">Ver minha análise completa →</button>
             </div>
         </div>
     </div>
@@ -1118,46 +1148,104 @@
     <!-- ═══════════════════════════════════════ -->
     <div id="screen-26" class="screen">
         <div class="card">
-            <div class="badge">🏆 Plano Personalizado</div>
-            <div class="headline" style="font-size:26px; margin-bottom:4px;">SEU ACESSO <span class="green">COMPLETO</span></div>
-            <p style="font-size:14px; color:var(--text2); margin-bottom:20px;">Tudo o que você vai receber no Protocolo Alpha:</p>
 
-            <div class="offer-item">
-                <div class="offer-check">✔</div>
-                <div class="offer-text">
-                    <div class="offer-title">Programa Avançado de Exercícios de Kegel</div>
-                    <div class="offer-desc">3 sessões diárias estruturadas. Recomendamos pelo menos 2 sessões por dia para acelerar os resultados.</div>
+            <!-- Header -->
+            <div style="text-align:center; margin-bottom:24px;">
+                <div style="display:inline-block; background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:1.5px solid #86efac; border-radius:14px; padding:10px 20px; margin-bottom:12px;">
+                    <span style="font-size:11px; font-weight:900; color:#15803d; text-transform:uppercase; letter-spacing:2px;">🏆 Plano Personalizado Específico</span>
                 </div>
-            </div>
-            <div class="offer-item">
-                <div class="offer-check">✔</div>
-                <div class="offer-text">
-                    <div class="offer-title">Treinos para Abdômen e Pernas</div>
-                    <div class="offer-desc">Fortaleça regiões que aumentam seu desejo e melhoram diretamente seu desempenho sexual.</div>
-                </div>
-            </div>
-            <div class="offer-item">
-                <div class="offer-check">✔</div>
-                <div class="offer-text">
-                    <div class="offer-title">Técnicas de Respiração Comprovadas</div>
-                    <div class="offer-desc">Reduzem tensão física e mental, aumentando seu controle e foco na hora H.</div>
-                </div>
-            </div>
-            <div class="offer-item">
-                <div class="offer-check">✔</div>
-                <div class="offer-text">
-                    <div class="offer-title">Programa de Bem-Estar Emocional</div>
-                    <div class="offer-desc">Melhore sua autoconfiança e sinta-se mais seguro e no controle.</div>
-                </div>
-            </div>
-            <div class="offer-item">
-                <div class="offer-check">✔</div>
-                <div class="offer-text">
-                    <div class="offer-title">Orientações de Especialistas em Sexualidade</div>
-                    <div class="offer-desc">Melhore seu desempenho, entenda melhor sua parceira e traga mais conexão à sua vida sexual.</div>
-                </div>
+                <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--text); letter-spacing:1px; line-height:1.1;">SEU ACESSO <span style="color:var(--primary);">COMPLETO</span></div>
+                <div style="font-size:13px; color:var(--text2); margin-top:6px;">Tudo o que você vai receber no Protocolo Alpha:</div>
             </div>
 
+            <!-- Itens principais -->
+            <div style="display:flex; flex-direction:column; gap:0; margin-bottom:20px;">
+                <div class="offer-item">
+                    <div class="offer-check">✔</div>
+                    <div class="offer-text">
+                        <div class="offer-title">Programa Avançado de Exercícios de Kegel</div>
+                        <div class="offer-desc">3 sessões diárias estruturadas. Recomendamos pelo menos 2 sessões por dia para acelerar os resultados.</div>
+                    </div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check">✔</div>
+                    <div class="offer-text">
+                        <div class="offer-title">Treino Específico Guiado</div>
+                        <div class="offer-desc">Fortaleça regiões que aumentam seu desejo e melhoram diretamente seu desempenho sexual.</div>
+                    </div>
+                </div>
+                <div class="offer-item">
+                    <div class="offer-check">✔</div>
+                    <div class="offer-text">
+                        <div class="offer-title">Técnicas de Respiração Tática</div>
+                        <div class="offer-desc">Reduzem tensão física e mental, aumentando seu controle e foco na hora H.</div>
+                    </div>
+                </div>
+                <div class="offer-item" style="border-bottom:none;">
+                    <div class="offer-check">✔</div>
+                    <div class="offer-text">
+                        <div class="offer-title">Orientações de Especialistas em Sexualidade</div>
+                        <div class="offer-desc">Melhore seu desempenho, entenda melhor sua parceira e traga mais conexão à sua vida sexual.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÔNUS -->
+            <div style="background:linear-gradient(135deg,#1a0a2e,#0f1a3a); border:2px solid #7c3aed; border-radius:16px; padding:20px; margin-bottom:20px;">
+                <div style="text-align:center; margin-bottom:16px;">
+                    <div style="display:inline-block; background:rgba(124,58,237,0.2); border:1px solid rgba(124,58,237,0.5); border-radius:8px; padding:6px 16px; margin-bottom:6px;">
+                        <span style="font-size:11px; font-weight:900; color:#a78bfa; text-transform:uppercase; letter-spacing:2px;">🎁 Bônus Premium — De Graça</span>
+                    </div>
+                    <div style="font-size:12px; color:rgba(255,255,255,0.5);">Incluídos no seu plano sem custo adicional</div>
+                </div>
+
+                <!-- Bonus 1 -->
+                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
+                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">💪</div>
+                    <div>
+                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Exercícios JEQT</div>
+                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Para aumento e engrossamento do seu companheiro.</div>
+                    </div>
+                </div>
+
+                <!-- Bonus 2 -->
+                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
+                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">❤️‍🔥</div>
+                    <div>
+                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Conquista Real</div>
+                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Conquiste qualquer pessoa em 27 dias.</div>
+                    </div>
+                </div>
+
+                <!-- Bonus 3 -->
+                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
+                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">👑</div>
+                    <div>
+                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Guia do Macho Alfa</div>
+                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Criado por mulheres com técnicas para fazer elas correrem atrás de você.</div>
+                    </div>
+                </div>
+
+                <!-- Bonus 4 -->
+                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
+                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🍃</div>
+                    <div>
+                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Receitas Proibidas</div>
+                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Receitas secretas que elevam sua potência e desempenho com ingredientes que você tem em casa.</div>
+                    </div>
+                </div>
+
+                <!-- Bonus 5 -->
+                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🔥</div>
+                    <div>
+                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Receita do Bicarbonato</div>
+                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Receita viralizada que está transformando os homens que já usaram.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garantia -->
             <div class="guarantee-box">
                 <div class="guarantee-icon">🛡️</div>
                 <div class="guarantee-title">Garantia Total de 7 Dias</div>
@@ -1172,7 +1260,156 @@
 
 </div><!-- /main -->
 
+<script>
+    // Navegação global — precisa estar fora do module
+    var _answers = {};
+    var _sid = null;
+
+    function goScreen(n) {
+        document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+        var el = document.getElementById('screen-' + n);
+        if (el) el.classList.add('active');
+        window.scrollTo(0, 0);
+        var logoBar = document.getElementById('logo-bar');
+        if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
+        var nNum = parseInt(n);
+        _updateProgress(isNaN(nNum) ? 99 : nNum);
+    }
+
+    function _updateProgress(n) {
+        var wrap = document.getElementById('progress-wrap');
+        var fill = document.getElementById('prog-fill');
+        var step = document.getElementById('prog-step');
+        var pct  = document.getElementById('prog-pct');
+        var quizScreens = [3,4,6,7,8,9,11,12,13,14,17,18,19,20,21,22];
+        if (quizScreens.includes(n)) {
+            if(wrap) wrap.classList.add('show');
+            var idx = quizScreens.indexOf(n) + 1;
+            var p = Math.round((idx / quizScreens.length) * 100);
+            if(fill) fill.style.width = p + '%';
+            if(step) step.textContent = 'Passo ' + idx + ' de ' + quizScreens.length;
+            if(pct)  pct.textContent  = p + '%';
+        } else {
+            if(wrap) wrap.classList.remove('show');
+        }
+    }
+
+    function selectAge(range) {
+        _answers.idade = range;
+        if(window._track) window._track('age_selected', { age: range });
+        goScreen(2);
+    }
+
+    function selectBody(type) {
+        document.querySelectorAll('.body-row-card').forEach(function(c) {
+            c.style.borderColor = 'var(--border)';
+            c.style.background = '#fff';
+        });
+        if(event && event.currentTarget) {
+            event.currentTarget.style.borderColor = '#16a34a';
+            event.currentTarget.style.background = '#f0fdf4';
+        }
+        _answers.corpo = type;
+        if(window._track) window._track('body_selected', { body: type });
+        setTimeout(function() { goScreen(4); }, 220);
+    }
+
+    function selectOpt(el, key, val, currentScreen, nextScreen) {
+        var parent = el.closest('.options, .scale-row');
+        if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(function(b) { b.classList.remove('selected'); });
+        el.classList.add('selected');
+        _answers[key] = val;
+        if(window._track) window._track('answer_' + key, { answer: val });
+        if (nextScreen !== null && nextScreen !== undefined) {
+            setTimeout(function() { goScreen(nextScreen); }, 250);
+        }
+    }
+
+    function toggleMulti(el, key) {
+        el.classList.toggle('selected');
+        var cb = el.querySelector('.checkbox');
+        if(cb) cb.textContent = el.classList.contains('selected') ? '✓' : '';
+        if (!_answers.goals) _answers.goals = [];
+        if (el.classList.contains('selected')) {
+            if (!_answers.goals.includes(key)) _answers.goals.push(key);
+        } else {
+            _answers.goals = _answers.goals.filter(function(k) { return k !== key; });
+        }
+    }
+
+    function confirmMulti(containerId, currentS, nextS) {
+        if (!_answers.goals || _answers.goals.length === 0) {
+            alert('Por favor, selecione pelo menos uma opção.');
+            return;
+        }
+        if(window._track) window._track('goals_selected', { goals: _answers.goals });
+        goScreen(nextS);
+    }
+
+    function selectAtividade(el, val, pct, msg) {
+        document.querySelectorAll('#atv-opts .opt').forEach(function(b) { b.classList.remove('selected'); });
+        el.classList.add('selected');
+        _answers.atividade_fisica = val;
+        if(window._track) window._track('answer_atividade_fisica', { answer: val });
+        var pctEl = document.getElementById('atv-pct-text');
+        if (val === 'nao') {
+            if(pctEl) pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
+        } else {
+            if(pctEl) pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
+        }
+        var msgEl = document.getElementById('atv-msg');
+        var fbEl  = document.getElementById('atv-feedback');
+        if(msgEl) msgEl.textContent = msg;
+        if(fbEl)  fbEl.style.display = 'block';
+        setTimeout(function() {
+            var fb = document.getElementById('atv-feedback');
+            if(fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+
+    function selectSatisf(el, val) {
+        document.querySelectorAll('#satisf-opts .scale-btn').forEach(function(b) { b.classList.remove('selected'); });
+        el.classList.add('selected');
+        _answers.satisfacao_tamanho = val;
+        if(window._track) window._track('answer_satisfacao', { answer: val });
+        var configs = {
+            1: { bg:'background:linear-gradient(135deg,#7f1d1d,#991b1b);border:1px solid rgba(239,68,68,0.4);', emoji:'😔', title:'Entendemos como isso pesa...', msg:'Muitos homens passam anos se sentindo assim sem saber que existe solução. A boa notícia? No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁' },
+            2: { bg:'background:linear-gradient(135deg,#7c2d12,#9a3412);border:1px solid rgba(249,115,22,0.4);', emoji:'😕', title:'Você merece se sentir muito melhor...', msg:'Não precisa ser assim. O que você vai encontrar no final dessa avaliação pode mudar completamente essa realidade. Temos uma surpresa especial esperando por você. 🎁' },
+            3: { bg:'background:linear-gradient(135deg,#713f12,#854d0e);border:1px solid rgba(234,179,8,0.4);', emoji:'😐', title:'Bem no meio do caminho...', msg:'Você sente que falta alguma coisa, mas ainda não sabe o que é. No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta pra você chegar no próximo nível. 🎁' },
+            4: { bg:'background:linear-gradient(135deg,#14532d,#166534);border:1px solid rgba(34,197,94,0.3);', emoji:'🙂', title:'Quase lá — mas o melhor ainda está por vir!', msg:'Você já está em um bom nível, mas existe um próximo patamar que poucos homens alcançam. No final dessa avaliação tem uma surpresa que pode te levar até ele. 🎁' },
+            5: { bg:'background:linear-gradient(135deg,#064e3b,#065f46);border:2px solid rgba(34,197,94,0.5);', emoji:'🏆', title:'Parabéns! Você vai se transformar em uma máquina! 🔥', msg:'Você já tem a mentalidade certa. Com o Protocolo Alpha você vai potencializar ainda mais o que já tem e atingir um nível que vai surpreender até você mesmo. Prepare-se!' }
+        };
+        var c = configs[val];
+        var box = document.getElementById('satisf-box');
+        if(box) box.setAttribute('style', c.bg + ' padding:18px;');
+        var emo = document.getElementById('satisf-emoji');
+        var ttl = document.getElementById('satisf-title');
+        var msg2 = document.getElementById('satisf-msg');
+        var fb  = document.getElementById('satisf-feedback');
+        if(emo)  emo.textContent  = c.emoji;
+        if(ttl)  ttl.textContent  = c.title;
+        if(msg2) msg2.textContent = c.msg;
+        if(fb)   fb.style.display = 'block';
+        setTimeout(function() {
+            var f = document.getElementById('satisf-feedback');
+            if(f) f.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    }
+
+    function startLoading() {
+        goScreen(24);
+        if(window._track) window._track('loading_started');
+        if(window._runAnalysis) window._runAnalysis();
+    }
+
+    function checkout() {
+        if(window._checkout) window._checkout();
+    }
+</script>
+
 <script type="module">
+
+
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -1247,12 +1484,14 @@
     // ── NAVIGATION ──
     window.goScreen = function(n) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-        document.getElementById('screen-' + n).classList.add('active');
+        const el = document.getElementById('screen-' + n);
+        if (el) el.classList.add('active');
         window.scrollTo(0, 0);
         // Show logo bar from screen 2 onwards
         const logoBar = document.getElementById('logo-bar');
         if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
-        updateProgress(typeof n === 'number' ? n : 14);
+        const nNum = parseInt(n);
+        updateProgress(isNaN(nNum) ? 99 : nNum);
     };
 
     function updateProgress(n) {
@@ -1305,6 +1544,71 @@
         }
         track('goals_selected', { goals: answers.goals });
         goScreen(nextS);
+    };
+
+    window.selectAtividade = function(el, val, pct, msg) {
+        document.querySelectorAll('#atv-opts .opt').forEach(b => b.classList.remove('selected'));
+        el.classList.add('selected');
+        answers.atividade_fisica = val;
+        track('answer_atividade_fisica', { answer: val });
+        const pctEl = document.getElementById('atv-pct-text');
+        if (val === 'nao') {
+            pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
+        } else {
+            pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
+        }
+        document.getElementById('atv-msg').textContent = msg;
+        document.getElementById('atv-feedback').style.display = 'block';
+        setTimeout(() => document.getElementById('atv-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    };
+
+    window.selectSatisf = function(el, val) {
+        document.querySelectorAll('#satisf-opts .scale-btn').forEach(b => b.classList.remove('selected'));
+        el.classList.add('selected');
+        answers.satisfacao_tamanho = val;
+        track('answer_satisfacao', { answer: val });
+
+        const configs = {
+            1: {
+                bg: 'background: linear-gradient(135deg, #7f1d1d, #991b1b); border: 1px solid rgba(239,68,68,0.4);',
+                emoji: '😔',
+                title: 'Entendemos como isso pesa...',
+                msg: 'Muitos homens passam anos se sentindo assim sem saber que existe solução. A boa notícia? No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁'
+            },
+            2: {
+                bg: 'background: linear-gradient(135deg, #7c2d12, #9a3412); border: 1px solid rgba(249,115,22,0.4);',
+                emoji: '😕',
+                title: 'Você merece se sentir muito melhor...',
+                msg: 'Não precisa ser assim. O que você vai encontrar no final dessa avaliação pode mudar completamente essa realidade. Temos uma surpresa especial esperando por você. 🎁'
+            },
+            3: {
+                bg: 'background: linear-gradient(135deg, #713f12, #854d0e); border: 1px solid rgba(234,179,8,0.4);',
+                emoji: '😐',
+                title: 'Bem no meio do caminho...',
+                msg: 'Você sente que falta alguma coisa, mas ainda não sabe o que é. No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta pra você chegar no próximo nível. 🎁'
+            },
+            4: {
+                bg: 'background: linear-gradient(135deg, #14532d, #166534); border: 1px solid rgba(34,197,94,0.3);',
+                emoji: '🙂',
+                title: 'Quase lá — mas o melhor ainda está por vir!',
+                msg: 'Você já está em um bom nível, mas existe um próximo patamar que poucos homens alcançam. No final dessa avaliação tem uma surpresa que pode te levar até ele. 🎁'
+            },
+            5: {
+                bg: 'background: linear-gradient(135deg, #064e3b, #065f46); border: 2px solid rgba(34,197,94,0.5);',
+                emoji: '🏆',
+                title: 'Parabéns! Você vai se transformar em uma máquina! 🔥',
+                msg: 'Você já tem a mentalidade certa. Com o Protocolo Alpha você vai potencializar ainda mais o que já tem e atingir um nível que vai surpreender até você mesmo. Prepare-se!'
+            }
+        };
+
+        const c = configs[val];
+        const box = document.getElementById('satisf-box');
+        box.setAttribute('style', c.bg + ' padding:18px;');
+        document.getElementById('satisf-emoji').textContent = c.emoji;
+        document.getElementById('satisf-title').textContent = c.title;
+        document.getElementById('satisf-msg').textContent = c.msg;
+        document.getElementById('satisf-feedback').style.display = 'block';
+        setTimeout(() => document.getElementById('satisf-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
     };
 
     window.selectAtividade = function(el, val, pct, msg) {
@@ -1409,7 +1713,7 @@
 
     // ── CHECKOUT ──
     window.checkout = function() {
-        if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+        if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {}, { eventID: sid });
         const ch = localStorage.getItem('tiktok_channel') || currentChannel;
         setDoc(doc(db, 'sessions', sid), {
             'events.checkout': serverTimestamp(),
@@ -1419,7 +1723,7 @@
             lastActivity: serverTimestamp()
         }, { merge: true });
         setTimeout(() => {
-            window.location.href = `https://pay.wiapy.com/P3vfkw_B9?utm_source=${sid}&external_id=${sid}`;
+            window.location.href = `https://pay.wiapy.com/P3vfkw_B9?utm_source=${sid}&external_id=${sid}&event_id=${sid}`;
         }, 400);
     };
 </script>
