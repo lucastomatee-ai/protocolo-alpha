@@ -60,31 +60,17 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; }
         .logo-icon {
-            width: 36px;
-            height: 36px;
+            width: 36px; height: 36px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 900;
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 18px; font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;
             box-shadow: 0 3px 12px rgba(22, 163, 74, 0.35);
         }
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            line-height: 1;
-        }
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
         .logo-p { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--primary); letter-spacing: 3px; }
         .logo-sub { font-size: 9px; font-weight: 700; color: var(--text2); letter-spacing: 3px; text-transform: uppercase; }
 
@@ -310,19 +296,10 @@
         .scale-labels { display: flex; justify-content: space-between; margin-top: 6px; font-size: 10px; color: var(--text2); font-weight: 600; }
 
         /* ── INLINE IMAGES ── */
-        .full-img {
-            width: 100%;
-            border-radius: 16px;
-            display: block;
-            margin: 20px 0;
-        }
+        .full-img { width: 100%; border-radius: 16px; display: block; margin: 20px 0; }
         .img-caption {
-            font-size: 14px;
-            color: var(--text2);
-            line-height: 1.6;
-            text-align: center;
-            padding: 0 8px;
-            margin-bottom: 20px;
+            font-size: 14px; color: var(--text2); line-height: 1.6;
+            text-align: center; padding: 0 8px; margin-bottom: 20px;
         }
         .img-caption strong { color: var(--text3); }
 
@@ -394,20 +371,8 @@
         .testi-mini-result { display: inline-block; background: #dcfce7; color: var(--primary-dark); font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 6px; margin-top: 6px; }
 
         /* ── RESULT SCREEN ── */
-        .result-section-title {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text2);
-            margin-bottom: 14px;
-        }
-        .result-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
+        .result-section-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text2); margin-bottom: 14px; }
+        .result-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
         .result-icon { font-size: 20px; flex-shrink: 0; }
         .result-label-col { flex: 1; }
         .result-lbl { font-size: 13px; font-weight: 700; color: var(--text2); margin-bottom: 4px; }
@@ -424,7 +389,7 @@
         .before-card .ba-card-title { color: #ef4444; }
         .after-card .ba-card-title { color: var(--primary); }
 
-        /* ── OFFER SCREEN ── */
+        /* ── OFFER ITEM ── */
         .offer-item {
             display: flex;
             align-items: flex-start;
@@ -446,18 +411,6 @@
         .offer-text { flex: 1; }
         .offer-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px; line-height: 1.4; }
         .offer-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
-        .guarantee-box {
-            background: #f0fdf4;
-            border: 2px solid #bbf7d0;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .guarantee-icon { font-size: 36px; margin-bottom: 8px; }
-        .guarantee-title { font-size: 16px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
-        .guarantee-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
-        .cta-footer { text-align: center; font-size: 13px; color: var(--text2); font-weight: 700; margin-top: 12px; }
 
         /* ── MILLION BANNER ── */
         .million-section { text-align: center; margin: 20px 0; }
@@ -490,6 +443,336 @@
         .score-ring-label { font-size: 9px; font-weight: 700; opacity: 0.7; }
         .score-ring-title { font-size: 11px; font-weight: 700; color: var(--text2); }
 
+        /* ════════════════════════════════════════
+           OFERTA CRO — SCREEN 26
+           ════════════════════════════════════════ */
+
+        /* Headline da oferta */
+        .offer-hero {
+            text-align: center;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1.5px solid #86efac;
+            border-radius: 18px;
+            padding: 22px 18px 18px;
+            margin-bottom: 20px;
+        }
+        .offer-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff;
+            border: 1px solid #86efac;
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .offer-hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 30px;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            color: var(--text);
+        }
+        .offer-hero-title span { color: var(--primary); }
+
+        /* Card de entrega */
+        .delivery-card {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        .delivery-card-label {
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .delivery-card-label::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 14px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Lifetime badge */
+        .lifetime-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #fef9c3, #fef08a);
+            border: 1.5px solid #fde047;
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-top: 10px;
+        }
+        .lifetime-badge-text {
+            font-size: 13px;
+            font-weight: 900;
+            color: #713f12;
+        }
+        .lifetime-badge-sub {
+            font-size: 11px;
+            color: #92400e;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+
+        /* Card bônus */
+        .bonus-card {
+            background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 100%);
+            border: 2px solid #6d28d9;
+            border-radius: 18px;
+            padding: 20px 18px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .bonus-card::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 120px; height: 120px;
+            background: radial-gradient(circle, rgba(124,58,237,.3), transparent 70%);
+            border-radius: 50%;
+        }
+        .bonus-ribbon {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(124,58,237,.25);
+            border: 1px solid rgba(124,58,237,.5);
+            border-radius: 20px;
+            padding: 5px 14px;
+            font-size: 10px;
+            font-weight: 900;
+            color: #c4b5fd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .bonus-headline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: #fff;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .bonus-headline span { color: #a78bfa; }
+        .bonus-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(109,40,217,.35);
+            border-radius: 12px;
+            padding: 13px 14px;
+            margin-bottom: 9px;
+        }
+        .bonus-item:last-child { margin-bottom: 0; }
+        .bonus-emoji-wrap {
+            width: 40px; height: 40px;
+            background: rgba(109,40,217,.25);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .bonus-item-body { flex: 1; }
+        .bonus-item-name {
+            font-size: 13px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.3;
+        }
+        .bonus-item-desc {
+            font-size: 11px;
+            color: rgba(255,255,255,.55);
+            margin-top: 2px;
+            line-height: 1.4;
+        }
+        .bonus-gratis {
+            font-size: 9px;
+            font-weight: 900;
+            color: #fbbf24;
+            background: rgba(251,191,36,.15);
+            border: 1px solid rgba(251,191,36,.4);
+            border-radius: 5px;
+            padding: 3px 8px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        /* Urgência */
+        .urgency-strip {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #fff7ed;
+            border: 1.5px solid #fed7aa;
+            border-radius: 12px;
+            padding: 13px 14px;
+            margin-bottom: 20px;
+        }
+        .urgency-icon { font-size: 20px; flex-shrink: 0; animation: shake 2.5s infinite; }
+        @keyframes shake {
+            0%,85%,100% { transform: rotate(0); }
+            88% { transform: rotate(-10deg); }
+            92% { transform: rotate(10deg); }
+            96% { transform: rotate(-5deg); }
+        }
+        .urgency-text { font-size: 12px; font-weight: 700; color: #92400e; line-height: 1.55; }
+        .urgency-text strong { color: #c2410c; }
+
+        /* Ancoragem de preço */
+        .price-block { text-align: center; margin-bottom: 20px; }
+        .price-original {
+            font-size: 14px;
+            font-weight: 700;
+            color: #9ca3af;
+            margin-bottom: 6px;
+        }
+        .price-original s { color: #d1d5db; text-decoration: line-through; }
+        .price-tag-label {
+            display: inline-block;
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--primary-dark);
+            padding: 4px 14px;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .price-main {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 64px;
+            color: var(--primary);
+            line-height: 1;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 20px rgba(22,163,74,.25);
+        }
+        .price-main sup {
+            font-family: 'Nunito', sans-serif;
+            font-size: 22px;
+            font-weight: 900;
+            vertical-align: super;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+        .price-main sub {
+            font-family: 'Nunito', sans-serif;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        /* CTA pulsante */
+        .cta-pulse {
+            display: block;
+            width: 100%;
+            padding: 20px 16px;
+            background: linear-gradient(135deg, #15803d 0%, #22c55e 100%);
+            border: none;
+            border-radius: 16px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            font-size: 17px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            line-height: 1.35;
+            letter-spacing: .3px;
+            position: relative;
+            overflow: hidden;
+            animation: cta-pulse 2.2s infinite;
+            box-shadow: 0 8px 30px rgba(22,163,74,.45);
+            text-decoration: none;
+        }
+        .cta-pulse::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,.14), transparent);
+        }
+        .cta-pulse:active { transform: scale(.98); }
+        @keyframes cta-pulse {
+            0%,100% { box-shadow: 0 8px 30px rgba(22,163,74,.45), 0 0 0 0 rgba(22,163,74,.4); }
+            50%      { box-shadow: 0 8px 30px rgba(22,163,74,.45), 0 0 0 12px rgba(22,163,74,.0); }
+        }
+        .cta-sub-text {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text2);
+            font-weight: 700;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        /* Selos de segurança */
+        .seals-row {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .seal {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 1px 6px rgba(0,0,0,.04);
+        }
+        .seal-icon { font-size: 22px; }
+        .seal-label {
+            font-size: 9px;
+            font-weight: 800;
+            color: var(--text2);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Garantia */
+        .guarantee-box {
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .guarantee-icon { font-size: 36px; margin-bottom: 8px; }
+        .guarantee-title { font-size: 16px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
+        .guarantee-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
+        .cta-footer { text-align: center; font-size: 13px; color: var(--text2); font-weight: 700; margin-top: 12px; }
     </style>
 </head>
 <body>
@@ -523,8 +806,6 @@
     <!-- ═══════════════════════════════════════ -->
     <div id="screen-1" class="screen active">
         <div class="card" style="padding: 32px 24px;">
-
-            <!-- Logo Hero centralizada -->
             <div style="text-align: center; margin-bottom: 28px;">
                 <div style="display: inline-flex; align-items: center; gap: 14px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1.5px solid #86efac; border-radius: 20px; padding: 16px 28px; box-shadow: 0 4px 20px rgba(22,163,74,0.12);">
                     <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #15803d 0%, #22c55e 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(22,163,74,0.4); flex-shrink: 0;">
@@ -536,17 +817,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Subtext com palavras destacadas -->
             <div style="background: #f9fafb; border-left: 4px solid #22c55e; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 24px; line-height: 1.7; font-size: 15px; color: #374151;">
                 Você foi <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">enganado</span>: o problema não é o que você tem, mas o que seu corpo <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">bloqueou</span>. Não é genética. Não é <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">idade</span>. É <span style="color: #15803d; font-weight: 900;">compressão estrutural</span>, causada por estresse, hábitos e alimentação.
             </div>
-
             <div class="divider"></div>
-
             <div class="q-text" style="text-align: center; margin-bottom: 4px;">Qual a sua faixa de idade?</div>
             <div class="q-hint" style="text-align: center; margin-bottom: 14px;">Selecione para começar sua avaliação personalizada</div>
-
             <div class="age-grid">
                 <div class="age-card" onclick="selectAge('18-30')">
                     <img src="https://i.im.ge/e4ZT1C/grok-image-d995384f-ce47-4909-845b-bf499b42a5ee.jpg" alt="18-30 anos">
@@ -568,9 +844,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 2: SOCIAL PROOF + 1M -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 2: SOCIAL PROOF -->
     <div id="screen-2" class="screen">
         <div class="card">
             <div class="million-section">
@@ -580,23 +854,21 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 3: TIPO DE CORPO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-3" class="screen">
         <div class="card">
             <div class="q-number">Passo 2</div>
             <div class="q-text">Qual é o seu tipo de corpo atualmente?</div>
             <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
-                <div onclick="selectBody('magro')" style="display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#16a34a'" onmouseout="if(!this.classList.contains('body-sel')) this.style.borderColor='var(--border)'" class="body-row-card">
+                <div onclick="selectBody('magro')" style="display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s;" class="body-row-card">
                     <img src="https://i.im.ge/e4ZrXP/37c8f991-392f-4392-81d1-2eefb5cdd8e3.jpg" alt="Magro" style="width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; display: block;">
                     <div style="font-weight: 800; font-size: 16px; color: var(--text);">Magro</div>
                 </div>
-                <div onclick="selectBody('medio_forte')" style="display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#16a34a'" onmouseout="if(!this.classList.contains('body-sel')) this.style.borderColor='var(--border)'" class="body-row-card">
+                <div onclick="selectBody('medio_forte')" style="display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s;" class="body-row-card">
                     <img src="https://i.im.ge/e4ZXZp/13fe6269-c2e5-411c-af1d-fe2d06e55756.jpg" alt="Médio/Forte" style="width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; display: block;">
                     <div style="font-weight: 800; font-size: 16px; color: var(--text);">Médio / Forte</div>
                 </div>
-                <div onclick="selectBody('acima_peso')" style="display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s;" onmouseover="this.style.borderColor='#16a34a'" onmouseout="if(!this.classList.contains('body-sel')) this.style.borderColor='var(--border)'" class="body-row-card">
+                <div onclick="selectBody('acima_peso')" style="display: flex; align-items: center; gap: 14px; border: 2px solid var(--border); border-radius: 16px; overflow: hidden; cursor: pointer; background: #fff; transition: all 0.2s;" class="body-row-card">
                     <img src="https://i.im.ge/e4Zowq/16abdaea-00c6-4b50-a730-a6fb8d6fa24a.jpg" alt="Acima do Peso" style="width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; display: block;">
                     <div style="font-weight: 800; font-size: 16px; color: var(--text);">Acima do Peso</div>
                 </div>
@@ -604,48 +876,31 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 4: OBJETIVOS (MULTI) -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 4: OBJETIVOS -->
     <div id="screen-4" class="screen">
         <div class="card">
             <div class="q-number">Passo 3</div>
             <div class="q-text">Escolha seus objetivos</div>
             <div class="q-hint">Pode escolher mais de uma opção</div>
             <div class="multi-opts" id="goals-opts">
-                <div class="multi-opt" onclick="toggleMulti(this,'durar_mais')">
-                    <div class="checkbox"></div>
-                    <span>⏱️ Durar mais durante o sexo</span>
-                </div>
-                <div class="multi-opt" onclick="toggleMulti(this,'orgasmos')">
-                    <div class="checkbox"></div>
-                    <span>🔥 Ter orgasmos mais intensos</span>
-                </div>
-                <div class="multi-opt" onclick="toggleMulti(this,'erecoes')">
-                    <div class="checkbox"></div>
-                    <span>💪 Ter ereções mais firmes</span>
-                </div>
+                <div class="multi-opt" onclick="toggleMulti(this,'durar_mais')"><div class="checkbox"></div><span>⏱️ Durar mais durante o sexo</span></div>
+                <div class="multi-opt" onclick="toggleMulti(this,'orgasmos')"><div class="checkbox"></div><span>🔥 Ter orgasmos mais intensos</span></div>
+                <div class="multi-opt" onclick="toggleMulti(this,'erecoes')"><div class="checkbox"></div><span>💪 Ter ereções mais firmes</span></div>
             </div>
             <button class="btn" onclick="confirmMulti('goals-opts', 4, 5)" style="margin-top:20px;">Confirmar e continuar →</button>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 5: INFO ASSOALHO PÉLVICO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-5" class="screen">
         <div class="card">
-            <div class="info-box">
-                <strong>O desempenho masculino depende da força do assoalho pélvico.</strong> Com o tempo, essa musculatura enfraquece, mas fortalecê-la garante ereções mais firmes, maior controle da ejaculação e mais resistência.
-            </div>
+            <div class="info-box"><strong>O desempenho masculino depende da força do assoalho pélvico.</strong> Com o tempo, essa musculatura enfraquece, mas fortalecê-la garante ereções mais firmes, maior controle da ejaculação e mais resistência.</div>
             <img src="https://i.im.ge/eBqalD/grok-image-3f37db57-957c-43e5-a5ab-afc0706ed7cd.jpg" alt="Assoalho Pélvico" class="full-img" onerror="this.style.display='none'">
             <button class="btn" onclick="goScreen(6)">Entendi, continuar →</button>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 6: DURAÇÃO RELAÇÃO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-6" class="screen">
         <div class="card">
             <div class="q-number">Passo 4</div>
@@ -659,9 +914,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 7: EJACULAÇÃO PRECOCE -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-7" class="screen">
         <div class="card">
             <div class="q-number">Passo 5</div>
@@ -674,9 +927,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 8: CONTROLE EJACULAÇÃO (ESCALA) -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 8: CONTROLE EJACULAÇÃO -->
     <div id="screen-8" class="screen">
         <div class="card">
             <div class="q-number">Passo 6</div>
@@ -693,9 +944,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 9: TREINO DESEMPENHO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-9" class="screen">
         <div class="card">
             <div class="q-number">Passo 7</div>
@@ -704,14 +953,11 @@
                 <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'sim', 9, 10)"><div class="opt-icon">💪</div>Sim, já fiz</button>
                 <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'nao', 9, 10)"><div class="opt-icon">❌</div>Não, nunca treinei</button>
                 <button class="opt" onclick="selectOpt(this, 'treino_desempenho', 'ouvi_falar', 9, 10)"><div class="opt-icon">👂</div>Não, mas já ouvi falar</button>
-
             </div>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 10: IMAGEM + FRASE -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 10: IMAGEM -->
     <div id="screen-10" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4WKyz/grok-image-2f2bcbcb-2945-4287-a623-6130058735d5.jpg" alt="Método Alpha" class="full-img" onerror="this.style.display='none'">
@@ -720,9 +966,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 11: FORÇA DA EREÇÃO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-11" class="screen">
         <div class="card">
             <div class="q-number">Passo 8</div>
@@ -735,9 +979,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 12: TEMPO DE DIFICULDADE -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-12" class="screen">
         <div class="card">
             <div class="q-number">Passo 9</div>
@@ -752,9 +994,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 13: EREÇÕES MATINAIS -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-13" class="screen">
         <div class="card">
             <div class="q-number">Passo 10</div>
@@ -768,9 +1008,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 14: DIFICULDADE ANTES DO SEXO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-14" class="screen">
         <div class="card">
             <div class="q-number">Passo 11</div>
@@ -784,9 +1022,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 14b: DUAS VEZES SEGUIDAS -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-14b" class="screen">
         <div class="card">
             <div class="q-number">Passo 11b</div>
@@ -799,9 +1035,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 15: MÚSCULO BULBOCAVERNOSO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-15" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4WVH6/grok-image-3cfaeb4b-0312-4124-bcc0-3e654011bffd.jpg" alt="Músculo Bulbocavernoso" class="full-img" onerror="this.style.display='none'">
@@ -810,9 +1044,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 16: IMAGEM INFO -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-16" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4Wk1F/grok-image-3b27bcaa-4411-472d-ab9e-6e752a881d7c.jpg" alt="Protocolo Alpha Info" class="full-img" onerror="this.style.display='none'">
@@ -820,34 +1052,20 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 17: ATIVIDADE FÍSICA -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-17" class="screen">
         <div class="card">
             <div class="q-number">Passo 12</div>
             <div class="q-text">Qual é o seu nível de atividade física?</div>
             <div class="options" id="atv-opts">
-                <button class="opt" onclick="selectAtividade(this, 'nao', '71', 'A maioria dos nossos usuários estava na mesma situação. O Protocolo Alpha vai criar o hábito certo para você.')">
-                    <div class="opt-icon">😴</div>Não me exercito nunca
-                </button>
-                <button class="opt" onclick="selectAtividade(this, 'pouco', '54', 'Você já tem alguma consciência corporal. O Protocolo vai potencializar muito seus resultados.')">
-                    <div class="opt-icon">🚶</div>Sou pouco ativo
-                </button>
-                <button class="opt" onclick="selectAtividade(this, 'as_vezes', '38', 'Ótimo ponto de partida! Com consistência, seus resultados virão ainda mais rápido.')">
-                    <div class="opt-icon">🏃</div>Eu me exercito de vez em quando
-                </button>
-                <button class="opt" onclick="selectAtividade(this, 'regular', '19', 'Você já está à frente da maioria! O Protocolo vai levar sua performance ao próximo nível.')">
-                    <div class="opt-icon">🏋️</div>Eu me exercito regularmente
-                </button>
+                <button class="opt" onclick="selectAtividade(this, 'nao', '71', 'A maioria dos nossos usuários estava na mesma situação. O Protocolo Alpha vai criar o hábito certo para você.')"><div class="opt-icon">😴</div>Não me exercito nunca</button>
+                <button class="opt" onclick="selectAtividade(this, 'pouco', '54', 'Você já tem alguma consciência corporal. O Protocolo vai potencializar muito seus resultados.')"><div class="opt-icon">🚶</div>Sou pouco ativo</button>
+                <button class="opt" onclick="selectAtividade(this, 'as_vezes', '38', 'Ótimo ponto de partida! Com consistência, seus resultados virão ainda mais rápido.')"><div class="opt-icon">🏃</div>Eu me exercito de vez em quando</button>
+                <button class="opt" onclick="selectAtividade(this, 'regular', '19', 'Você já está à frente da maioria! O Protocolo vai levar sua performance ao próximo nível.')"><div class="opt-icon">🏋️</div>Eu me exercito regularmente</button>
             </div>
-
-            <!-- Feedback box (oculto inicialmente) -->
             <div id="atv-feedback" style="display:none; margin-top:20px; animation: fadeUp 0.3s ease;">
                 <div style="background: #1d4ed8; border-radius: 14px; padding: 16px 18px; margin-bottom: 8px;">
-                    <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px;">
-                        🏃 <span id="atv-pct-text">Você calculou mais de 71% dos usuários</span>
-                    </div>
+                    <div style="font-size: 15px; font-weight: 900; color: #fff; margin-bottom: 4px;">🏃 <span id="atv-pct-text">Você calculou mais de 71% dos usuários</span></div>
                     <div id="atv-msg" style="font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.5;"></div>
                 </div>
                 <div style="font-size: 11px; color: var(--text2); margin-bottom: 16px;">*Usuários do Protocolo Alpha que fizeram o teste</div>
@@ -856,9 +1074,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 18: PORNÔ -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-18" class="screen">
         <div class="card">
             <div class="q-number">Passo 13</div>
@@ -873,9 +1089,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 19: ESTADO CIVIL -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-19" class="screen">
         <div class="card">
             <div class="q-number">Passo 14</div>
@@ -889,9 +1103,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 20: FREQUÊNCIA RELAÇÕES -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-20" class="screen">
         <div class="card">
             <div class="q-number">Passo 15</div>
@@ -906,9 +1118,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 21: LIBIDO (ESCALA) -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 21: LIBIDO -->
     <div id="screen-21" class="screen">
         <div class="card">
             <div class="q-number">Passo 16</div>
@@ -925,9 +1135,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 22: SOLUÇÕES RÁPIDAS -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-22" class="screen">
         <div class="card">
             <div class="q-number">Passo 17</div>
@@ -940,15 +1148,12 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 22b: SATISFAÇÃO COM O TAMANHO -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 22b: SATISFAÇÃO TAMANHO -->
     <div id="screen-22b" class="screen">
         <div class="card">
             <div class="q-number">Última pergunta</div>
             <div class="q-text">O quanto você está satisfeito com o tamanho do seu <span style="color:var(--primary); font-weight:900;">companheiro</span>? 👇</div>
             <div class="q-hint" style="margin-bottom: 4px;">1 = Muito insatisfeito · 5 = Muito satisfeito</div>
-
             <div class="scale-row" id="satisf-opts">
                 <button class="scale-btn" onclick="selectSatisf(this, 1)">1</button>
                 <button class="scale-btn" onclick="selectSatisf(this, 2)">2</button>
@@ -957,8 +1162,6 @@
                 <button class="scale-btn" onclick="selectSatisf(this, 5)">5</button>
             </div>
             <div class="scale-labels"><span>Muito insatisfeito</span><span>Muito satisfeito</span></div>
-
-            <!-- Feedback dinâmico -->
             <div id="satisf-feedback" style="display:none; margin-top:20px; animation: fadeUp 0.3s ease;">
                 <div id="satisf-box" style="border-radius:14px; padding:18px; margin-bottom:8px;">
                     <div id="satisf-emoji" style="font-size:32px; margin-bottom:8px;"></div>
@@ -970,9 +1173,7 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
     <!-- TELA 23: IMAGEM FINAL QUIZ -->
-    <!-- ═══════════════════════════════════════ -->
     <div id="screen-23" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4WzmK/grok-image-826bf16a-f5bf-46ae-b1e3-acd7a97f0c3f.jpg" alt="Protocolo Alpha Final" class="full-img" onerror="this.style.display='none'">
@@ -980,59 +1181,24 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 24: LOADING / ANÁLISE -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- TELA 24: LOADING -->
     <div id="screen-24" class="screen">
         <div class="card" style="text-align:center; padding: 32px 24px;">
-
-            <!-- Header -->
             <div style="margin-bottom: 28px;">
                 <div style="font-size: 48px; margin-bottom: 12px; animation: pulse-icon 1.5s ease-in-out infinite;">🧬</div>
                 <div style="font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--text); letter-spacing: 1px; margin-bottom: 6px;">Analisando seu perfil...</div>
                 <div style="font-size: 14px; color: var(--text2); font-weight: 600;">Um especialista está montando seu plano exclusivo</div>
             </div>
-
-            <!-- Barra de progresso geral -->
             <div style="background: #e5e7eb; border-radius: 99px; height: 10px; margin-bottom: 28px; overflow: hidden;">
                 <div id="main-progress-bar" style="height:100%; width:0%; background: linear-gradient(90deg, #16a34a, #22c55e); border-radius:99px; transition: width 0.4s ease;"></div>
             </div>
-
-            <!-- Steps -->
             <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px; text-align:left;">
-                <div class="analysis-step" id="step-a1">
-                    <div class="step-icon">🩺</div>
-                    <span style="flex:1; font-size:13px; font-weight:700;">Analisando histórico de saúde sexual</span>
-                    <div class="step-bar-wrap"><div class="step-bar" id="bar-a1"></div></div>
-                    <div class="step-check">✅</div>
-                </div>
-                <div class="analysis-step" id="step-a2">
-                    <div class="step-icon">⚡</div>
-                    <span style="flex:1; font-size:13px; font-weight:700;">Avaliando nível de desempenho</span>
-                    <div class="step-bar-wrap"><div class="step-bar" id="bar-a2"></div></div>
-                    <div class="step-check">✅</div>
-                </div>
-                <div class="analysis-step" id="step-a3">
-                    <div class="step-icon">🎯</div>
-                    <span style="flex:1; font-size:13px; font-weight:700;">Identificando pontos de melhora</span>
-                    <div class="step-bar-wrap"><div class="step-bar" id="bar-a3"></div></div>
-                    <div class="step-check">✅</div>
-                </div>
-                <div class="analysis-step" id="step-a4">
-                    <div class="step-icon">📋</div>
-                    <span style="flex:1; font-size:13px; font-weight:700;">Criando protocolo personalizado</span>
-                    <div class="step-bar-wrap"><div class="step-bar" id="bar-a4"></div></div>
-                    <div class="step-check">✅</div>
-                </div>
-                <div class="analysis-step" id="step-a5">
-                    <div class="step-icon">🏆</div>
-                    <span style="flex:1; font-size:13px; font-weight:700;">Finalizando seu plano exclusivo</span>
-                    <div class="step-bar-wrap"><div class="step-bar" id="bar-a5"></div></div>
-                    <div class="step-check">✅</div>
-                </div>
+                <div class="analysis-step" id="step-a1"><div class="step-icon">🩺</div><span style="flex:1; font-size:13px; font-weight:700;">Analisando histórico de saúde sexual</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a1"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a2"><div class="step-icon">⚡</div><span style="flex:1; font-size:13px; font-weight:700;">Avaliando nível de desempenho</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a2"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a3"><div class="step-icon">🎯</div><span style="flex:1; font-size:13px; font-weight:700;">Identificando pontos de melhora</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a3"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a4"><div class="step-icon">📋</div><span style="flex:1; font-size:13px; font-weight:700;">Criando protocolo personalizado</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a4"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a5"><div class="step-icon">🏆</div><span style="flex:1; font-size:13px; font-weight:700;">Finalizando seu plano exclusivo</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a5"></div></div><div class="step-check">✅</div></div>
             </div>
-
-            <!-- Depoimentos rotativos -->
             <div style="position:relative; min-height: 100px;">
                 <div class="testi-mini" id="testi-slide-0">
                     <div class="testi-mini-quote">"Em 3 semanas já senti diferença enorme. Mais controle, mais firmeza. Minha parceira notou antes de mim!"</div>
@@ -1055,7 +1221,6 @@
                     <div class="testi-mini-result">✓ Confiança totalmente recuperada</div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -1075,31 +1240,25 @@
                         <span style="font-size:13px; font-weight:700; color:#6b7280;">Desempenho sexual</span>
                         <span style="font-size:13px; font-weight:900; color:#ef4444;">20%</span>
                     </div>
-                    <div style="height:8px; background:#fee2e2; border-radius:8px; overflow:hidden;">
-                        <div style="width:20%; height:100%; background:#f87171; border-radius:8px;"></div>
-                    </div>
+                    <div style="height:8px; background:#fee2e2; border-radius:8px; overflow:hidden;"><div style="width:20%; height:100%; background:#f87171; border-radius:8px;"></div></div>
                 </div>
                 <div style="margin-bottom:12px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
                         <span style="font-size:13px; font-weight:700; color:#6b7280;">Auto confiança</span>
                         <span style="font-size:13px; font-weight:900; color:#ef4444;">15%</span>
                     </div>
-                    <div style="height:8px; background:#fee2e2; border-radius:8px; overflow:hidden;">
-                        <div style="width:15%; height:100%; background:#f87171; border-radius:8px;"></div>
-                    </div>
+                    <div style="height:8px; background:#fee2e2; border-radius:8px; overflow:hidden;"><div style="width:15%; height:100%; background:#f87171; border-radius:8px;"></div></div>
                 </div>
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
                         <span style="font-size:13px; font-weight:700; color:#6b7280;">Controle da ejaculação</span>
                         <span style="font-size:13px; font-weight:900; color:#ef4444;">37%</span>
                     </div>
-                    <div style="height:8px; background:#fee2e2; border-radius:8px; overflow:hidden;">
-                        <div style="width:37%; height:100%; background:#f87171; border-radius:8px;"></div>
-                    </div>
+                    <div style="height:8px; background:#fee2e2; border-radius:8px; overflow:hidden;"><div style="width:37%; height:100%; background:#f87171; border-radius:8px;"></div></div>
                 </div>
             </div>
 
-            <!-- Seta de transformação -->
+            <!-- Seta -->
             <div style="text-align:center; font-size:28px; line-height:1; margin:4px 0;">⬇️</div>
 
             <!-- DEPOIS -->
@@ -1110,27 +1269,21 @@
                         <span style="font-size:13px; font-weight:700; color:#6b7280;">Desempenho sexual</span>
                         <span style="font-size:13px; font-weight:900; color:#16a34a;">90%</span>
                     </div>
-                    <div style="height:8px; background:#dcfce7; border-radius:8px; overflow:hidden;">
-                        <div id="after-1" style="width:0%; height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:8px; transition:width 1.2s ease;"></div>
-                    </div>
+                    <div style="height:8px; background:#dcfce7; border-radius:8px; overflow:hidden;"><div id="after-1" style="width:0%; height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:8px; transition:width 1.2s ease;"></div></div>
                 </div>
                 <div style="margin-bottom:12px;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
                         <span style="font-size:13px; font-weight:700; color:#6b7280;">Auto confiança</span>
                         <span style="font-size:13px; font-weight:900; color:#16a34a;">87%</span>
                     </div>
-                    <div style="height:8px; background:#dcfce7; border-radius:8px; overflow:hidden;">
-                        <div id="after-2" style="width:0%; height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:8px; transition:width 1.2s ease;"></div>
-                    </div>
+                    <div style="height:8px; background:#dcfce7; border-radius:8px; overflow:hidden;"><div id="after-2" style="width:0%; height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:8px; transition:width 1.2s ease;"></div></div>
                 </div>
                 <div>
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px;">
                         <span style="font-size:13px; font-weight:700; color:#6b7280;">Controle da ejaculação</span>
                         <span style="font-size:13px; font-weight:900; color:#16a34a;">91%</span>
                     </div>
-                    <div style="height:8px; background:#dcfce7; border-radius:8px; overflow:hidden;">
-                        <div id="after-3" style="width:0%; height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:8px; transition:width 1.2s ease;"></div>
-                    </div>
+                    <div style="height:8px; background:#dcfce7; border-radius:8px; overflow:hidden;"><div id="after-3" style="width:0%; height:100%; background:linear-gradient(90deg,#16a34a,#22c55e); border-radius:8px; transition:width 1.2s ease;"></div></div>
                 </div>
             </div>
 
@@ -1143,128 +1296,158 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════ -->
-    <!-- TELA 26: OFERTA -->
-    <!-- ═══════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════
+         TELA 26: OFERTA — SEÇÃO DE RESULTADOS OTIMIZADA PARA CRO
+         ═══════════════════════════════════════════════════════════ -->
     <div id="screen-26" class="screen">
-        <div class="card">
 
-            <!-- Header -->
-            <div style="text-align:center; margin-bottom:24px;">
-                <div style="display:inline-block; background:linear-gradient(135deg,#f0fdf4,#dcfce7); border:1.5px solid #86efac; border-radius:14px; padding:10px 20px; margin-bottom:12px;">
-                    <span style="font-size:11px; font-weight:900; color:#15803d; text-transform:uppercase; letter-spacing:2px;">🏆 Plano Personalizado Específico</span>
-                </div>
-                <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--text); letter-spacing:1px; line-height:1.1;">SEU ACESSO <span style="color:var(--primary);">COMPLETO</span></div>
-                <div style="font-size:13px; color:var(--text2); margin-top:6px;">Tudo o que você vai receber no Protocolo Alpha:</div>
-            </div>
-
-            <!-- Itens principais -->
-            <div style="display:flex; flex-direction:column; gap:0; margin-bottom:20px;">
-                <div class="offer-item">
-                    <div class="offer-check">✔</div>
-                    <div class="offer-text">
-                        <div class="offer-title">Programa Avançado de Exercícios de Kegel</div>
-                        <div class="offer-desc">3 sessões diárias estruturadas. Recomendamos pelo menos 2 sessões por dia para acelerar os resultados.</div>
-                    </div>
-                </div>
-                <div class="offer-item">
-                    <div class="offer-check">✔</div>
-                    <div class="offer-text">
-                        <div class="offer-title">Treino Específico Guiado</div>
-                        <div class="offer-desc">Fortaleça regiões que aumentam seu desejo e melhoram diretamente seu desempenho sexual.</div>
-                    </div>
-                </div>
-                <div class="offer-item">
-                    <div class="offer-check">✔</div>
-                    <div class="offer-text">
-                        <div class="offer-title">Técnicas de Respiração Tática</div>
-                        <div class="offer-desc">Reduzem tensão física e mental, aumentando seu controle e foco na hora H.</div>
-                    </div>
-                </div>
-                <div class="offer-item" style="border-bottom:none;">
-                    <div class="offer-check">✔</div>
-                    <div class="offer-text">
-                        <div class="offer-title">Orientações de Especialistas em Sexualidade</div>
-                        <div class="offer-desc">Melhore seu desempenho, entenda melhor sua parceira e traga mais conexão à sua vida sexual.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BÔNUS -->
-            <div style="background:linear-gradient(135deg,#1a0a2e,#0f1a3a); border:2px solid #7c3aed; border-radius:16px; padding:20px; margin-bottom:20px;">
-                <div style="text-align:center; margin-bottom:16px;">
-                    <div style="display:inline-block; background:rgba(124,58,237,0.2); border:1px solid rgba(124,58,237,0.5); border-radius:8px; padding:6px 16px; margin-bottom:6px;">
-                        <span style="font-size:11px; font-weight:900; color:#a78bfa; text-transform:uppercase; letter-spacing:2px;">🎁 Bônus Premium — De Graça</span>
-                    </div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.5);">Incluídos no seu plano sem custo adicional</div>
-                </div>
-
-                <!-- Bonus 1 -->
-                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
-                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">💪</div>
-                    <div>
-                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Exercícios JEQT</div>
-                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Para aumento e engrossamento do seu companheiro.</div>
-                    </div>
-                </div>
-
-                <!-- Bonus 2 -->
-                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
-                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">❤️‍🔥</div>
-                    <div>
-                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Conquista Real</div>
-                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Conquiste qualquer pessoa em 27 dias.</div>
-                    </div>
-                </div>
-
-                <!-- Bonus 3 -->
-                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
-                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">👑</div>
-                    <div>
-                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Guia do Macho Alfa</div>
-                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Criado por mulheres com técnicas para fazer elas correrem atrás de você.</div>
-                    </div>
-                </div>
-
-                <!-- Bonus 4 -->
-                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; margin-bottom:10px; display:flex; gap:12px; align-items:flex-start;">
-                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🍃</div>
-                    <div>
-                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Receitas Proibidas</div>
-                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Receitas secretas que elevam sua potência e desempenho com ingredientes que você tem em casa.</div>
-                    </div>
-                </div>
-
-                <!-- Bonus 5 -->
-                <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,58,237,0.3); border-radius:12px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
-                    <div style="width:36px; height:36px; background:rgba(124,58,237,0.25); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;">🔥</div>
-                    <div>
-                        <div style="font-size:13px; font-weight:900; color:#fff; margin-bottom:3px;">Receita do Bicarbonato</div>
-                        <div style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.5;">Receita viralizada que está transformando os homens que já usaram.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Garantia -->
-            <div class="guarantee-box">
-                <div class="guarantee-icon">🛡️</div>
-                <div class="guarantee-title">Garantia Total de 7 Dias</div>
-                <div class="guarantee-desc">Não ficou satisfeito? Devolvemos 100% do seu dinheiro.<br>Sem perguntas, sem burocracia.</div>
-            </div>
-
-            <button class="btn" id="cta-btn" onclick="checkout()" style="font-size:17px; padding:20px;">🔒 GARANTIR MEU ACESSO AGORA</button>
-            <div class="cta-footer">Adquira agora o seu plano e tenha sua masculinidade de volta em semanas</div>
-            <div style="text-align:center; margin-top:10px; font-size:11px; color:var(--text2);">🔒 Pagamento 100% seguro e discreto</div>
+        <!-- ── 1. HEADLINE DA OFERTA ── -->
+        <div class="offer-hero">
+            <div class="offer-hero-eyebrow">✅ Plano Personalizado Gerado</div>
+            <div class="offer-hero-title">Seu Plano de Treinamento<br><span>P-Alpha está Pronto!</span></div>
         </div>
-    </div>
+
+        <!-- ── 2. CARD DE ENTREGA (checklist) ── -->
+        <div class="delivery-card">
+            <div class="delivery-card-label">O que você recebe</div>
+
+            <div class="offer-item">
+                <div class="offer-check">✔</div>
+                <div class="offer-text">
+                    <div class="offer-title">Programa Avançado de Exercícios de Kegel</div>
+                    <div class="offer-desc">3 sessões diárias estruturadas. Recomendamos pelo menos 2 sessões por dia para acelerar os resultados.</div>
+                </div>
+            </div>
+
+            <div class="offer-item">
+                <div class="offer-check">✔</div>
+                <div class="offer-text">
+                    <div class="offer-title">Treino Específico Guiado</div>
+                    <div class="offer-desc">Fortaleça regiões que aumentam seu desejo e melhoram diretamente seu desempenho sexual.</div>
+                </div>
+            </div>
+
+            <div class="offer-item">
+                <div class="offer-check">✔</div>
+                <div class="offer-text">
+                    <div class="offer-title">Técnicas de Respiração Tática</div>
+                    <div class="offer-desc">Reduzem tensão física e mental, aumentando seu controle e foco na hora H.</div>
+                </div>
+            </div>
+
+            <div class="offer-item">
+                <div class="offer-check">✔</div>
+                <div class="offer-text">
+                    <div class="offer-title">Orientações de Especialistas em Sexualidade</div>
+                    <div class="offer-desc">Melhore seu desempenho, entenda melhor sua parceira e traga mais conexão à sua vida sexual.</div>
+                </div>
+            </div>
+
+            <!-- Acesso vitalício -->
+            <div class="lifetime-badge">
+                <div style="font-size:22px; flex-shrink:0;">♾️</div>
+                <div>
+                    <div class="lifetime-badge-text">Acesso Vitalício à Plataforma</div>
+                    <div class="lifetime-badge-sub">Sem mensalidade. Acesse para sempre, de qualquer dispositivo.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── 3. CARD DE BÔNUS ── -->
+        <div class="bonus-card">
+            <div class="bonus-ribbon">🎁 Bônus Premium — Incluídos</div>
+            <div class="bonus-headline">LEVANDO HOJE, VOCÊ<br><span>GANHA +4 BÔNUS EXCLUSIVOS:</span></div>
+
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">💪</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Exercícios de Expansão Tecidual</div>
+                    <div class="bonus-item-desc">Aumente e engrosse seu companheiro com técnicas seguras.</div>
+                </div>
+                <div class="bonus-gratis">GRÁTIS</div>
+            </div>
+
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">👑</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Guia do Macho Alfa</div>
+                    <div class="bonus-item-desc">Criado por mulheres com técnicas para fazer elas correrem atrás de você.</div>
+                </div>
+                <div class="bonus-gratis">GRÁTIS</div>
+            </div>
+
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">🍃</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Receitas de Potência Caseira</div>
+                    <div class="bonus-item-desc">Ingredientes que você tem em casa para elevar sua potência.</div>
+                </div>
+                <div class="bonus-gratis">GRÁTIS</div>
+            </div>
+
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">🔥</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Técnica do Bicarbonato</div>
+                    <div class="bonus-item-desc">Receita viralizada que está transformando os homens que já usaram.</div>
+                </div>
+                <div class="bonus-gratis">GRÁTIS</div>
+            </div>
+        </div>
+
+        <!-- ── 4. URGÊNCIA ── -->
+        <div class="urgency-strip">
+            <div class="urgency-icon">⏳</div>
+            <div class="urgency-text">
+                <strong>Atenção:</strong> Esta oferta com os 4 bônus está disponível <strong>apenas nesta página</strong>. Ao sair, o desconto e os bônus são removidos automaticamente.
+            </div>
+        </div>
+
+        <!-- ── 5. PREÇO ── -->
+        <div class="price-block">
+            <div class="price-original">Valor Total (Método + Bônus): <s>R$ 147,00</s></div>
+            <div class="price-tag-label">⚡ Apenas hoje nesta página</div>
+            <div class="price-main"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
+        </div>
+
+        <!-- ── 6. BOTÃO CTA PULSANTE ── -->
+        <button class="cta-pulse" id="cta-btn" onclick="checkout()">
+            🔓 QUERO MEU ACESSO IMEDIATO<br>POR R$ 19,90
+        </button>
+        <div class="cta-sub-text">🔒 Pagamento 100% seguro e criptografado</div>
+
+        <!-- ── 7. SELOS DE SEGURANÇA ── -->
+        <div class="seals-row">
+            <div class="seal">
+                <div class="seal-icon">🔐</div>
+                <div class="seal-label">Compra 100% Segura</div>
+            </div>
+            <div class="seal">
+                <div class="seal-icon">⚡</div>
+                <div class="seal-label">Acesso Imediato</div>
+            </div>
+            <div class="seal">
+                <div class="seal-icon">🛡️</div>
+                <div class="seal-label">Garantia de 7 Dias</div>
+            </div>
+        </div>
+
+        <!-- Garantia expandida -->
+        <div class="guarantee-box" style="margin-top:16px;">
+            <div class="guarantee-icon">🛡️</div>
+            <div class="guarantee-title">Garantia Total de 7 Dias</div>
+            <div class="guarantee-desc">Não ficou satisfeito? Devolvemos 100% do seu dinheiro.<br>Sem perguntas, sem burocracia.</div>
+        </div>
+
+        <div class="cta-footer">Adquira agora e tenha sua masculinidade de volta em semanas</div>
+        <div style="text-align:center; margin-top:8px; font-size:11px; color:var(--text2);">🔒 Pagamento 100% seguro e discreto</div>
+
+    </div><!-- /screen-26 -->
 
 </div><!-- /main -->
 
 <script>
-    // Navegação global — precisa estar fora do module
     var _answers = {};
-    var _sid = null;
-
     function goScreen(n) {
         document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
         var el = document.getElementById('screen-' + n);
@@ -1275,7 +1458,6 @@
         var nNum = parseInt(n);
         _updateProgress(isNaN(nNum) ? 99 : nNum);
     }
-
     function _updateProgress(n) {
         var wrap = document.getElementById('progress-wrap');
         var fill = document.getElementById('prog-fill');
@@ -1293,123 +1475,70 @@
             if(wrap) wrap.classList.remove('show');
         }
     }
-
-    function selectAge(range) {
-        _answers.idade = range;
-        if(window._track) window._track('age_selected', { age: range });
-        goScreen(2);
-    }
-
+    function selectAge(range) { _answers.idade = range; goScreen(2); }
     function selectBody(type) {
-        document.querySelectorAll('.body-row-card').forEach(function(c) {
-            c.style.borderColor = 'var(--border)';
-            c.style.background = '#fff';
-        });
-        if(event && event.currentTarget) {
-            event.currentTarget.style.borderColor = '#16a34a';
-            event.currentTarget.style.background = '#f0fdf4';
-        }
+        document.querySelectorAll('.body-row-card').forEach(function(c) { c.style.borderColor='var(--border)'; c.style.background='#fff'; });
+        if(event&&event.currentTarget){event.currentTarget.style.borderColor='#16a34a';event.currentTarget.style.background='#f0fdf4';}
         _answers.corpo = type;
-        if(window._track) window._track('body_selected', { body: type });
-        setTimeout(function() { goScreen(4); }, 220);
+        setTimeout(function(){ goScreen(4); }, 220);
     }
-
     function selectOpt(el, key, val, currentScreen, nextScreen) {
-        var parent = el.closest('.options, .scale-row');
-        if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(function(b) { b.classList.remove('selected'); });
+        var parent = el.closest('.options,.scale-row');
+        if(parent) parent.querySelectorAll('.opt,.scale-btn').forEach(function(b){ b.classList.remove('selected'); });
         el.classList.add('selected');
         _answers[key] = val;
-        if(window._track) window._track('answer_' + key, { answer: val });
-        if (nextScreen !== null && nextScreen !== undefined) {
-            setTimeout(function() { goScreen(nextScreen); }, 250);
-        }
+        if(nextScreen!==null&&nextScreen!==undefined) setTimeout(function(){ goScreen(nextScreen); }, 250);
     }
-
     function toggleMulti(el, key) {
         el.classList.toggle('selected');
         var cb = el.querySelector('.checkbox');
         if(cb) cb.textContent = el.classList.contains('selected') ? '✓' : '';
-        if (!_answers.goals) _answers.goals = [];
-        if (el.classList.contains('selected')) {
-            if (!_answers.goals.includes(key)) _answers.goals.push(key);
-        } else {
-            _answers.goals = _answers.goals.filter(function(k) { return k !== key; });
-        }
+        if(!_answers.goals) _answers.goals = [];
+        if(el.classList.contains('selected')){ if(!_answers.goals.includes(key)) _answers.goals.push(key); }
+        else { _answers.goals = _answers.goals.filter(function(k){ return k!==key; }); }
     }
-
     function confirmMulti(containerId, currentS, nextS) {
-        if (!_answers.goals || _answers.goals.length === 0) {
-            alert('Por favor, selecione pelo menos uma opção.');
-            return;
-        }
-        if(window._track) window._track('goals_selected', { goals: _answers.goals });
+        if(!_answers.goals||_answers.goals.length===0){ alert('Por favor, selecione pelo menos uma opção.'); return; }
         goScreen(nextS);
     }
-
     function selectAtividade(el, val, pct, msg) {
-        document.querySelectorAll('#atv-opts .opt').forEach(function(b) { b.classList.remove('selected'); });
+        document.querySelectorAll('#atv-opts .opt').forEach(function(b){ b.classList.remove('selected'); });
         el.classList.add('selected');
         _answers.atividade_fisica = val;
-        if(window._track) window._track('answer_atividade_fisica', { answer: val });
         var pctEl = document.getElementById('atv-pct-text');
-        if (val === 'nao') {
-            if(pctEl) pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
-        } else {
-            if(pctEl) pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
-        }
-        var msgEl = document.getElementById('atv-msg');
-        var fbEl  = document.getElementById('atv-feedback');
-        if(msgEl) msgEl.textContent = msg;
-        if(fbEl)  fbEl.style.display = 'block';
-        setTimeout(function() {
-            var fb = document.getElementById('atv-feedback');
-            if(fb) fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
+        if(val==='nao'){ if(pctEl) pctEl.textContent='💪 Não se preocupe — todo começo tem um ponto de partida!'; }
+        else { if(pctEl) pctEl.textContent='Você está à frente de '+pct+'% dos usuários'; }
+        var msgEl=document.getElementById('atv-msg');
+        var fbEl=document.getElementById('atv-feedback');
+        if(msgEl) msgEl.textContent=msg;
+        if(fbEl)  fbEl.style.display='block';
+        setTimeout(function(){ var fb=document.getElementById('atv-feedback'); if(fb) fb.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 100);
     }
-
     function selectSatisf(el, val) {
-        document.querySelectorAll('#satisf-opts .scale-btn').forEach(function(b) { b.classList.remove('selected'); });
+        document.querySelectorAll('#satisf-opts .scale-btn').forEach(function(b){ b.classList.remove('selected'); });
         el.classList.add('selected');
         _answers.satisfacao_tamanho = val;
-        if(window._track) window._track('answer_satisfacao', { answer: val });
         var configs = {
-            1: { bg:'background:linear-gradient(135deg,#7f1d1d,#991b1b);border:1px solid rgba(239,68,68,0.4);', emoji:'😔', title:'Entendemos como isso pesa...', msg:'Muitos homens passam anos se sentindo assim sem saber que existe solução. A boa notícia? No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁' },
-            2: { bg:'background:linear-gradient(135deg,#7c2d12,#9a3412);border:1px solid rgba(249,115,22,0.4);', emoji:'😕', title:'Você merece se sentir muito melhor...', msg:'Não precisa ser assim. O que você vai encontrar no final dessa avaliação pode mudar completamente essa realidade. Temos uma surpresa especial esperando por você. 🎁' },
-            3: { bg:'background:linear-gradient(135deg,#713f12,#854d0e);border:1px solid rgba(234,179,8,0.4);', emoji:'😐', title:'Bem no meio do caminho...', msg:'Você sente que falta alguma coisa, mas ainda não sabe o que é. No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta pra você chegar no próximo nível. 🎁' },
-            4: { bg:'background:linear-gradient(135deg,#14532d,#166534);border:1px solid rgba(34,197,94,0.3);', emoji:'🙂', title:'Quase lá — mas o melhor ainda está por vir!', msg:'Você já está em um bom nível, mas existe um próximo patamar que poucos homens alcançam. No final dessa avaliação tem uma surpresa que pode te levar até ele. 🎁' },
-            5: { bg:'background:linear-gradient(135deg,#064e3b,#065f46);border:2px solid rgba(34,197,94,0.5);', emoji:'🏆', title:'Parabéns! Você vai se transformar em uma máquina! 🔥', msg:'Você já tem a mentalidade certa. Com o Protocolo Alpha você vai potencializar ainda mais o que já tem e atingir um nível que vai surpreender até você mesmo. Prepare-se!' }
+            1:{bg:'background:linear-gradient(135deg,#7f1d1d,#991b1b);border:1px solid rgba(239,68,68,0.4);',emoji:'😔',title:'Entendemos como isso pesa...',msg:'Muitos homens passam anos se sentindo assim sem saber que existe solução. A boa notícia? No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁'},
+            2:{bg:'background:linear-gradient(135deg,#7c2d12,#9a3412);border:1px solid rgba(249,115,22,0.4);',emoji:'😕',title:'Você merece se sentir muito melhor...',msg:'Não precisa ser assim. O que você vai encontrar no final dessa avaliação pode mudar completamente essa realidade. Temos uma surpresa especial esperando por você. 🎁'},
+            3:{bg:'background:linear-gradient(135deg,#713f12,#854d0e);border:1px solid rgba(234,179,8,0.4);',emoji:'😐',title:'Bem no meio do caminho...',msg:'Você sente que falta alguma coisa, mas ainda não sabe o que é. No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta pra você chegar no próximo nível. 🎁'},
+            4:{bg:'background:linear-gradient(135deg,#14532d,#166534);border:1px solid rgba(34,197,94,0.3);',emoji:'🙂',title:'Quase lá — mas o melhor ainda está por vir!',msg:'Você já está em um bom nível, mas existe um próximo patamar que poucos homens alcançam. No final dessa avaliação tem uma surpresa que pode te levar até ele. 🎁'},
+            5:{bg:'background:linear-gradient(135deg,#064e3b,#065f46);border:2px solid rgba(34,197,94,0.5);',emoji:'🏆',title:'Parabéns! Você vai se transformar em uma máquina! 🔥',msg:'Você já tem a mentalidade certa. Com o Protocolo Alpha você vai potencializar ainda mais o que já tem e atingir um nível que vai surpreender até você mesmo. Prepare-se!'}
         };
-        var c = configs[val];
-        var box = document.getElementById('satisf-box');
-        if(box) box.setAttribute('style', c.bg + ' padding:18px;');
-        var emo = document.getElementById('satisf-emoji');
-        var ttl = document.getElementById('satisf-title');
-        var msg2 = document.getElementById('satisf-msg');
-        var fb  = document.getElementById('satisf-feedback');
-        if(emo)  emo.textContent  = c.emoji;
-        if(ttl)  ttl.textContent  = c.title;
-        if(msg2) msg2.textContent = c.msg;
-        if(fb)   fb.style.display = 'block';
-        setTimeout(function() {
-            var f = document.getElementById('satisf-feedback');
-            if(f) f.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 100);
+        var c=configs[val];
+        var box=document.getElementById('satisf-box');
+        if(box) box.setAttribute('style',c.bg+' padding:18px;');
+        document.getElementById('satisf-emoji').textContent=c.emoji;
+        document.getElementById('satisf-title').textContent=c.title;
+        document.getElementById('satisf-msg').textContent=c.msg;
+        document.getElementById('satisf-feedback').style.display='block';
+        setTimeout(function(){ var f=document.getElementById('satisf-feedback'); if(f) f.scrollIntoView({behavior:'smooth',block:'nearest'}); }, 100);
     }
-
-    function startLoading() {
-        goScreen(24);
-        if(window._track) window._track('loading_started');
-        if(window._runAnalysis) window._runAnalysis();
-    }
-
-    function checkout() {
-        if(window._checkout) window._checkout();
-    }
+    function startLoading() { goScreen(24); if(window._runAnalysis) window._runAnalysis(); }
+    function checkout() { if(window._checkout) window._checkout(); }
 </script>
 
 <script type="module">
-
-
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -1449,11 +1578,8 @@
         return ch;
     }
     const currentChannel = detectChannel();
-
     let answers = {};
-    const TOTAL_STEPS = 20;
 
-    // Track
     async function track(e, d = {}) {
         try {
             await setDoc(doc(db, 'sessions', sid), {
@@ -1464,7 +1590,6 @@
         } catch(err) {}
     }
 
-    // Init
     (async () => {
         try {
             await setDoc(doc(db, 'sessions', sid), {
@@ -1481,13 +1606,11 @@
         } catch(err) {}
     })();
 
-    // ── NAVIGATION ──
     window.goScreen = function(n) {
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         const el = document.getElementById('screen-' + n);
         if (el) el.classList.add('active');
         window.scrollTo(0, 0);
-        // Show logo bar from screen 2 onwards
         const logoBar = document.getElementById('logo-bar');
         if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
         const nNum = parseInt(n);
@@ -1512,17 +1635,13 @@
         }
     }
 
-    // ── QUESTION HELPERS ──
     window.selectOpt = function(el, key, val, currentScreen, nextScreen) {
         const parent = el.closest('.options, .scale-row');
         if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(b => b.classList.remove('selected'));
         el.classList.add('selected');
         answers[key] = val;
         track('answer_' + key, { answer: val, answers: { ...answers } });
-
-        if (nextScreen !== null && nextScreen !== undefined) {
-            setTimeout(() => goScreen(nextScreen), 250);
-        }
+        if (nextScreen !== null && nextScreen !== undefined) setTimeout(() => goScreen(nextScreen), 250);
     };
 
     window.toggleMulti = function(el, key) {
@@ -1530,18 +1649,12 @@
         const cb = el.querySelector('.checkbox');
         cb.textContent = el.classList.contains('selected') ? '✓' : '';
         if (!answers.goals) answers.goals = [];
-        if (el.classList.contains('selected')) {
-            if (!answers.goals.includes(key)) answers.goals.push(key);
-        } else {
-            answers.goals = answers.goals.filter(k => k !== key);
-        }
+        if (el.classList.contains('selected')) { if (!answers.goals.includes(key)) answers.goals.push(key); }
+        else { answers.goals = answers.goals.filter(k => k !== key); }
     };
 
     window.confirmMulti = function(containerId, currentS, nextS) {
-        if (!answers.goals || answers.goals.length === 0) {
-            alert('Por favor, selecione pelo menos uma opção.');
-            return;
-        }
+        if (!answers.goals || answers.goals.length === 0) { alert('Por favor, selecione pelo menos uma opção.'); return; }
         track('goals_selected', { goals: answers.goals });
         goScreen(nextS);
     };
@@ -1552,11 +1665,8 @@
         answers.atividade_fisica = val;
         track('answer_atividade_fisica', { answer: val });
         const pctEl = document.getElementById('atv-pct-text');
-        if (val === 'nao') {
-            pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
-        } else {
-            pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
-        }
+        if (val === 'nao') { pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!'; }
+        else { pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários'; }
         document.getElementById('atv-msg').textContent = msg;
         document.getElementById('atv-feedback').style.display = 'block';
         setTimeout(() => document.getElementById('atv-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
@@ -1567,40 +1677,13 @@
         el.classList.add('selected');
         answers.satisfacao_tamanho = val;
         track('answer_satisfacao', { answer: val });
-
         const configs = {
-            1: {
-                bg: 'background: linear-gradient(135deg, #7f1d1d, #991b1b); border: 1px solid rgba(239,68,68,0.4);',
-                emoji: '😔',
-                title: 'Entendemos como isso pesa...',
-                msg: 'Muitos homens passam anos se sentindo assim sem saber que existe solução. A boa notícia? No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁'
-            },
-            2: {
-                bg: 'background: linear-gradient(135deg, #7c2d12, #9a3412); border: 1px solid rgba(249,115,22,0.4);',
-                emoji: '😕',
-                title: 'Você merece se sentir muito melhor...',
-                msg: 'Não precisa ser assim. O que você vai encontrar no final dessa avaliação pode mudar completamente essa realidade. Temos uma surpresa especial esperando por você. 🎁'
-            },
-            3: {
-                bg: 'background: linear-gradient(135deg, #713f12, #854d0e); border: 1px solid rgba(234,179,8,0.4);',
-                emoji: '😐',
-                title: 'Bem no meio do caminho...',
-                msg: 'Você sente que falta alguma coisa, mas ainda não sabe o que é. No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta pra você chegar no próximo nível. 🎁'
-            },
-            4: {
-                bg: 'background: linear-gradient(135deg, #14532d, #166534); border: 1px solid rgba(34,197,94,0.3);',
-                emoji: '🙂',
-                title: 'Quase lá — mas o melhor ainda está por vir!',
-                msg: 'Você já está em um bom nível, mas existe um próximo patamar que poucos homens alcançam. No final dessa avaliação tem uma surpresa que pode te levar até ele. 🎁'
-            },
-            5: {
-                bg: 'background: linear-gradient(135deg, #064e3b, #065f46); border: 2px solid rgba(34,197,94,0.5);',
-                emoji: '🏆',
-                title: 'Parabéns! Você vai se transformar em uma máquina! 🔥',
-                msg: 'Você já tem a mentalidade certa. Com o Protocolo Alpha você vai potencializar ainda mais o que já tem e atingir um nível que vai surpreender até você mesmo. Prepare-se!'
-            }
+            1:{bg:'background:linear-gradient(135deg,#7f1d1d,#991b1b);border:1px solid rgba(239,68,68,0.4);',emoji:'😔',title:'Entendemos como isso pesa...',msg:'Muitos homens passam anos se sentindo assim sem saber que existe solução. A boa notícia? No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁'},
+            2:{bg:'background:linear-gradient(135deg,#7c2d12,#9a3412);border:1px solid rgba(249,115,22,0.4);',emoji:'😕',title:'Você merece se sentir muito melhor...',msg:'Não precisa ser assim. O que você vai encontrar no final dessa avaliação pode mudar completamente essa realidade. Temos uma surpresa especial esperando por você. 🎁'},
+            3:{bg:'background:linear-gradient(135deg,#713f12,#854d0e);border:1px solid rgba(234,179,8,0.4);',emoji:'😐',title:'Bem no meio do caminho...',msg:'Você sente que falta alguma coisa, mas ainda não sabe o que é. No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta pra você chegar no próximo nível. 🎁'},
+            4:{bg:'background:linear-gradient(135deg,#14532d,#166534);border:1px solid rgba(34,197,94,0.3);',emoji:'🙂',title:'Quase lá — mas o melhor ainda está por vir!',msg:'Você já está em um bom nível, mas existe um próximo patamar que poucos homens alcançam. No final dessa avaliação tem uma surpresa que pode te levar até ele. 🎁'},
+            5:{bg:'background:linear-gradient(135deg,#064e3b,#065f46);border:2px solid rgba(34,197,94,0.5);',emoji:'🏆',title:'Parabéns! Você vai se transformar em uma máquina! 🔥',msg:'Você já tem a mentalidade certa. Com o Protocolo Alpha você vai potencializar ainda mais o que já tem e atingir um nível que vai surpreender até você mesmo. Prepare-se!'}
         };
-
         const c = configs[val];
         const box = document.getElementById('satisf-box');
         box.setAttribute('style', c.bg + ' padding:18px;');
@@ -1611,25 +1694,6 @@
         setTimeout(() => document.getElementById('satisf-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
     };
 
-    window.selectAtividade = function(el, val, pct, msg) {
-        // highlight selected
-        document.querySelectorAll('#atv-opts .opt').forEach(b => b.classList.remove('selected'));
-        el.classList.add('selected');
-        answers.atividade_fisica = val;
-        track('answer_atividade_fisica', { answer: val });
-
-        const pctEl = document.getElementById('atv-pct-text');
-        if (val === 'nao') {
-            pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
-        } else {
-            pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
-        }
-
-        document.getElementById('atv-msg').textContent = msg;
-        document.getElementById('atv-feedback').style.display = 'block';
-        setTimeout(() => document.getElementById('atv-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
-    };
-
     window.selectAge = function(range) {
         answers.idade = range;
         track('age_selected', { age: range });
@@ -1637,12 +1701,7 @@
     };
 
     window.selectBody = function(type) {
-        // highlight selected row
-        document.querySelectorAll('.body-row-card').forEach(c => {
-            c.style.borderColor = 'var(--border)';
-            c.style.background = '#fff';
-        });
-        // find clicked card and highlight
+        document.querySelectorAll('.body-row-card').forEach(c => { c.style.borderColor = 'var(--border)'; c.style.background = '#fff'; });
         event.currentTarget.style.borderColor = '#16a34a';
         event.currentTarget.style.background = '#f0fdf4';
         answers.corpo = type;
@@ -1650,22 +1709,21 @@
         setTimeout(() => goScreen(4), 220);
     };
 
-    // ── LOADING ──
     window.startLoading = function() {
         goScreen(24);
         track('loading_started');
         runAnalysis();
     };
 
+    window._runAnalysis = function() { runAnalysis(); };
+
     function runAnalysis() {
         const bars  = ['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'];
         const steps = ['step-a1','step-a2','step-a3','step-a4','step-a5'];
         const testis = ['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];
         let tIdx = 0;
-        const TOTAL = 5000; // 5 seconds
-        const STEP_INTERVAL = TOTAL / bars.length; // 1000ms per step
-
-        // Animate each step bar sequentially
+        const TOTAL = 5000;
+        const STEP_INTERVAL = TOTAL / bars.length;
         bars.forEach((barId, i) => {
             setTimeout(() => {
                 const bar = document.getElementById(barId);
@@ -1676,8 +1734,6 @@
                 }, 800);
             }, i * STEP_INTERVAL);
         });
-
-        // Animate main progress bar smoothly over 5s
         const mainBar = document.getElementById('main-progress-bar');
         let pct = 0;
         const progInterval = setInterval(() => {
@@ -1685,15 +1741,11 @@
             if (mainBar) mainBar.style.width = pct + '%';
             if (pct >= 100) clearInterval(progInterval);
         }, TOTAL / 100);
-
-        // Rotate testimonials every 1.25s (4 slides × 1.25s = 5s)
         const testiInterval = setInterval(() => {
             document.getElementById(testis[tIdx]).style.display = 'none';
             tIdx = (tIdx + 1) % testis.length;
             document.getElementById(testis[tIdx]).style.display = 'block';
         }, 1250);
-
-        // After 5s go to result
         setTimeout(() => {
             clearInterval(testiInterval);
             clearInterval(progInterval);
@@ -1711,8 +1763,7 @@
         track('result_shown');
     }
 
-    // ── CHECKOUT ──
-    window.checkout = function() {
+    window.checkout = window._checkout = function() {
         if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {}, { eventID: sid });
         const ch = localStorage.getItem('tiktok_channel') || currentChannel;
         setDoc(doc(db, 'sessions', sid), {
