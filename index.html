@@ -1552,6 +1552,35 @@
     });
 
     const db = getFirestore(app);
+    const SCREEN_MAP = {
+  1:  'Tela 1 · Idade',
+  2:  'Tela 2 · Prova Social',
+  3:  'Tela 3 · Tipo de Corpo',
+  4:  'Tela 4 · Objetivos',
+  5:  'Tela 5 · Info Assoalho Pélvico',
+  6:  'Tela 6 · Duração da Relação',
+  7:  'Tela 7 · Ejaculação Precoce',
+  8:  'Tela 8 · Controle Ejaculação',
+  9:  'Tela 9 · Treino Desempenho',
+  10: 'Tela 10 · Imagem Método',
+  11: 'Tela 11 · Força da Ereção',
+  12: 'Tela 12 · Tempo de Dificuldade',
+  13: 'Tela 13 · Ereções Matinais',
+  14: 'Tela 14 · Dificuldade Antes do Sexo',
+  '14b': 'Tela 14b · Duas Vezes Seguidas',
+  15: 'Tela 15 · Músculo Bulbocavernoso',
+  16: 'Tela 16 · Imagem Info',
+  17: 'Tela 17 · Atividade Física',
+  18: 'Tela 18 · Pornô',
+  19: 'Tela 19 · Estado Civil',
+  20: 'Tela 20 · Frequência Relações',
+  21: 'Tela 21 · Libido',
+  22: 'Tela 22 · Soluções Rápidas',
+  23: 'Tela 23 · Imagem Final Quiz',
+  24: 'Tela 24 · Análise / Loading',
+  25: 'Tela 25 · Resultado',
+  26: 'Tela 26 · Oferta / Checkout',
+};
     let sid = localStorage.getItem('alpha_sid');
     if (!sid) {
         sid = 's_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
@@ -1607,15 +1636,25 @@
     })();
 
     window.goScreen = function(n) {
-        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-        const el = document.getElementById('screen-' + n);
-        if (el) el.classList.add('active');
-        window.scrollTo(0, 0);
-        const logoBar = document.getElementById('logo-bar');
-        if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
-        const nNum = parseInt(n);
-        updateProgress(isNaN(nNum) ? 99 : nNum);
-    };
+        window.goScreen = function(n) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + n).classList.add('active');
+  window.scrollTo(0, 0);
+ 
+  const logoBar = document.getElementById('logo-bar');
+  if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
+  updateProgress(typeof n === 'number' ? n : 14);
+ 
+  // ── TRACKING DE TELA ──
+  const screenName = SCREEN_MAP[n] || ('Tela ' + n);
+  const screenNum  = typeof n === 'number' ? n : parseInt(n) || n;
+  track('screen_' + n, {
+    currentStep:   screenName,
+    currentScreen: screenNum,
+    lastScreen:    screenNum,
+    screenName:    screenName,
+  });
+};
 
     function updateProgress(n) {
         const wrap = document.getElementById('progress-wrap');
