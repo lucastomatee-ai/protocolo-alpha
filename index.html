@@ -132,12 +132,16 @@
         .bonus-item-body { flex: 1; }
         .bonus-item-name { font-size: 13px; font-weight: 900; color: #fff; line-height: 1.3; }
         .bonus-item-desc { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 2px; line-height: 1.4; }
-        .bonus-gratis { font-size: 9px; font-weight: 900; color: #fbbf24; background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.4); border-radius: 5px; padding: 3px 8px; text-transform: uppercase; letter-spacing: .5px; flex-shrink: 0; white-space: nowrap; }
+        /* ALTERADO: Badge de grátis com preço riscado */
+        .bonus-gratis-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
+        .bonus-price-original { font-size: 9px; font-weight: 800; color: rgba(255,255,255,0.4); text-decoration: line-through; white-space: nowrap; }
+        .bonus-gratis { font-size: 9px; font-weight: 900; color: #fbbf24; background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.4); border-radius: 5px; padding: 3px 8px; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap; }
         .urgency-strip { display: flex; align-items: flex-start; gap: 10px; background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 12px; padding: 13px 14px; margin-bottom: 20px; }
         .urgency-icon { font-size: 20px; flex-shrink: 0; animation: shake 2.5s infinite; }
         @keyframes shake { 0%,85%,100% { transform: rotate(0); } 88% { transform: rotate(-10deg); } 92% { transform: rotate(10deg); } 96% { transform: rotate(-5deg); } }
         .urgency-text { font-size: 12px; font-weight: 700; color: #92400e; line-height: 1.55; }
         .urgency-text strong { color: #c2410c; }
+        /* ALTERADO: price-block sem o preço R$19,90 */
         .price-block { text-align: center; margin-bottom: 20px; }
         .price-original { font-size: 14px; font-weight: 700; color: #9ca3af; margin-bottom: 6px; }
         .price-original s { color: #d1d5db; text-decoration: line-through; }
@@ -159,6 +163,10 @@
         .guarantee-title { font-size: 16px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
         .guarantee-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
         .cta-footer { text-align: center; font-size: 13px; color: var(--text2); font-weight: 700; margin-top: 12px; }
+        /* Ícone especial para o bônus IA */
+        .bonus-emoji-wrap.ia-icon { background: linear-gradient(135deg, rgba(6,182,212,0.25), rgba(109,40,217,0.25)); border: 1px solid rgba(6,182,212,0.4); position: relative; }
+        .ia-icon-inner { font-size: 18px; position: relative; }
+        .ia-badge { position: absolute; top: -4px; right: -4px; width: 14px; height: 14px; background: linear-gradient(135deg, #06b6d4, #7c3aed); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; border: 1px solid rgba(255,255,255,0.3); }
     </style>
 </head>
 <body>
@@ -563,7 +571,7 @@
         </div>
     </div>
 
-    <!-- TELA 24: LOADING -->
+    <!-- TELA 24: LOADING — ALTERAÇÃO 1: TOTAL aumentado de 5000ms para 8000ms -->
     <div id="screen-24" class="screen">
         <div class="card" style="text-align:center;padding:32px 24px;">
             <div style="margin-bottom:28px;">
@@ -627,21 +635,89 @@
             <div class="offer-item"><div class="offer-check">✔</div><div class="offer-text"><div class="offer-title">Orientações de Especialistas em Sexualidade</div><div class="offer-desc">Melhore seu desempenho e traga mais conexão à sua vida sexual.</div></div></div>
             <div class="lifetime-badge"><div style="font-size:22px;flex-shrink:0;">♾️</div><div><div class="lifetime-badge-text">Acesso Vitalício à Plataforma</div><div class="lifetime-badge-sub">Sem mensalidade. Acesse para sempre, de qualquer dispositivo.</div></div></div>
         </div>
+
+        <!-- BÔNUS — ALTERAÇÃO 3 (novo bônus IA) + ALTERAÇÃO 4 (preços riscados) -->
         <div class="bonus-card">
             <div class="bonus-ribbon">🎁 Bônus Premium — Incluídos</div>
-            <div class="bonus-headline">LEVANDO HOJE, VOCÊ<br><span>GANHA +4 BÔNUS EXCLUSIVOS:</span></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">💪</div><div class="bonus-item-body"><div class="bonus-item-name">Exercícios de Expansão Tecidual</div><div class="bonus-item-desc">Aumente e engrosse seu companheiro com técnicas seguras.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">👑</div><div class="bonus-item-body"><div class="bonus-item-name">Guia do Macho Alfa</div><div class="bonus-item-desc">Criado por mulheres com técnicas para fazer elas correrem atrás de você.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">🍃</div><div class="bonus-item-body"><div class="bonus-item-name">Receitas de Potência Caseira</div><div class="bonus-item-desc">Ingredientes que você tem em casa para elevar sua potência.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">🔥</div><div class="bonus-item-body"><div class="bonus-item-name">Técnica do Bicarbonato</div><div class="bonus-item-desc">Receita viralizada que está transformando os homens que já usaram.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
+            <div class="bonus-headline">LEVANDO HOJE, VOCÊ<br><span>GANHA +5 BÔNUS EXCLUSIVOS:</span></div>
+
+            <!-- Bônus 1: Expansão Tecidual -->
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">💪</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Exercícios de Expansão Tecidual</div>
+                    <div class="bonus-item-desc">Aumente e engrosse seu companheiro com técnicas seguras.</div>
+                </div>
+                <div class="bonus-gratis-wrap">
+                    <span class="bonus-price-original">R$ 37,00</span>
+                    <span class="bonus-gratis">GRÁTIS</span>
+                </div>
+            </div>
+
+            <!-- BÔNUS NOVO: Treinador IA -->
+            <div class="bonus-item" style="border: 1px solid rgba(6,182,212,0.45); background: rgba(6,182,212,0.07);">
+                <div class="bonus-emoji-wrap ia-icon">
+                    <span class="ia-icon-inner">📱</span>
+                    <span class="ia-badge">⚡</span>
+                </div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name" style="color:#67e8f9;">Treinador IA: Massa e Definição</div>
+                    <div class="bonus-item-desc">O plano de calistenia inteligente para ganhar músculos e queimar gordura em casa.</div>
+                </div>
+                <div class="bonus-gratis-wrap">
+                    <span class="bonus-price-original">R$ 47,00</span>
+                    <span class="bonus-gratis" style="color:#67e8f9;background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.5);">GRÁTIS</span>
+                </div>
+            </div>
+
+            <!-- Bônus 3: Guia do Macho Alfa -->
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">👑</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Guia do Macho Alfa</div>
+                    <div class="bonus-item-desc">Criado por mulheres com técnicas para fazer elas correrem atrás de você.</div>
+                </div>
+                <div class="bonus-gratis-wrap">
+                    <span class="bonus-price-original">R$ 27,00</span>
+                    <span class="bonus-gratis">GRÁTIS</span>
+                </div>
+            </div>
+
+            <!-- Bônus 4: Receitas de Potência -->
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">🍃</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Receitas de Potência Caseira</div>
+                    <div class="bonus-item-desc">Ingredientes que você tem em casa para elevar sua potência.</div>
+                </div>
+                <div class="bonus-gratis-wrap">
+                    <span class="bonus-price-original">R$ 19,00</span>
+                    <span class="bonus-gratis">GRÁTIS</span>
+                </div>
+            </div>
+
+            <!-- Bônus 5: Técnica do Bicarbonato -->
+            <div class="bonus-item">
+                <div class="bonus-emoji-wrap">🔥</div>
+                <div class="bonus-item-body">
+                    <div class="bonus-item-name">Técnica do Bicarbonato</div>
+                    <div class="bonus-item-desc">Receita viralizada que está transformando os homens que já usaram.</div>
+                </div>
+                <div class="bonus-gratis-wrap">
+                    <span class="bonus-price-original">R$ 17,00</span>
+                    <span class="bonus-gratis">GRÁTIS</span>
+                </div>
+            </div>
         </div>
-        <div class="urgency-strip"><div class="urgency-icon">⏳</div><div class="urgency-text"><strong>Atenção:</strong> Esta oferta com os 4 bônus está disponível <strong>apenas nesta página</strong>. Ao sair, o desconto e os bônus são removidos automaticamente.</div></div>
+
+        <div class="urgency-strip"><div class="urgency-icon">⏳</div><div class="urgency-text"><strong>Atenção:</strong> Esta oferta com os 5 bônus está disponível <strong>apenas nesta página</strong>. Ao sair, o desconto e os bônus são removidos automaticamente.</div></div>
+
+        <!-- ALTERAÇÃO 2: Removido o preço R$19,90, mantendo apenas o CTA -->
         <div class="price-block">
-            <div class="price-original">Valor Total (Método + Bônus): <s>R$ 147,00</s></div>
+            <div class="price-original">Valor Total (Método + Bônus): <s>R$ 294,00</s></div>
             <div class="price-tag-label">⚡ Apenas hoje nesta página</div>
-            <div class="price-main"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
         </div>
-        <button class="cta-pulse" id="cta-btn" onclick="checkout()">🔓 QUERO MEU ACESSO IMEDIATO<br>POR R$ 19,90</button>
+        <button class="cta-pulse" id="cta-btn" onclick="checkout()">🔓 QUERO MEU ACESSO IMEDIATO</button>
         <div class="cta-sub-text">🔒 Pagamento 100% seguro e criptografado</div>
         <div class="seals-row">
             <div class="seal"><div class="seal-icon">🔐</div><div class="seal-label">Compra 100% Segura</div></div>
@@ -655,11 +731,6 @@
 
 </div><!-- /main -->
 
-<!-- ════════════════════════════════════════════════════════
-     SCRIPT MODULE — VERSÃO CORRIGIDA
-     Bug corrigido: goScreen estava definida duas vezes
-     (uma dentro da outra), causando o track() nunca ser chamado
-     ════════════════════════════════════════════════════════ -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -675,7 +746,6 @@ const app = initializeApp({
 
 const db = getFirestore(app);
 
-// ── MAPA DE TELAS ──
 const SCREEN_MAP = {
     1:'Tela 1 · Idade', 2:'Tela 2 · Prova Social', 3:'Tela 3 · Tipo de Corpo',
     4:'Tela 4 · Objetivos', 5:'Tela 5 · Assoalho Pélvico', 6:'Tela 6 · Duração Relação',
@@ -692,14 +762,12 @@ const SCREEN_MAP = {
     25:'Tela 25 · Resultado', 26:'Tela 26 · Oferta/Checkout'
 };
 
-// ── SESSION ID ──
 let sid = localStorage.getItem('alpha_sid');
 if (!sid) {
     sid = 's_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
     localStorage.setItem('alpha_sid', sid);
 }
 
-// ── CANAL ──
 const DOMAIN_CHANNEL_MAP = {
     'method-alpha.vercel.app':  'cajado-supremo',
     'metodo-alpha.vercel.app':  'doutor-cajado',
@@ -717,7 +785,6 @@ localStorage.setItem('tiktok_channel', currentChannel);
 
 let answers = {};
 
-// ── TRACK ──
 async function track(e, d = {}) {
     try {
         await setDoc(doc(db, 'sessions', sid), {
@@ -728,7 +795,6 @@ async function track(e, d = {}) {
     } catch(err) {}
 }
 
-// ── INIT SESSION ──
 (async () => {
     try {
         await setDoc(doc(db, 'sessions', sid), {
@@ -745,7 +811,6 @@ async function track(e, d = {}) {
     } catch(err) {}
 })();
 
-// ── UPDATE PROGRESS ──
 function updateProgress(n) {
     const wrap = document.getElementById('progress-wrap');
     const fill = document.getElementById('prog-fill');
@@ -764,25 +829,18 @@ function updateProgress(n) {
     }
 }
 
-// ══════════════════════════════════════════════════
-// goScreen — VERSÃO CORRIGIDA (definição única)
-// ══════════════════════════════════════════════════
 window.goScreen = function(n) {
-    // 1. Troca de tela visualmente
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     const el = document.getElementById('screen-' + n);
     if (el) el.classList.add('active');
     window.scrollTo(0, 0);
 
-    // 2. Logo bar
     const logoBar = document.getElementById('logo-bar');
     if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
 
-    // 3. Progress bar
     const nNum = typeof n === 'number' ? n : parseInt(n);
     updateProgress(isNaN(nNum) ? 99 : nNum);
 
-    // 4. ── TRACKING DE TELA NO FIREBASE ──
     const screenName = SCREEN_MAP[n] || ('Tela ' + n);
     const screenNum  = typeof n === 'number' ? n : (parseInt(n) || n);
     track('screen_' + n, {
@@ -793,7 +851,6 @@ window.goScreen = function(n) {
     });
 };
 
-// ── QUESTION HANDLERS ──
 window.selectOpt = function(el, key, val, currentScreen, nextScreen) {
     const parent = el.closest('.options, .scale-row');
     if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(b => b.classList.remove('selected'));
@@ -877,7 +934,6 @@ window.selectBody = function(type) {
     setTimeout(() => goScreen(4), 220);
 };
 
-// ── LOADING ──
 window.startLoading = function() {
     goScreen(24);
     track('loading_started');
@@ -889,7 +945,8 @@ function runAnalysis() {
     const steps = ['step-a1','step-a2','step-a3','step-a4','step-a5'];
     const testis = ['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];
     let tIdx = 0;
-    const TOTAL = 5000;
+    // ALTERAÇÃO 1: TOTAL aumentado de 5000ms para 8000ms (+3 segundos)
+    const TOTAL = 8000;
     bars.forEach((barId, i) => {
         setTimeout(() => {
             const bar = document.getElementById(barId);
@@ -911,7 +968,7 @@ function runAnalysis() {
         document.getElementById(testis[tIdx]).style.display = 'none';
         tIdx = (tIdx + 1) % testis.length;
         document.getElementById(testis[tIdx]).style.display = 'block';
-    }, 1250);
+    }, 2000);
     setTimeout(() => {
         clearInterval(testiInterval);
         clearInterval(progInterval);
@@ -929,7 +986,6 @@ function animateResults() {
     track('result_shown');
 }
 
-// ── CHECKOUT ──
 window.checkout = function() {
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {}, { eventID: sid });
     const ch = localStorage.getItem('tiktok_channel') || currentChannel;
