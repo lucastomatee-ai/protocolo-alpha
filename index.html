@@ -141,18 +141,6 @@
         .bonus-item-name { font-size: 13px; font-weight: 900; color: #fff; line-height: 1.3; }
         .bonus-item-desc { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 2px; line-height: 1.4; }
         .bonus-gratis { font-size: 9px; font-weight: 900; color: #fbbf24; background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.4); border-radius: 5px; padding: 3px 8px; text-transform: uppercase; letter-spacing: .5px; flex-shrink: 0; white-space: nowrap; }
-        .urgency-strip { display: flex; align-items: flex-start; gap: 10px; background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 12px; padding: 13px 14px; margin-bottom: 20px; }
-        .urgency-icon { font-size: 20px; flex-shrink: 0; animation: shake 2.5s infinite; }
-        @keyframes shake { 0%,85%,100% { transform: rotate(0); } 88% { transform: rotate(-10deg); } 92% { transform: rotate(10deg); } 96% { transform: rotate(-5deg); } }
-        .urgency-text { font-size: 12px; font-weight: 700; color: #92400e; line-height: 1.55; }
-        .urgency-text strong { color: #c2410c; }
-        .price-block { text-align: center; margin-bottom: 20px; }
-        .price-original { font-size: 14px; font-weight: 700; color: #9ca3af; margin-bottom: 6px; }
-        .price-original s { color: #d1d5db; text-decoration: line-through; }
-        .price-tag-label { display: inline-block; background: #dcfce7; border: 1px solid #86efac; border-radius: 20px; font-size: 10px; font-weight: 900; color: var(--primary-dark); padding: 4px 14px; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 8px; }
-        .price-main { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: var(--primary); line-height: 1; letter-spacing: -1px; text-shadow: 0 2px 20px rgba(22,163,74,.25); }
-        .price-main sup { font-family: 'Nunito', sans-serif; font-size: 22px; font-weight: 900; vertical-align: super; line-height: 1; letter-spacing: 0; }
-        .price-main sub { font-family: 'Nunito', sans-serif; font-size: 26px; font-weight: 900; letter-spacing: 0; }
         .cta-pulse { display: block; width: 100%; padding: 20px 16px; background: linear-gradient(135deg, #15803d 0%, #22c55e 100%); border: none; border-radius: 16px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 17px; color: #fff; text-align: center; cursor: pointer; line-height: 1.35; letter-spacing: .3px; position: relative; overflow: hidden; animation: cta-pulse 2.2s infinite; box-shadow: 0 8px 30px rgba(22,163,74,.45); text-decoration: none; }
         .cta-pulse::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.14), transparent); }
         .cta-pulse:active { transform: scale(.98); }
@@ -167,6 +155,85 @@
         .guarantee-title { font-size: 16px; font-weight: 900; color: var(--primary-dark); margin-bottom: 6px; }
         .guarantee-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
         .cta-footer { text-align: center; font-size: 13px; color: var(--text2); font-weight: 700; margin-top: 12px; }
+
+        /* ─── URGÊNCIA NOVA ─── */
+        .urgency-top-bar {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+            border-radius: 16px;
+            padding: 16px 18px;
+            margin-bottom: 16px;
+            border: 2px solid #ef4444;
+            position: relative;
+            overflow: hidden;
+        }
+        .urgency-top-bar::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,0.02) 8px, rgba(255,255,255,0.02) 16px);
+        }
+        .urgency-label {
+            font-size: 10px; font-weight: 900; color: #fca5a5;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            display: flex; align-items: center; gap: 6px; margin-bottom: 10px;
+        }
+        .urgency-label::before { content: '🚨'; font-size: 14px; }
+        .urgency-main-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px; color: #fff; letter-spacing: 0.5px; line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .urgency-main-text span { color: #fcd34d; }
+
+        /* Barra de vagas */
+        .vagas-wrap { margin-bottom: 10px; }
+        .vagas-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .vagas-label { font-size: 12px; font-weight: 800; color: #fca5a5; }
+        .vagas-count { font-size: 13px; font-weight: 900; color: #fff; }
+        .vagas-count strong { color: #fbbf24; font-size: 16px; }
+        .vagas-bar { height: 10px; background: rgba(255,255,255,0.12); border-radius: 10px; overflow: hidden; }
+        .vagas-fill { height: 100%; background: linear-gradient(90deg, #ef4444, #f97316); border-radius: 10px; transition: width 0.6s ease; }
+        .vagas-indicators { display: flex; gap: 4px; margin-top: 8px; }
+        .vaga-dot {
+            width: 22px; height: 22px; border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 11px; font-weight: 900; flex-shrink: 0;
+        }
+        .vaga-dot.taken { background: rgba(239,68,68,0.4); color: #fca5a5; border: 1px solid rgba(239,68,68,0.5); }
+        .vaga-dot.free { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); }
+        .vaga-dot.you { background: #22c55e; color: #fff; border: 1px solid #16a34a; animation: pulse-you 1.5s infinite; }
+        @keyframes pulse-you { 0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.6);} 50%{box-shadow:0 0 0 5px rgba(34,197,94,0);} }
+
+        /* Timer */
+        .timer-row {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            background: rgba(0,0,0,0.3); border-radius: 10px; padding: 10px 14px;
+            margin-top: 4px;
+        }
+        .timer-label { font-size: 11px; font-weight: 700; color: #fca5a5; }
+        .timer-display { display: flex; align-items: center; gap: 4px; }
+        .timer-block {
+            background: #fff; border-radius: 6px; padding: 4px 8px;
+            font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+            color: #991b1b; min-width: 36px; text-align: center; line-height: 1;
+        }
+        .timer-sep { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fca5a5; line-height: 1; }
+
+        /* Preço riscado antigo */
+        .price-compare-row {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; margin-bottom: 6px;
+        }
+        .price-old-badge {
+            background: #fee2e2; border: 1.5px solid #fca5a5; border-radius: 8px;
+            padding: 4px 12px; font-size: 14px; font-weight: 900; color: #ef4444;
+            text-decoration: line-through;
+        }
+        .price-discount-badge {
+            background: #15803d; border-radius: 8px;
+            padding: 4px 12px; font-size: 12px; font-weight: 900; color: #fff;
+        }
+
+        @keyframes shake { 0%,85%,100% { transform: rotate(0); } 88% { transform: rotate(-10deg); } 92% { transform: rotate(10deg); } 96% { transform: rotate(-5deg); } }
     </style>
 </head>
 <body>
@@ -623,6 +690,38 @@
 
     <!-- TELA 26: OFERTA -->
     <div id="screen-26" class="screen">
+
+        <!-- URGÊNCIA TOPO — VAGAS + TIMER -->
+        <div class="urgency-top-bar">
+            <div class="urgency-label">Oferta por tempo limitado</div>
+            <div class="urgency-main-text">
+                Apenas <span id="vagas-restantes-title">4</span> vagas restam<br>neste preço especial!
+            </div>
+
+            <!-- Barra de vagas -->
+            <div class="vagas-wrap">
+                <div class="vagas-meta">
+                    <span class="vagas-label">🔥 Vagas preenchidas</span>
+                    <span class="vagas-count"><strong id="vagas-tomadas-num">7</strong>/10</span>
+                </div>
+                <div class="vagas-bar">
+                    <div class="vagas-fill" id="vagas-fill" style="width:70%"></div>
+                </div>
+                <!-- Dots visuais das vagas -->
+                <div class="vagas-indicators" id="vagas-dots"></div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="timer-row">
+                <span class="timer-label">⏰ Oferta expira em:</span>
+                <div class="timer-display">
+                    <div class="timer-block" id="timer-min">14</div>
+                    <div class="timer-sep">:</div>
+                    <div class="timer-block" id="timer-sec">59</div>
+                </div>
+            </div>
+        </div>
+
         <div class="offer-hero">
             <div class="offer-hero-eyebrow">✅ Plano Personalizado Gerado</div>
             <div class="offer-hero-title">Seu Plano de Treinamento<br><span>P-Alpha está Pronto!</span></div>
@@ -643,14 +742,29 @@
             <div class="bonus-item"><div class="bonus-emoji-wrap">🍃</div><div class="bonus-item-body"><div class="bonus-item-name">Receitas de Potência Caseira</div><div class="bonus-item-desc">Ingredientes que você tem em casa para elevar sua potência.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
             <div class="bonus-item"><div class="bonus-emoji-wrap">🔥</div><div class="bonus-item-body"><div class="bonus-item-name">Técnica do Bicarbonato</div><div class="bonus-item-desc">Receita viralizada que está transformando os homens que já usaram.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
         </div>
-        <div class="urgency-strip"><div class="urgency-icon">⏳</div><div class="urgency-text"><strong>Atenção:</strong> Esta oferta com os 4 bônus está disponível <strong>apenas nesta página</strong>. Ao sair, o desconto e os bônus são removidos automaticamente.</div></div>
+
+        <!-- PREÇO COM COMPARAÇÃO -->
         <div class="price-block">
-            <div class="price-original">Valor Total (Método + Bônus): <s>R$ 147,00</s></div>
-            <div class="price-tag-label">⚡ Apenas hoje nesta página</div>
-            <div class="price-main"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
+            <div class="price-compare-row">
+                <div class="price-old-badge">R$ 47,90</div>
+                <div class="price-discount-badge">🔥 79% OFF</div>
+            </div>
+            <div class="price-tag-label">⚡ Apenas para os <span id="vagas-restantes-price">3</span> últimos hoje</div>
+            <div class="price-main"><sup>R$&thinsp;</sup>9<sub>,90</sub></div>
+            <div style="font-size:12px;color:var(--text2);font-weight:700;margin-top:4px;">Pagamento único · Acesso vitalício</div>
         </div>
-        <button class="cta-pulse" id="cta-btn" onclick="checkout()">🔓 QUERO MEU ACESSO IMEDIATO<br>POR R$ 19,90</button>
+
+        <button class="cta-pulse" id="cta-btn" onclick="checkout()">🔓 QUERO MEU ACESSO IMEDIATO<br>POR R$ 9,90 — ÚLTIMA CHANCE!</button>
         <div class="cta-sub-text">🔒 Pagamento 100% seguro e criptografado</div>
+
+        <!-- MINI URGÊNCIA ABAIXO DO CTA -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;background:#fff7ed;border:1.5px solid #fed7aa;border-radius:12px;padding:11px 14px;margin-top:12px;">
+            <span style="font-size:18px;animation:shake 2.5s infinite;">⏳</span>
+            <span style="font-size:12px;font-weight:700;color:#92400e;line-height:1.5;">
+                <strong style="color:#c2410c;">Atenção:</strong> Ao sair desta página o desconto e os bônus são <strong style="color:#c2410c;">removidos automaticamente</strong>. Não perca essa oportunidade!
+            </span>
+        </div>
+
         <div class="seals-row">
             <div class="seal"><div class="seal-icon">🔐</div><div class="seal-label">Compra 100% Segura</div></div>
             <div class="seal"><div class="seal-icon">⚡</div><div class="seal-label">Acesso Imediato</div></div>
@@ -678,7 +792,6 @@ const app = initializeApp({
 
 const db = getFirestore(app);
 
-// ── MAPA DE TELAS ──
 const SCREEN_MAP = {
     1:'Tela 1 · Idade', 2:'Tela 2 · Prova Social', 3:'Tela 3 · Tipo de Corpo',
     4:'Tela 4 · Objetivos', 5:'Tela 5 · Assoalho Pélvico', 6:'Tela 6 · Duração Relação',
@@ -695,14 +808,12 @@ const SCREEN_MAP = {
     25:'Tela 25 · Resultado', 26:'Tela 26 · Oferta/Checkout'
 };
 
-// ── SESSION ID ──
 let sid = localStorage.getItem('alpha_sid');
 if (!sid) {
     sid = 's_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
     localStorage.setItem('alpha_sid', sid);
 }
 
-// ── CANAL ──
 const DOMAIN_CHANNEL_MAP = {
     'method-alpha.vercel.app':  'cajado-supremo',
     'metodo-alpha.vercel.app':  'doutor-cajado',
@@ -720,7 +831,6 @@ localStorage.setItem('tiktok_channel', currentChannel);
 
 let answers = {};
 
-// ── TRACK ──
 async function track(e, d = {}) {
     try {
         await setDoc(doc(db, 'sessions', sid), {
@@ -731,7 +841,6 @@ async function track(e, d = {}) {
     } catch(err) {}
 }
 
-// ── INIT SESSION ──
 (async () => {
     try {
         await setDoc(doc(db, 'sessions', sid), {
@@ -748,7 +857,6 @@ async function track(e, d = {}) {
     } catch(err) {}
 })();
 
-// ── UPDATE PROGRESS ──
 function updateProgress(n) {
     const wrap = document.getElementById('progress-wrap');
     const fill = document.getElementById('prog-fill');
@@ -767,25 +875,18 @@ function updateProgress(n) {
     }
 }
 
-// ══════════════════════════════════════════════════
-// goScreen — VERSÃO CORRIGIDA (definição única)
-// ══════════════════════════════════════════════════
 window.goScreen = function(n) {
-    // 1. Troca de tela visualmente
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     const el = document.getElementById('screen-' + n);
     if (el) el.classList.add('active');
     window.scrollTo(0, 0);
 
-    // 2. Logo bar
     const logoBar = document.getElementById('logo-bar');
     if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
 
-    // 3. Progress bar
     const nNum = typeof n === 'number' ? n : parseInt(n);
     updateProgress(isNaN(nNum) ? 99 : nNum);
 
-    // 4. ── TRACKING DE TELA NO FIREBASE ──
     const screenName = SCREEN_MAP[n] || ('Tela ' + n);
     const screenNum  = typeof n === 'number' ? n : (parseInt(n) || n);
     track('screen_' + n, {
@@ -794,9 +895,11 @@ window.goScreen = function(n) {
         lastScreen:    screenNum,
         screenName:    screenName,
     });
+
+    // Inicia urgência ao entrar na tela de oferta
+    if (n === 26) initUrgency();
 };
 
-// ── QUESTION HANDLERS ──
 window.selectOpt = function(el, key, val, currentScreen, nextScreen) {
     const parent = el.closest('.options, .scale-row');
     if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(b => b.classList.remove('selected'));
@@ -880,7 +983,6 @@ window.selectBody = function(type) {
     setTimeout(() => goScreen(4), 220);
 };
 
-// ── LOADING ──
 window.startLoading = function() {
     goScreen(24);
     track('loading_started');
@@ -932,7 +1034,122 @@ function animateResults() {
     track('result_shown');
 }
 
-// ── CHECKOUT ──
+// ─────────────────────────────────────────────
+// URGÊNCIA: VAGAS + COUNTDOWN TIMER
+// ─────────────────────────────────────────────
+function initUrgency() {
+    // Recupera estado salvo ou inicia do zero
+    const storageKey = 'alpha_urgency_v2';
+    let state = null;
+    try { state = JSON.parse(localStorage.getItem(storageKey)); } catch(e) {}
+
+    const now = Date.now();
+
+    if (!state) {
+        // Primeira vez: começa com 7 vagas tomadas, timer em 14:59
+        state = {
+            takenStart: 7,
+            taken: 7,
+            timerEnd: now + (14 * 60 + 59) * 1000,
+            lastIncrement: now
+        };
+        localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    // Recalcula taken com base no tempo decorrido (incrementa ~1 a cada 2-4min)
+    const elapsedMin = (now - state.lastIncrement) / 60000;
+    if (elapsedMin >= 2 && state.taken < 9) {
+        state.taken = Math.min(9, state.taken + Math.floor(elapsedMin / 2));
+        state.lastIncrement = now;
+        localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    // Se o timer já expirou, reinicia com 8/10 e novo timer curto
+    if (now > state.timerEnd) {
+        state.taken = Math.min(9, state.taken);
+        state.timerEnd = now + (9 * 60 + 47) * 1000;
+        localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    const totalVagas = 10;
+    let taken = state.taken;
+    let remaining = totalVagas - taken;
+
+    // Atualiza textos de vagas
+    function updateVagasUI() {
+        remaining = totalVagas - taken;
+        const pct = (taken / totalVagas) * 100;
+
+        const elTitle = document.getElementById('vagas-restantes-title');
+        const elNum   = document.getElementById('vagas-tomadas-num');
+        const elFill  = document.getElementById('vagas-fill');
+        const elPrice = document.getElementById('vagas-restantes-price');
+        if (elTitle) elTitle.textContent = remaining;
+        if (elNum)   elNum.textContent   = taken;
+        if (elFill)  elFill.style.width  = pct + '%';
+        if (elPrice) elPrice.textContent = remaining;
+
+        // Redesenha dots
+        const container = document.getElementById('vagas-dots');
+        if (container) {
+            container.innerHTML = '';
+            for (let i = 0; i < totalVagas; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'vaga-dot';
+                if (i < taken) {
+                    dot.classList.add('taken');
+                    dot.textContent = '✕';
+                } else if (i === taken) {
+                    dot.classList.add('you');
+                    dot.textContent = '→';
+                } else {
+                    dot.classList.add('free');
+                    dot.textContent = (i + 1);
+                }
+                container.appendChild(dot);
+            }
+        }
+    }
+
+    updateVagasUI();
+
+    // Incremento periódico de vagas (a cada 3min incrementa 1)
+    const vagasInterval = setInterval(() => {
+        if (taken < 9) {
+            taken++;
+            state.taken = taken;
+            state.lastIncrement = Date.now();
+            localStorage.setItem(storageKey, JSON.stringify(state));
+            updateVagasUI();
+        }
+    }, 3 * 60 * 1000);
+
+    // Countdown timer
+    function updateTimer() {
+        const now2 = Date.now();
+        let diff = Math.max(0, Math.floor((state.timerEnd - now2) / 1000));
+        const m = Math.floor(diff / 60);
+        const s = diff % 60;
+        const minEl = document.getElementById('timer-min');
+        const secEl = document.getElementById('timer-sec');
+        if (minEl) minEl.textContent = String(m).padStart(2, '0');
+        if (secEl) secEl.textContent = String(s).padStart(2, '0');
+
+        if (diff <= 0) {
+            // Timer expirou: redefine para 9min47 e incrementa vaga
+            state.timerEnd = Date.now() + (9 * 60 + 47) * 1000;
+            if (taken < 9) { taken++; state.taken = taken; updateVagasUI(); }
+            localStorage.setItem(storageKey, JSON.stringify(state));
+        }
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+}
+
+// ─────────────────────────────────────────────
+// CHECKOUT
+// ─────────────────────────────────────────────
 window.checkout = function() {
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {}, { eventID: sid });
     const ch = localStorage.getItem('tiktok_channel') || currentChannel;
