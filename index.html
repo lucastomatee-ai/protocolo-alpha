@@ -935,26 +935,19 @@ function animateResults() {
 // ── CHECKOUT ──
 window.checkout = function() {
     if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {}, { eventID: sid });
-    
-    // Captura o que está na barra de endereço AGORA
-    const queryAtual = window.location.search; 
-    
-    // Link básico com seu rastreio do Firebase
-    let linkFinal = `https://pay.wiapy.com/P3vfkw_B9?utm_source=${sid}&external_id=${sid}&event_id=${sid}`;
-
-    // Se existir qualquer UTM ou parâmetro do Facebook, ele adiciona ao link
-    if (queryAtual) {
-        const parametrosExtras = queryAtual.replace('?', '&').replace(/utm_source=[^&]*/g, '');
-        linkFinal += parametrosExtras;
-    }
-
-    // Dá o comando final para a Utmify carimbar
-    if (window.utmify && typeof window.utmify.getTrackingUrl === 'function') {
-        linkFinal = window.utmify.getTrackingUrl(linkFinal);
-    }
-
+    const ch = localStorage.getItem('tiktok_channel') || currentChannel;
+    setDoc(doc(db, 'sessions', sid), {
+        'events.checkout': serverTimestamp(),
+        currentStep: 'checkout',
+        currentScreen: 26,
+        lastScreen: 26,
+        screenName: 'Tela 26 · Oferta/Checkout',
+        channel: ch,
+        channelName: CHANNEL_NAMES[ch] || ch,
+        lastActivity: serverTimestamp()
+    }, { merge: true });
     setTimeout(() => {
-        window.location.href = linkFinal;
+        window.location.href = `https://pay.wiapy.com/P3vfkw_B9?utm_source=${sid}&external_id=${sid}&event_id=${sid}`;
     }, 400);
 };
 </script>
