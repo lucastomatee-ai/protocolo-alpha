@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Protocolo Alpha</title>
+
+    <!-- ═══════════════════════════════════════════════════════
+         AJUSTE 1: UTMify movido para o TOPO do <head>,
+         ANTES do Pixel do Facebook, para garantir que
+         window.utmify esteja disponível quando checkout()
+         for chamado.
+         AJUSTE 2: atributo "defer" REMOVIDO — o script agora
+         carrega de forma síncrona/async imediata, sem aguardar
+         o parse completo do HTML.
+    ════════════════════════════════════════════════════════ -->
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+    ></script>
+
+    <!-- Facebook Pixel (carrega após UTMify) -->
     <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -14,11 +32,15 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1819107922060720&ev=PageView&noscript=1"/></noscript>
-    <!-- Utmify Pixel -->
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
-    <!-- Firebase Compat SDK (sem type=module, sem imports) -->
+
+    <!-- ═══════════════════════════════════════════════════
+         AJUSTE 2: Firebase Compat SDK (sem type="module")
+         Carregado via <script src> para compatibilidade
+         com arquivos HTML simples (sem bundler/server).
+    ════════════════════════════════════════════════════ -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -196,7 +218,7 @@
             <div style="text-align: center; margin-bottom: 28px;">
                 <div style="display: inline-flex; align-items: center; gap: 14px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1.5px solid #86efac; border-radius: 20px; padding: 16px 28px; box-shadow: 0 4px 20px rgba(22,163,74,0.12);">
                     <div style="width: 52px; height: 52px; background: linear-gradient(135deg, #15803d 0%, #22c55e 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(22,163,74,0.4); flex-shrink: 0;">
-                        <span style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 1px; line-height: 1;">P&#945;</span>
+                        <span style="font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: #fff; letter-spacing: 1px; line-height: 1;">Pα</span>
                     </div>
                     <div style="text-align: left;">
                         <div style="font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #15803d; letter-spacing: 4px; line-height: 1;">PROTOCOLO ALPHA</div>
@@ -205,27 +227,27 @@
                 </div>
             </div>
             <div style="background: #f9fafb; border-left: 4px solid #22c55e; border-radius: 0 12px 12px 0; padding: 16px 18px; margin-bottom: 24px; line-height: 1.7; font-size: 15px; color: #374151;">
-                Voc&#234; foi <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">enganado</span>: o problema n&#227;o &#233; o que voc&#234; tem, mas o que seu corpo <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">bloqueou</span>. N&#227;o &#233; gen&#233;tica. N&#227;o &#233; <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">idade</span>. &#201; <span style="color: #15803d; font-weight: 900;">compress&#227;o estrutural</span>, causada por estresse, h&#225;bitos e alimenta&#231;&#227;o.
+                Você foi <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">enganado</span>: o problema não é o que você tem, mas o que seu corpo <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">bloqueou</span>. Não é genética. Não é <span style="background: #fef08a; color: #713f12; font-weight: 900; padding: 1px 5px; border-radius: 4px;">idade</span>. É <span style="color: #15803d; font-weight: 900;">compressão estrutural</span>, causada por estresse, hábitos e alimentação.
             </div>
             <div class="divider"></div>
             <div class="q-text" style="text-align: center; margin-bottom: 4px;">Qual a sua faixa de idade?</div>
-            <div class="q-hint" style="text-align: center; margin-bottom: 14px;">Selecione para come&#231;ar sua avalia&#231;&#227;o personalizada</div>
+            <div class="q-hint" style="text-align: center; margin-bottom: 14px;">Selecione para começar sua avaliação personalizada</div>
             <div class="age-grid">
                 <div class="age-card" onclick="selectAge('18-30')">
                     <img src="https://i.im.ge/e4ZT1C/grok-image-d995384f-ce47-4909-845b-bf499b42a5ee.jpg" alt="18-30 anos">
-                    <div class="age-card-label"><span>18 &#8211; 30 anos</span><span class="arrow">&#8250;</span></div>
+                    <div class="age-card-label"><span>18 – 30 anos</span><span class="arrow">›</span></div>
                 </div>
                 <div class="age-card" onclick="selectAge('31-45')">
                     <img src="https://i.im.ge/e4ZMH4/grok-image-4b767c5c-d482-40ef-ab74-19815eeaecb1.jpg" alt="31-45 anos">
-                    <div class="age-card-label"><span>31 &#8211; 45 anos</span><span class="arrow">&#8250;</span></div>
+                    <div class="age-card-label"><span>31 – 45 anos</span><span class="arrow">›</span></div>
                 </div>
                 <div class="age-card" onclick="selectAge('46-55')">
                     <img src="https://i.im.ge/e4WGaY/grok-image-aa3e0cac-83db-4726-b35c-69d3d61a0242_1_.jpg" alt="46-55 anos">
-                    <div class="age-card-label"><span>46 &#8211; 55 anos</span><span class="arrow">&#8250;</span></div>
+                    <div class="age-card-label"><span>46 – 55 anos</span><span class="arrow">›</span></div>
                 </div>
                 <div class="age-card" onclick="selectAge('56+')">
                     <img src="https://i.im.ge/e4WeAD/grok-image-d11e7f82-b9c0-4800-845b-d9907bbc73bc.jpg" alt="56+ anos">
-                    <div class="age-card-label"><span>56+ anos</span><span class="arrow">&#8250;</span></div>
+                    <div class="age-card-label"><span>56+ anos</span><span class="arrow">›</span></div>
                 </div>
             </div>
         </div>
@@ -237,7 +259,7 @@
             <div class="million-section">
                 <img src="https://i.im.ge/eBqIeq/grok-image-049820a1-faae-4f84-b631-68b3546778bf.jpg" alt="Resultados" class="million-img" onerror="this.style.display='none'">
             </div>
-            <button class="btn" onclick="goScreen(3)">Continuar minha avalia&#231;&#227;o &#8594;</button>
+            <button class="btn" onclick="goScreen(3)">Continuar minha avaliação →</button>
         </div>
     </div>
 
@@ -245,7 +267,7 @@
     <div id="screen-3" class="screen">
         <div class="card">
             <div class="q-number">Passo 2</div>
-            <div class="q-text">Qual &#233; o seu tipo de corpo atualmente?</div>
+            <div class="q-text">Qual é o seu tipo de corpo atualmente?</div>
             <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 20px;">
                 <div onclick="selectBody('magro')" style="display:flex;align-items:center;gap:14px;border:2px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;background:#fff;transition:all 0.2s;" class="body-row-card">
                     <img src="https://i.im.ge/e4ZrXP/37c8f991-392f-4392-81d1-2eefb5cdd8e3.jpg" alt="Magro" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
@@ -253,9 +275,9 @@
                 </div>
                 <div onclick="selectBody('medio_forte')" style="display:flex;align-items:center;gap:14px;border:2px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;background:#fff;transition:all 0.2s;" class="body-row-card">
                     <img src="https://i.im.ge/e4ZXZp/13fe6269-c2e5-411c-af1d-fe2d06e55756.jpg" alt="Médio/Forte" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
-                    <div style="font-weight:800;font-size:16px;color:var(--text);">M&#233;dio / Forte</div>
+                    <div style="font-weight:800;font-size:16px;color:var(--text);">Médio / Forte</div>
                 </div>
-                <div onclick="selectBody('acima_peso')" style="display:flex;align-items:center;gap:14px;border:2px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;background:#fff;transition:all 0.2s;" class="body-row-card">
+                <div onclick="selectBody('acima_peso')" style="display:flex;align-items:center;gap:14px;border:2px solid var(--border);border-radius:16px;overflow:hidden;cursor:hidden;background:#fff;transition:all 0.2s;" class="body-row-card">
                     <img src="https://i.im.ge/e4Zowq/16abdaea-00c6-4b50-a730-a6fb8d6fa24a.jpg" alt="Acima do Peso" style="width:80px;height:80px;object-fit:cover;flex-shrink:0;display:block;">
                     <div style="font-weight:800;font-size:16px;color:var(--text);">Acima do Peso</div>
                 </div>
@@ -268,22 +290,22 @@
         <div class="card">
             <div class="q-number">Passo 3</div>
             <div class="q-text">Escolha seus objetivos</div>
-            <div class="q-hint">Pode escolher mais de uma op&#231;&#227;o</div>
+            <div class="q-hint">Pode escolher mais de uma opção</div>
             <div class="multi-opts" id="goals-opts">
-                <div class="multi-opt" onclick="toggleMulti(this,'durar_mais')"><div class="checkbox"></div><span>&#9201;&#65039; Durar mais durante o sexo</span></div>
-                <div class="multi-opt" onclick="toggleMulti(this,'orgasmos')"><div class="checkbox"></div><span>&#128293; Ter orgasmos mais intensos</span></div>
-                <div class="multi-opt" onclick="toggleMulti(this,'erecoes')"><div class="checkbox"></div><span>&#128170; Ter ere&#231;&#245;es mais firmes</span></div>
+                <div class="multi-opt" onclick="toggleMulti(this,'durar_mais')"><div class="checkbox"></div><span>⏱️ Durar mais durante o sexo</span></div>
+                <div class="multi-opt" onclick="toggleMulti(this,'orgasmos')"><div class="checkbox"></div><span>🔥 Ter orgasmos mais intensos</span></div>
+                <div class="multi-opt" onclick="toggleMulti(this,'erecoes')"><div class="checkbox"></div><span>💪 Ter ereções mais firmes</span></div>
             </div>
-            <button class="btn" onclick="confirmMulti('goals-opts', 4, 5)" style="margin-top:20px;">Confirmar e continuar &#8594;</button>
+            <button class="btn" onclick="confirmMulti('goals-opts', 4, 5)" style="margin-top:20px;">Confirmar e continuar →</button>
         </div>
     </div>
 
     <!-- TELA 5 -->
     <div id="screen-5" class="screen">
         <div class="card">
-            <div class="info-box"><strong>O desempenho masculino depende da for&#231;a do assoalho p&#233;lvico.</strong> Com o tempo, essa musculatura enfraquece, mas fortalec&#234;-la garante ere&#231;&#245;es mais firmes, maior controle da ejacula&#231;&#227;o e mais resist&#234;ncia.</div>
+            <div class="info-box"><strong>O desempenho masculino depende da força do assoalho pélvico.</strong> Com o tempo, essa musculatura enfraquece, mas fortalecê-la garante ereções mais firmes, maior controle da ejaculação e mais resistência.</div>
             <img src="https://i.im.ge/eBqalD/grok-image-3f37db57-957c-43e5-a5ab-afc0706ed7cd.jpg" alt="Assoalho Pélvico" class="full-img" onerror="this.style.display='none'">
-            <button class="btn" onclick="goScreen(6)">Entendi, continuar &#8594;</button>
+            <button class="btn" onclick="goScreen(6)">Entendi, continuar →</button>
         </div>
     </div>
 
@@ -291,12 +313,12 @@
     <div id="screen-6" class="screen">
         <div class="card">
             <div class="q-number">Passo 4</div>
-            <div class="q-text">Quanto tempo, em m&#233;dia, dura sua rela&#231;&#227;o sexual?</div>
+            <div class="q-text">Quanto tempo, em média, dura sua relação sexual?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'duracao','menos_2min',6,7)"><div class="opt-icon">&#9889;</div>Menos de 2 minutos</button>
-                <button class="opt" onclick="selectOpt(this,'duracao','2_7min',6,7)"><div class="opt-icon">&#9201;&#65039;</div>De 2 a 7 minutos</button>
-                <button class="opt" onclick="selectOpt(this,'duracao','7_15min',6,7)"><div class="opt-icon">&#128336;</div>De 7 a 15 minutos</button>
-                <button class="opt" onclick="selectOpt(this,'duracao','mais_15min',6,7)"><div class="opt-icon">&#9989;</div>Mais de 15 minutos</button>
+                <button class="opt" onclick="selectOpt(this,'duracao','menos_2min',6,7)"><div class="opt-icon">⚡</div>Menos de 2 minutos</button>
+                <button class="opt" onclick="selectOpt(this,'duracao','2_7min',6,7)"><div class="opt-icon">⏱️</div>De 2 a 7 minutos</button>
+                <button class="opt" onclick="selectOpt(this,'duracao','7_15min',6,7)"><div class="opt-icon">🕐</div>De 7 a 15 minutos</button>
+                <button class="opt" onclick="selectOpt(this,'duracao','mais_15min',6,7)"><div class="opt-icon">✅</div>Mais de 15 minutos</button>
             </div>
         </div>
     </div>
@@ -305,11 +327,11 @@
     <div id="screen-7" class="screen">
         <div class="card">
             <div class="q-number">Passo 5</div>
-            <div class="q-text">Com que frequ&#234;ncia voc&#234; ejacula antes do que gostaria?</div>
+            <div class="q-text">Com que frequência você ejacula antes do que gostaria?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'ejac_precoce','nunca',7,8)"><div class="opt-icon">&#128524;</div>Nunca</button>
-                <button class="opt" onclick="selectOpt(this,'ejac_precoce','as_vezes',7,8)"><div class="opt-icon">&#129300;</div>&#192;s vezes</button>
-                <button class="opt" onclick="selectOpt(this,'ejac_precoce','maioria',7,8)"><div class="opt-icon">&#128556;</div>Na maior parte das vezes</button>
+                <button class="opt" onclick="selectOpt(this,'ejac_precoce','nunca',7,8)"><div class="opt-icon">😌</div>Nunca</button>
+                <button class="opt" onclick="selectOpt(this,'ejac_precoce','as_vezes',7,8)"><div class="opt-icon">🤔</div>Às vezes</button>
+                <button class="opt" onclick="selectOpt(this,'ejac_precoce','maioria',7,8)"><div class="opt-icon">😬</div>Na maior parte das vezes</button>
             </div>
         </div>
     </div>
@@ -318,8 +340,8 @@
     <div id="screen-8" class="screen">
         <div class="card">
             <div class="q-number">Passo 6</div>
-            <div class="q-text">Qu&#227;o dif&#237;cil &#233; controlar a ejacula&#231;&#227;o durante o sexo?</div>
-            <div class="q-hint">1 = F&#225;cil controlar &middot; 5 = Muito dif&#237;cil controlar</div>
+            <div class="q-text">Quão difícil é controlar a ejaculação durante o sexo?</div>
+            <div class="q-hint">1 = Fácil controlar · 5 = Muito difícil controlar</div>
             <div class="scale-row">
                 <button class="scale-btn" onclick="selectOpt(this,'controle_ejac','1',8,9)">1</button>
                 <button class="scale-btn" onclick="selectOpt(this,'controle_ejac','2',8,9)">2</button>
@@ -327,7 +349,7 @@
                 <button class="scale-btn" onclick="selectOpt(this,'controle_ejac','4',8,9)">4</button>
                 <button class="scale-btn" onclick="selectOpt(this,'controle_ejac','5',8,9)">5</button>
             </div>
-            <div class="scale-labels"><span>F&#225;cil controlar</span><span>Muito dif&#237;cil</span></div>
+            <div class="scale-labels"><span>Fácil controlar</span><span>Muito difícil</span></div>
         </div>
     </div>
 
@@ -335,11 +357,11 @@
     <div id="screen-9" class="screen">
         <div class="card">
             <div class="q-number">Passo 7</div>
-            <div class="q-text">J&#225; fez algum tipo de treino para melhorar o desempenho sexual?</div>
+            <div class="q-text">Já fez algum tipo de treino para melhorar o desempenho sexual?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'treino_desempenho','sim',9,10)"><div class="opt-icon">&#128170;</div>Sim, j&#225; fiz</button>
-                <button class="opt" onclick="selectOpt(this,'treino_desempenho','nao',9,10)"><div class="opt-icon">&#10060;</div>N&#227;o, nunca treinei</button>
-                <button class="opt" onclick="selectOpt(this,'treino_desempenho','ouvi_falar',9,10)"><div class="opt-icon">&#128066;</div>N&#227;o, mas j&#225; ouvi falar</button>
+                <button class="opt" onclick="selectOpt(this,'treino_desempenho','sim',9,10)"><div class="opt-icon">💪</div>Sim, já fiz</button>
+                <button class="opt" onclick="selectOpt(this,'treino_desempenho','nao',9,10)"><div class="opt-icon">❌</div>Não, nunca treinei</button>
+                <button class="opt" onclick="selectOpt(this,'treino_desempenho','ouvi_falar',9,10)"><div class="opt-icon">👂</div>Não, mas já ouvi falar</button>
             </div>
         </div>
     </div>
@@ -348,8 +370,8 @@
     <div id="screen-10" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4WKyz/grok-image-2f2bcbcb-2945-4287-a623-6130058735d5.jpg" alt="Método Alpha" class="full-img" onerror="this.style.display='none'">
-            <div class="img-caption">"Esse m&#233;todo ajuda os homens a elevarem sua vida &#237;ntima a um novo n&#237;vel, <strong>mesmo com o passar dos anos</strong>"</div>
-            <button class="btn" onclick="goScreen(11)">Continuar avalia&#231;&#227;o &#8594;</button>
+            <div class="img-caption">"Esse método ajuda os homens a elevarem sua vida íntima a um novo nível, <strong>mesmo com o passar dos anos</strong>"</div>
+            <button class="btn" onclick="goScreen(11)">Continuar avaliação →</button>
         </div>
     </div>
 
@@ -357,11 +379,11 @@
     <div id="screen-11" class="screen">
         <div class="card">
             <div class="q-number">Passo 8</div>
-            <div class="q-text">Como anda a for&#231;a da sua ere&#231;&#227;o durante o sexo?</div>
+            <div class="q-text">Como anda a força da sua ereção durante o sexo?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'forca_erecao','bem_quero_mais',11,12)"><div class="opt-icon">&#128578;</div>Est&#225; tudo bem, mas quero melhorar</button>
-                <button class="opt" onclick="selectOpt(this,'forca_erecao','as_vezes',11,12)"><div class="opt-icon">&#128533;</div>&#192;s vezes tenho dificuldades</button>
-                <button class="opt" onclick="selectOpt(this,'forca_erecao','frequente',11,12)"><div class="opt-icon">&#128543;</div>Costumo ter dificuldades com frequ&#234;ncia</button>
+                <button class="opt" onclick="selectOpt(this,'forca_erecao','bem_quero_mais',11,12)"><div class="opt-icon">🙂</div>Está tudo bem, mas quero melhorar</button>
+                <button class="opt" onclick="selectOpt(this,'forca_erecao','as_vezes',11,12)"><div class="opt-icon">😕</div>Às vezes tenho dificuldades</button>
+                <button class="opt" onclick="selectOpt(this,'forca_erecao','frequente',11,12)"><div class="opt-icon">😟</div>Costumo ter dificuldades com frequência</button>
             </div>
         </div>
     </div>
@@ -370,13 +392,13 @@
     <div id="screen-12" class="screen">
         <div class="card">
             <div class="q-number">Passo 9</div>
-            <div class="q-text">H&#225; quanto tempo voc&#234; vem tendo dificuldades com ere&#231;&#227;o?</div>
+            <div class="q-text">Há quanto tempo você vem tendo dificuldades com ereção?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','menos_6m',12,13)"><div class="opt-icon">&#128197;</div>Menos de 6 meses</button>
-                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','6_12m',12,13)"><div class="opt-icon">&#128197;</div>De 6 a 12 meses</button>
-                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','1_3a',12,13)"><div class="opt-icon">&#128197;</div>De 1 a 3 anos</button>
-                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','3_5a',12,13)"><div class="opt-icon">&#128197;</div>De 3 a 5 anos</button>
-                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','mais_5a',12,13)"><div class="opt-icon">&#128198;</div>Mais de 5 anos</button>
+                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','menos_6m',12,13)"><div class="opt-icon">🗓️</div>Menos de 6 meses</button>
+                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','6_12m',12,13)"><div class="opt-icon">🗓️</div>De 6 a 12 meses</button>
+                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','1_3a',12,13)"><div class="opt-icon">📅</div>De 1 a 3 anos</button>
+                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','3_5a',12,13)"><div class="opt-icon">📅</div>De 3 a 5 anos</button>
+                <button class="opt" onclick="selectOpt(this,'tempo_dificuldade','mais_5a',12,13)"><div class="opt-icon">📆</div>Mais de 5 anos</button>
             </div>
         </div>
     </div>
@@ -385,12 +407,12 @@
     <div id="screen-13" class="screen">
         <div class="card">
             <div class="q-number">Passo 10</div>
-            <div class="q-text">Com que frequ&#234;ncia voc&#234; tem ere&#231;&#245;es matinais?</div>
+            <div class="q-text">Com que frequência você tem ereções matinais?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'erecao_matinal','sempre',13,14)"><div class="opt-icon">&#127749;</div>Sempre</button>
-                <button class="opt" onclick="selectOpt(this,'erecao_matinal','frequente',13,14)"><div class="opt-icon">&#127780;&#65039;</div>Com frequ&#234;ncia</button>
-                <button class="opt" onclick="selectOpt(this,'erecao_matinal','raramente',13,14)"><div class="opt-icon">&#127781;&#65039;</div>Raramente</button>
-                <button class="opt" onclick="selectOpt(this,'erecao_matinal','nunca',13,14)"><div class="opt-icon">&#9729;&#65039;</div>Nunca</button>
+                <button class="opt" onclick="selectOpt(this,'erecao_matinal','sempre',13,14)"><div class="opt-icon">🌅</div>Sempre</button>
+                <button class="opt" onclick="selectOpt(this,'erecao_matinal','frequente',13,14)"><div class="opt-icon">🌤️</div>Com frequência</button>
+                <button class="opt" onclick="selectOpt(this,'erecao_matinal','raramente',13,14)"><div class="opt-icon">🌥️</div>Raramente</button>
+                <button class="opt" onclick="selectOpt(this,'erecao_matinal','nunca',13,14)"><div class="opt-icon">☁️</div>Nunca</button>
             </div>
         </div>
     </div>
@@ -399,12 +421,12 @@
     <div id="screen-14" class="screen">
         <div class="card">
             <div class="q-number">Passo 11</div>
-            <div class="q-text">Com que frequ&#234;ncia voc&#234; tem dificuldade para ter uma ere&#231;&#227;o antes do sexo?</div>
+            <div class="q-text">Com que frequência você tem dificuldade para ter uma ereção antes do sexo?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'dific_erecao','sempre',14,'14b')"><div class="opt-icon">&#128547;</div>Sempre</button>
-                <button class="opt" onclick="selectOpt(this,'dific_erecao','frequente',14,'14b')"><div class="opt-icon">&#129300;</div>Com frequ&#234;ncia</button>
-                <button class="opt" onclick="selectOpt(this,'dific_erecao','raramente',14,'14b')"><div class="opt-icon">&#128578;</div>Raramente</button>
-                <button class="opt" onclick="selectOpt(this,'dific_erecao','nunca',14,'14b')"><div class="opt-icon">&#128516;</div>Nunca</button>
+                <button class="opt" onclick="selectOpt(this,'dific_erecao','sempre',14,'14b')"><div class="opt-icon">😓</div>Sempre</button>
+                <button class="opt" onclick="selectOpt(this,'dific_erecao','frequente',14,'14b')"><div class="opt-icon">🤔</div>Com frequência</button>
+                <button class="opt" onclick="selectOpt(this,'dific_erecao','raramente',14,'14b')"><div class="opt-icon">🙂</div>Raramente</button>
+                <button class="opt" onclick="selectOpt(this,'dific_erecao','nunca',14,'14b')"><div class="opt-icon">😄</div>Nunca</button>
             </div>
         </div>
     </div>
@@ -413,11 +435,11 @@
     <div id="screen-14b" class="screen">
         <div class="card">
             <div class="q-number">Passo 11b</div>
-            <div class="q-text">Voc&#234; consegue transar duas vezes seguidas?</div>
+            <div class="q-text">Você consegue transar duas vezes seguidas?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'duas_vezes','sim_facil','14b',15)"><div class="opt-icon">&#128170;</div>Sim, sem problemas</button>
-                <button class="opt" onclick="selectOpt(this,'duas_vezes','sim_esforco','14b',15)"><div class="opt-icon">&#128517;</div>Sim, mas preciso me esfor&#231;ar</button>
-                <button class="opt" onclick="selectOpt(this,'duas_vezes','nao','14b',15)"><div class="opt-icon">&#10060;</div>N&#227;o, n&#227;o consigo</button>
+                <button class="opt" onclick="selectOpt(this,'duas_vezes','sim_facil','14b',15)"><div class="opt-icon">💪</div>Sim, sem problemas</button>
+                <button class="opt" onclick="selectOpt(this,'duas_vezes','sim_esforco','14b',15)"><div class="opt-icon">😅</div>Sim, mas preciso me esforçar</button>
+                <button class="opt" onclick="selectOpt(this,'duas_vezes','nao','14b',15)"><div class="opt-icon">❌</div>Não, não consigo</button>
             </div>
         </div>
     </div>
@@ -426,8 +448,8 @@
     <div id="screen-15" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4WVH6/grok-image-3cfaeb4b-0312-4124-bcc0-3e654011bffd.jpg" alt="Músculo Bulbocavernoso" class="full-img" onerror="this.style.display='none'">
-            <div class="img-caption">Um dos tr&#234;s principais m&#250;sculos dessa regi&#227;o, essencial para a sa&#250;de sexual masculina, &#233; o <strong>m&#250;sculo bulbocavernoso</strong>. Ele permite que o p&#234;nis se encha de sangue e mantenha a firmeza.</div>
-            <button class="btn" onclick="goScreen(16)">Continuar &#8594;</button>
+            <div class="img-caption">Um dos três principais músculos dessa região, essencial para a saúde sexual masculina, é o <strong>músculo bulbocavernoso</strong>. Ele permite que o pênis se encha de sangue e mantenha a firmeza.</div>
+            <button class="btn" onclick="goScreen(16)">Continuar →</button>
         </div>
     </div>
 
@@ -435,7 +457,7 @@
     <div id="screen-16" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4Wk1F/grok-image-3b27bcaa-4411-472d-ab9e-6e752a881d7c.jpg" alt="Protocolo Alpha Info" class="full-img" onerror="this.style.display='none'">
-            <button class="btn" onclick="goScreen(17)">Continuar avalia&#231;&#227;o &#8594;</button>
+            <button class="btn" onclick="goScreen(17)">Continuar avaliação →</button>
         </div>
     </div>
 
@@ -443,20 +465,20 @@
     <div id="screen-17" class="screen">
         <div class="card">
             <div class="q-number">Passo 12</div>
-            <div class="q-text">Qual &#233; o seu n&#237;vel de atividade f&#237;sica?</div>
+            <div class="q-text">Qual é o seu nível de atividade física?</div>
             <div class="options" id="atv-opts">
-                <button class="opt" onclick="selectAtividade(this,'nao','71','A maioria dos nossos usu&#225;rios estava na mesma situa&#231;&#227;o. O Protocolo Alpha vai criar o h&#225;bito certo para voc&#234;.')"><div class="opt-icon">&#128564;</div>N&#227;o me exercito nunca</button>
-                <button class="opt" onclick="selectAtividade(this,'pouco','54','Voc&#234; j&#225; tem alguma consci&#234;ncia corporal. O Protocolo vai potencializar muito seus resultados.')"><div class="opt-icon">&#128694;</div>Sou pouco ativo</button>
-                <button class="opt" onclick="selectAtividade(this,'as_vezes','38','&#211;timo ponto de partida! Com consist&#234;ncia, seus resultados vir&#227;o ainda mais r&#225;pido.')"><div class="opt-icon">&#127939;</div>Eu me exercito de vez em quando</button>
-                <button class="opt" onclick="selectAtividade(this,'regular','19','Voc&#234; j&#225; est&#225; &#224; frente da maioria! O Protocolo vai levar sua performance ao pr&#243;ximo n&#237;vel.')"><div class="opt-icon">&#127947;</div>Eu me exercito regularmente</button>
+                <button class="opt" onclick="selectAtividade(this,'nao','71','A maioria dos nossos usuários estava na mesma situação. O Protocolo Alpha vai criar o hábito certo para você.')"><div class="opt-icon">😴</div>Não me exercito nunca</button>
+                <button class="opt" onclick="selectAtividade(this,'pouco','54','Você já tem alguma consciência corporal. O Protocolo vai potencializar muito seus resultados.')"><div class="opt-icon">🚶</div>Sou pouco ativo</button>
+                <button class="opt" onclick="selectAtividade(this,'as_vezes','38','Ótimo ponto de partida! Com consistência, seus resultados virão ainda mais rápido.')"><div class="opt-icon">🏃</div>Eu me exercito de vez em quando</button>
+                <button class="opt" onclick="selectAtividade(this,'regular','19','Você já está à frente da maioria! O Protocolo vai levar sua performance ao próximo nível.')"><div class="opt-icon">🏋️</div>Eu me exercito regularmente</button>
             </div>
             <div id="atv-feedback" style="display:none; margin-top:20px; animation: fadeUp 0.3s ease;">
                 <div style="background:#1d4ed8;border-radius:14px;padding:16px 18px;margin-bottom:8px;">
-                    <div style="font-size:15px;font-weight:900;color:#fff;margin-bottom:4px;">&#127939; <span id="atv-pct-text"></span></div>
+                    <div style="font-size:15px;font-weight:900;color:#fff;margin-bottom:4px;">🏃 <span id="atv-pct-text"></span></div>
                     <div id="atv-msg" style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.5;"></div>
                 </div>
-                <div style="font-size:11px;color:var(--text2);margin-bottom:16px;">*Usu&#225;rios do Protocolo Alpha que fizeram o teste</div>
-                <button class="btn" onclick="goScreen(18)">Entendi &#8594;</button>
+                <div style="font-size:11px;color:var(--text2);margin-bottom:16px;">*Usuários do Protocolo Alpha que fizeram o teste</div>
+                <button class="btn" onclick="goScreen(18)">Entendi →</button>
             </div>
         </div>
     </div>
@@ -465,13 +487,13 @@
     <div id="screen-18" class="screen">
         <div class="card">
             <div class="q-number">Passo 13</div>
-            <div class="q-text">Com que frequ&#234;ncia voc&#234; assiste porn&#244;?</div>
+            <div class="q-text">Com que frequência você assiste pornô?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'porno','diario',18,19)"><div class="opt-icon">&#128241;</div>Pelo menos uma vez por dia</button>
-                <button class="opt" onclick="selectOpt(this,'porno','3_4x',18,19)"><div class="opt-icon">&#128250;</div>3 a 4 vezes por semana</button>
-                <button class="opt" onclick="selectOpt(this,'porno','1x_sem',18,19)"><div class="opt-icon">&#128225;</div>Uma vez por semana</button>
-                <button class="opt" onclick="selectOpt(this,'porno','1_2x_mes',18,19)"><div class="opt-icon">&#128197;</div>De 1 a 2 vezes por m&#234;s</button>
-                <button class="opt" onclick="selectOpt(this,'porno','nunca',18,19)"><div class="opt-icon">&#128683;</div>Nunca</button>
+                <button class="opt" onclick="selectOpt(this,'porno','diario',18,19)"><div class="opt-icon">📱</div>Pelo menos uma vez por dia</button>
+                <button class="opt" onclick="selectOpt(this,'porno','3_4x',18,19)"><div class="opt-icon">📺</div>3 a 4 vezes por semana</button>
+                <button class="opt" onclick="selectOpt(this,'porno','1x_sem',18,19)"><div class="opt-icon">📡</div>Uma vez por semana</button>
+                <button class="opt" onclick="selectOpt(this,'porno','1_2x_mes',18,19)"><div class="opt-icon">🗓️</div>De 1 a 2 vezes por mês</button>
+                <button class="opt" onclick="selectOpt(this,'porno','nunca',18,19)"><div class="opt-icon">🚫</div>Nunca</button>
             </div>
         </div>
     </div>
@@ -480,12 +502,12 @@
     <div id="screen-19" class="screen">
         <div class="card">
             <div class="q-number">Passo 14</div>
-            <div class="q-text">Qual &#233; o seu estado civil?</div>
+            <div class="q-text">Qual é o seu estado civil?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'estado_civil','casado',19,20)"><div class="opt-icon">&#128141;</div>Casado</button>
-                <button class="opt" onclick="selectOpt(this,'estado_civil','namorando',19,20)"><div class="opt-icon">&#128145;</div>Namorando</button>
-                <button class="opt" onclick="selectOpt(this,'estado_civil','solteiro',19,20)"><div class="opt-icon">&#128587;</div>Solteiro</button>
-                <button class="opt" onclick="selectOpt(this,'estado_civil','prefiro_nao',19,20)"><div class="opt-icon">&#128274;</div>Prefiro n&#227;o responder</button>
+                <button class="opt" onclick="selectOpt(this,'estado_civil','casado',19,20)"><div class="opt-icon">💍</div>Casado</button>
+                <button class="opt" onclick="selectOpt(this,'estado_civil','namorando',19,20)"><div class="opt-icon">💑</div>Namorando</button>
+                <button class="opt" onclick="selectOpt(this,'estado_civil','solteiro',19,20)"><div class="opt-icon">🙋</div>Solteiro</button>
+                <button class="opt" onclick="selectOpt(this,'estado_civil','prefiro_nao',19,20)"><div class="opt-icon">🔒</div>Prefiro não responder</button>
             </div>
         </div>
     </div>
@@ -494,13 +516,13 @@
     <div id="screen-20" class="screen">
         <div class="card">
             <div class="q-number">Passo 15</div>
-            <div class="q-text">Em m&#233;dia, quantas vezes por m&#234;s voc&#234; tem rela&#231;&#245;es sexuais?</div>
+            <div class="q-text">Em média, quantas vezes por mês você tem relações sexuais?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'freq_relacoes','menos_3',20,21)"><div class="opt-icon">&#128532;</div>Menos de 3 vezes por m&#234;s</button>
-                <button class="opt" onclick="selectOpt(this,'freq_relacoes','3_6',20,21)"><div class="opt-icon">&#128578;</div>De 3 a 6 vezes por m&#234;s</button>
-                <button class="opt" onclick="selectOpt(this,'freq_relacoes','7_15',20,21)"><div class="opt-icon">&#128522;</div>De 7 a 15 vezes por m&#234;s</button>
-                <button class="opt" onclick="selectOpt(this,'freq_relacoes','mais_15',20,21)"><div class="opt-icon">&#128293;</div>Mais de 15 vezes por m&#234;s</button>
-                <button class="opt" onclick="selectOpt(this,'freq_relacoes','prefiro_nao',20,21)"><div class="opt-icon">&#128274;</div>Prefiro n&#227;o responder</button>
+                <button class="opt" onclick="selectOpt(this,'freq_relacoes','menos_3',20,21)"><div class="opt-icon">😔</div>Menos de 3 vezes por mês</button>
+                <button class="opt" onclick="selectOpt(this,'freq_relacoes','3_6',20,21)"><div class="opt-icon">🙂</div>De 3 a 6 vezes por mês</button>
+                <button class="opt" onclick="selectOpt(this,'freq_relacoes','7_15',20,21)"><div class="opt-icon">😊</div>De 7 a 15 vezes por mês</button>
+                <button class="opt" onclick="selectOpt(this,'freq_relacoes','mais_15',20,21)"><div class="opt-icon">🔥</div>Mais de 15 vezes por mês</button>
+                <button class="opt" onclick="selectOpt(this,'freq_relacoes','prefiro_nao',20,21)"><div class="opt-icon">🔒</div>Prefiro não responder</button>
             </div>
         </div>
     </div>
@@ -509,8 +531,8 @@
     <div id="screen-21" class="screen">
         <div class="card">
             <div class="q-number">Passo 16</div>
-            <div class="q-text">Como voc&#234; avaliaria sua libido nos &#250;ltimos 3 meses?</div>
-            <div class="q-hint">1 = Muito baixa &middot; 5 = Muito alta</div>
+            <div class="q-text">Como você avaliaria sua libido nos últimos 3 meses?</div>
+            <div class="q-hint">1 = Muito baixa · 5 = Muito alta</div>
             <div class="scale-row">
                 <button class="scale-btn" onclick="selectOpt(this,'libido','1',21,22)">1</button>
                 <button class="scale-btn" onclick="selectOpt(this,'libido','2',21,22)">2</button>
@@ -526,11 +548,11 @@
     <div id="screen-22" class="screen">
         <div class="card">
             <div class="q-number">Passo 17</div>
-            <div class="q-text">Voc&#234; j&#225; tentou solu&#231;&#245;es de efeito r&#225;pido para melhorar sua vida &#237;ntima?</div>
+            <div class="q-text">Você já tentou soluções de efeito rápido para melhorar sua vida íntima?</div>
             <div class="options">
-                <button class="opt" onclick="selectOpt(this,'solucoes_rapidas','frequente',22,'22b')"><div class="opt-icon">&#128138;</div>Sim, uso com frequ&#234;ncia</button>
-                <button class="opt" onclick="selectOpt(this,'solucoes_rapidas','algumas_vezes',22,'22b')"><div class="opt-icon">&#129514;</div>Sim, j&#225; usei algumas vezes</button>
-                <button class="opt" onclick="selectOpt(this,'solucoes_rapidas','nunca',22,'22b')"><div class="opt-icon">&#128683;</div>N&#227;o, nunca usei</button>
+                <button class="opt" onclick="selectOpt(this,'solucoes_rapidas','frequente',22,'22b')"><div class="opt-icon">💊</div>Sim, uso com frequência</button>
+                <button class="opt" onclick="selectOpt(this,'solucoes_rapidas','algumas_vezes',22,'22b')"><div class="opt-icon">🧪</div>Sim, já usei algumas vezes</button>
+                <button class="opt" onclick="selectOpt(this,'solucoes_rapidas','nunca',22,'22b')"><div class="opt-icon">🚫</div>Não, nunca usei</button>
             </div>
         </div>
     </div>
@@ -538,9 +560,9 @@
     <!-- TELA 22b -->
     <div id="screen-22b" class="screen">
         <div class="card">
-            <div class="q-number">&#218;ltima pergunta</div>
-            <div class="q-text">O quanto voc&#234; est&#225; satisfeito com o tamanho do seu <span style="color:var(--primary);font-weight:900;">companheiro</span>? &#128071;</div>
-            <div class="q-hint" style="margin-bottom:4px;">1 = Muito insatisfeito &middot; 5 = Muito satisfeito</div>
+            <div class="q-number">Última pergunta</div>
+            <div class="q-text">O quanto você está satisfeito com o tamanho do seu <span style="color:var(--primary);font-weight:900;">companheiro</span>? 👇</div>
+            <div class="q-hint" style="margin-bottom:4px;">1 = Muito insatisfeito · 5 = Muito satisfeito</div>
             <div class="scale-row" id="satisf-opts">
                 <button class="scale-btn" onclick="selectSatisf(this,1)">1</button>
                 <button class="scale-btn" onclick="selectSatisf(this,2)">2</button>
@@ -555,7 +577,7 @@
                     <div id="satisf-title" style="font-size:15px;font-weight:900;color:#fff;margin-bottom:6px;line-height:1.4;"></div>
                     <div id="satisf-msg" style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;"></div>
                 </div>
-                <button class="btn" onclick="goScreen(23)">Ver minha an&#225;lise completa &#8594;</button>
+                <button class="btn" onclick="goScreen(23)">Ver minha análise completa →</button>
             </div>
         </div>
     </div>
@@ -564,7 +586,7 @@
     <div id="screen-23" class="screen">
         <div class="card">
             <img src="https://i.im.ge/e4WzmK/grok-image-826bf16a-f5bf-46ae-b1e3-acd7a97f0c3f.jpg" alt="Protocolo Alpha Final" class="full-img" onerror="this.style.display='none'">
-            <button class="btn" onclick="startLoading()">Ver minha an&#225;lise personalizada &#8594;</button>
+            <button class="btn" onclick="startLoading()">Ver minha análise personalizada →</button>
         </div>
     </div>
 
@@ -572,25 +594,25 @@
     <div id="screen-24" class="screen">
         <div class="card" style="text-align:center;padding:32px 24px;">
             <div style="margin-bottom:28px;">
-                <div style="font-size:48px;margin-bottom:12px;animation:pulse-icon 1.5s ease-in-out infinite;">&#129516;</div>
+                <div style="font-size:48px;margin-bottom:12px;animation:pulse-icon 1.5s ease-in-out infinite;">🧬</div>
                 <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text);letter-spacing:1px;margin-bottom:6px;">Analisando seu perfil...</div>
-                <div style="font-size:14px;color:var(--text2);font-weight:600;">Um especialista est&#225; montando seu plano exclusivo</div>
+                <div style="font-size:14px;color:var(--text2);font-weight:600;">Um especialista está montando seu plano exclusivo</div>
             </div>
             <div style="background:#e5e7eb;border-radius:99px;height:10px;margin-bottom:28px;overflow:hidden;">
                 <div id="main-progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:99px;transition:width 0.4s ease;"></div>
             </div>
             <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;text-align:left;">
-                <div class="analysis-step" id="step-a1"><div class="step-icon">&#129298;</div><span style="flex:1;font-size:13px;font-weight:700;">Analisando hist&#243;rico de sa&#250;de sexual</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a1"></div></div><div class="step-check">&#9989;</div></div>
-                <div class="analysis-step" id="step-a2"><div class="step-icon">&#9889;</div><span style="flex:1;font-size:13px;font-weight:700;">Avaliando n&#237;vel de desempenho</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a2"></div></div><div class="step-check">&#9989;</div></div>
-                <div class="analysis-step" id="step-a3"><div class="step-icon">&#127919;</div><span style="flex:1;font-size:13px;font-weight:700;">Identificando pontos de melhora</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a3"></div></div><div class="step-check">&#9989;</div></div>
-                <div class="analysis-step" id="step-a4"><div class="step-icon">&#128203;</div><span style="flex:1;font-size:13px;font-weight:700;">Criando protocolo personalizado</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a4"></div></div><div class="step-check">&#9989;</div></div>
-                <div class="analysis-step" id="step-a5"><div class="step-icon">&#127942;</div><span style="flex:1;font-size:13px;font-weight:700;">Finalizando seu plano exclusivo</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a5"></div></div><div class="step-check">&#9989;</div></div>
+                <div class="analysis-step" id="step-a1"><div class="step-icon">🩺</div><span style="flex:1;font-size:13px;font-weight:700;">Analisando histórico de saúde sexual</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a1"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a2"><div class="step-icon">⚡</div><span style="flex:1;font-size:13px;font-weight:700;">Avaliando nível de desempenho</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a2"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a3"><div class="step-icon">🎯</div><span style="flex:1;font-size:13px;font-weight:700;">Identificando pontos de melhora</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a3"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a4"><div class="step-icon">📋</div><span style="flex:1;font-size:13px;font-weight:700;">Criando protocolo personalizado</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a4"></div></div><div class="step-check">✅</div></div>
+                <div class="analysis-step" id="step-a5"><div class="step-icon">🏆</div><span style="flex:1;font-size:13px;font-weight:700;">Finalizando seu plano exclusivo</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a5"></div></div><div class="step-check">✅</div></div>
             </div>
             <div style="position:relative;min-height:100px;">
-                <div class="testi-mini" id="testi-slide-0"><div class="testi-mini-quote">"Em 3 semanas j&#225; senti diferen&#231;a enorme. Mais controle, mais firmeza."</div><div class="testi-mini-author">Carlos M., 34 anos &#8212; S&#227;o Paulo</div><div class="testi-mini-result">&#10003; Resultado em menos de 30 dias</div></div>
-                <div class="testi-mini" id="testi-slide-1" style="display:none;"><div class="testi-mini-quote">"Nunca imaginei que exerc&#237;cios simples pudessem mudar tanto minha vida &#237;ntima."</div><div class="testi-mini-author">Ricardo F., 42 anos &#8212; Rio de Janeiro</div><div class="testi-mini-result">&#10003; Performance elevada em 21 dias</div></div>
-                <div class="testi-mini" id="testi-slide-2" style="display:none;"><div class="testi-mini-quote">"Tinha vergonha de admitir o problema. O protocolo resolveu de forma natural."</div><div class="testi-mini-author">Paulo S., 51 anos &#8212; Minas Gerais</div><div class="testi-mini-result">&#10003; Melhora significativa em 25 dias</div></div>
-                <div class="testi-mini" id="testi-slide-3" style="display:none;"><div class="testi-mini-quote">"Minha autoconfian&#231;a voltou do zero ao m&#225;ximo em poucas semanas."</div><div class="testi-mini-author">Felipe A., 29 anos &#8212; Bras&#237;lia</div><div class="testi-mini-result">&#10003; Confian&#231;a totalmente recuperada</div></div>
+                <div class="testi-mini" id="testi-slide-0"><div class="testi-mini-quote">"Em 3 semanas já senti diferença enorme. Mais controle, mais firmeza."</div><div class="testi-mini-author">Carlos M., 34 anos — São Paulo</div><div class="testi-mini-result">✓ Resultado em menos de 30 dias</div></div>
+                <div class="testi-mini" id="testi-slide-1" style="display:none;"><div class="testi-mini-quote">"Nunca imaginei que exercícios simples pudessem mudar tanto minha vida íntima."</div><div class="testi-mini-author">Ricardo F., 42 anos — Rio de Janeiro</div><div class="testi-mini-result">✓ Performance elevada em 21 dias</div></div>
+                <div class="testi-mini" id="testi-slide-2" style="display:none;"><div class="testi-mini-quote">"Tinha vergonha de admitir o problema. O protocolo resolveu de forma natural."</div><div class="testi-mini-author">Paulo S., 51 anos — Minas Gerais</div><div class="testi-mini-result">✓ Melhora significativa em 25 dias</div></div>
+                <div class="testi-mini" id="testi-slide-3" style="display:none;"><div class="testi-mini-quote">"Minha autoconfiança voltou do zero ao máximo em poucas semanas."</div><div class="testi-mini-author">Felipe A., 29 anos — Brasília</div><div class="testi-mini-result">✓ Confiança totalmente recuperada</div></div>
             </div>
         </div>
     </div>
@@ -598,354 +620,409 @@
     <!-- TELA 25: RESULTADO -->
     <div id="screen-25" class="screen">
         <div class="card">
-            <div class="badge">&#127919; Seu Resultado Personalizado</div>
-            <div class="headline" style="font-size:26px;margin-bottom:20px;">AN&#193;LISE <span class="green">COMPLETA</span></div>
+            <div class="badge">🎯 Seu Resultado Personalizado</div>
+            <div class="headline" style="font-size:26px;margin-bottom:20px;">ANÁLISE <span class="green">COMPLETA</span></div>
             <div style="background:#fff1f2;border:1.5px solid #fecdd3;border-radius:14px;padding:18px;margin-bottom:12px;">
-                <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#ef4444;margin-bottom:14px;">&#10060; SITUA&#199;&#195;O ATUAL (ANTES)</div>
+                <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#ef4444;margin-bottom:14px;">❌ SITUAÇÃO ATUAL (ANTES)</div>
                 <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Desempenho sexual</span><span style="font-size:13px;font-weight:900;color:#ef4444;">20%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:20%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
-                <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Auto confian&#231;a</span><span style="font-size:13px;font-weight:900;color:#ef4444;">15%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:15%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
-                <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejacula&#231;&#227;o</span><span style="font-size:13px;font-weight:900;color:#ef4444;">37%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:37%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
+                <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Auto confiança</span><span style="font-size:13px;font-weight:900;color:#ef4444;">15%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:15%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejaculação</span><span style="font-size:13px;font-weight:900;color:#ef4444;">37%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:37%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
             </div>
-            <div style="text-align:center;font-size:28px;line-height:1;margin:4px 0;">&#11015;&#65039;</div>
+            <div style="text-align:center;font-size:28px;line-height:1;margin:4px 0;">⬇️</div>
             <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:18px;margin-bottom:20px;">
-                <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#15803d;margin-bottom:14px;">&#9989; COM O PROTOCOLO ALPHA (DEPOIS)</div>
+                <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#15803d;margin-bottom:14px;">✅ COM O PROTOCOLO ALPHA (DEPOIS)</div>
                 <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Desempenho sexual</span><span style="font-size:13px;font-weight:900;color:#16a34a;">90%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-1" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
-                <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Auto confian&#231;a</span><span style="font-size:13px;font-weight:900;color:#16a34a;">87%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-2" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
-                <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejacula&#231;&#227;o</span><span style="font-size:13px;font-weight:900;color:#16a34a;">91%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-3" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
+                <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Auto confiança</span><span style="font-size:13px;font-weight:900;color:#16a34a;">87%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-2" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
+                <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejaculação</span><span style="font-size:13px;font-weight:900;color:#16a34a;">91%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-3" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
             </div>
-            <div class="info-box" style="text-align:center;">&#127881; <strong>Seu perfil &#233; compat&#237;vel com o Protocolo Alpha!</strong><br>Com base nas suas respostas, voc&#234; tem alto potencial de melhora com nosso m&#233;todo.</div>
-            <button class="btn" onclick="goScreen(26)">&#128640; Desejo alcan&#231;ar este potencial</button>
+            <div class="info-box" style="text-align:center;">🎉 <strong>Seu perfil é compatível com o Protocolo Alpha!</strong><br>Com base nas suas respostas, você tem alto potencial de melhora com nosso método.</div>
+            <button class="btn" onclick="goScreen(26)">🚀 Desejo alcançar este potencial</button>
         </div>
     </div>
 
     <!-- TELA 26: OFERTA -->
     <div id="screen-26" class="screen">
         <div class="offer-hero">
-            <div class="offer-hero-eyebrow">&#9989; Plano Personalizado Gerado</div>
-            <div class="offer-hero-title">Seu Plano de Treinamento<br><span>P-Alpha est&#225; Pronto!</span></div>
+            <div class="offer-hero-eyebrow">✅ Plano Personalizado Gerado</div>
+            <div class="offer-hero-title">Seu Plano de Treinamento<br><span>P-Alpha está Pronto!</span></div>
         </div>
         <div class="delivery-card">
-            <div class="delivery-card-label">O que voc&#234; recebe</div>
-            <div class="offer-item"><div class="offer-check">&#10004;</div><div class="offer-text"><div class="offer-title">Programa Avan&#231;ado de Exerc&#237;cios de Kegel</div><div class="offer-desc">3 sess&#245;es di&#225;rias estruturadas. Recomendamos pelo menos 2 sess&#245;es por dia para acelerar os resultados.</div></div></div>
-            <div class="offer-item"><div class="offer-check">&#10004;</div><div class="offer-text"><div class="offer-title">Treino Espec&#237;fico Guiado</div><div class="offer-desc">Fortale&#231;a regi&#245;es que aumentam seu desejo e melhoram diretamente seu desempenho sexual.</div></div></div>
-            <div class="offer-item"><div class="offer-check">&#10004;</div><div class="offer-text"><div class="offer-title">T&#233;cnicas de Respira&#231;&#227;o T&#225;tica</div><div class="offer-desc">Reduzem tens&#227;o f&#237;sica e mental, aumentando seu controle e foco na hora H.</div></div></div>
-            <div class="offer-item"><div class="offer-check">&#10004;</div><div class="offer-text"><div class="offer-title">Orienta&#231;&#245;es de Especialistas em Sexualidade</div><div class="offer-desc">Melhore seu desempenho e traga mais conex&#227;o &#224; sua vida sexual.</div></div></div>
-            <div class="lifetime-badge"><div style="font-size:22px;flex-shrink:0;">&#9854;&#65039;</div><div><div class="lifetime-badge-text">Acesso Vitalício à Plataforma</div><div class="lifetime-badge-sub">Sem mensalidade. Acesse para sempre, de qualquer dispositivo.</div></div></div>
+            <div class="delivery-card-label">O que você recebe</div>
+            <div class="offer-item"><div class="offer-check">✔</div><div class="offer-text"><div class="offer-title">Programa Avançado de Exercícios de Kegel</div><div class="offer-desc">3 sessões diárias estruturadas. Recomendamos pelo menos 2 sessões por dia para acelerar os resultados.</div></div></div>
+            <div class="offer-item"><div class="offer-check">✔</div><div class="offer-text"><div class="offer-title">Treino Específico Guiado</div><div class="offer-desc">Fortaleça regiões que aumentam seu desejo e melhoram diretamente seu desempenho sexual.</div></div></div>
+            <div class="offer-item"><div class="offer-check">✔</div><div class="offer-text"><div class="offer-title">Técnicas de Respiração Tática</div><div class="offer-desc">Reduzem tensão física e mental, aumentando seu controle e foco na hora H.</div></div></div>
+            <div class="offer-item"><div class="offer-check">✔</div><div class="offer-text"><div class="offer-title">Orientações de Especialistas em Sexualidade</div><div class="offer-desc">Melhore seu desempenho e traga mais conexão à sua vida sexual.</div></div></div>
+            <div class="lifetime-badge"><div style="font-size:22px;flex-shrink:0;">♾️</div><div><div class="lifetime-badge-text">Acesso Vitalício à Plataforma</div><div class="lifetime-badge-sub">Sem mensalidade. Acesse para sempre, de qualquer dispositivo.</div></div></div>
         </div>
         <div class="bonus-card">
-            <div class="bonus-ribbon">&#127873; B&#244;nus Premium &#8212; Inclu&#237;dos</div>
-            <div class="bonus-headline">LEVANDO HOJE, VOC&#202;<br><span>GANHA +4 B&#212;NUS EXCLUSIVOS:</span></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">&#128170;</div><div class="bonus-item-body"><div class="bonus-item-name">Exerc&#237;cios de Expans&#227;o Tecidual</div><div class="bonus-item-desc">Aumente e engrosse seu companheiro com t&#233;cnicas seguras.</div></div><div class="bonus-gratis">GR&#193;TIS</div></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">&#128081;</div><div class="bonus-item-body"><div class="bonus-item-name">Guia do Macho Alfa</div><div class="bonus-item-desc">Criado por mulheres com t&#233;cnicas para fazer elas correrem atr&#225;s de voc&#234;.</div></div><div class="bonus-gratis">GR&#193;TIS</div></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">&#127807;</div><div class="bonus-item-body"><div class="bonus-item-name">Receitas de Pot&#234;ncia Caseira</div><div class="bonus-item-desc">Ingredientes que voc&#234; tem em casa para elevar sua pot&#234;ncia.</div></div><div class="bonus-gratis">GR&#193;TIS</div></div>
-            <div class="bonus-item"><div class="bonus-emoji-wrap">&#128293;</div><div class="bonus-item-body"><div class="bonus-item-name">T&#233;cnica do Bicarbonato</div><div class="bonus-item-desc">Receita viralizada que est&#225; transformando os homens que j&#225; usaram.</div></div><div class="bonus-gratis">GR&#193;TIS</div></div>
+            <div class="bonus-ribbon">🎁 Bônus Premium — Incluídos</div>
+            <div class="bonus-headline">LEVANDO HOJE, VOCÊ<br><span>GANHA +4 BÔNUS EXCLUSIVOS:</span></div>
+            <div class="bonus-item"><div class="bonus-emoji-wrap">💪</div><div class="bonus-item-body"><div class="bonus-item-name">Exercícios de Expansão Tecidual</div><div class="bonus-item-desc">Aumente e engrosse seu companheiro com técnicas seguras.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
+            <div class="bonus-item"><div class="bonus-emoji-wrap">👑</div><div class="bonus-item-body"><div class="bonus-item-name">Guia do Macho Alfa</div><div class="bonus-item-desc">Criado por mulheres com técnicas para fazer elas correrem atrás de você.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
+            <div class="bonus-item"><div class="bonus-emoji-wrap">🍃</div><div class="bonus-item-body"><div class="bonus-item-name">Receitas de Potência Caseira</div><div class="bonus-item-desc">Ingredientes que você tem em casa para elevar sua potência.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
+            <div class="bonus-item"><div class="bonus-emoji-wrap">🔥</div><div class="bonus-item-body"><div class="bonus-item-name">Técnica do Bicarbonato</div><div class="bonus-item-desc">Receita viralizada que está transformando os homens que já usaram.</div></div><div class="bonus-gratis">GRÁTIS</div></div>
         </div>
-        <div class="urgency-strip"><div class="urgency-icon">&#9203;</div><div class="urgency-text"><strong>Aten&#231;&#227;o:</strong> Esta oferta com os 4 b&#244;nus est&#225; dispon&#237;vel <strong>apenas nesta p&#225;gina</strong>. Ao sair, o desconto e os b&#244;nus s&#227;o removidos automaticamente.</div></div>
+        <div class="urgency-strip"><div class="urgency-icon">⏳</div><div class="urgency-text"><strong>Atenção:</strong> Esta oferta com os 4 bônus está disponível <strong>apenas nesta página</strong>. Ao sair, o desconto e os bônus são removidos automaticamente.</div></div>
         <div class="price-block">
-            <div class="price-original">Valor Total (M&#233;todo + B&#244;nus): <s>R$ 147,00</s></div>
-            <div class="price-tag-label">&#9889; Apenas hoje nesta p&#225;gina</div>
+            <div class="price-original">Valor Total (Método + Bônus): <s>R$ 147,00</s></div>
+            <div class="price-tag-label">⚡ Apenas hoje nesta página</div>
             <div class="price-main"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
         </div>
-        <button class="cta-pulse" id="cta-btn" onclick="checkout()">&#128275; QUERO MEU ACESSO IMEDIATO<br>POR R$ 19,90</button>
-        <div class="cta-sub-text">&#128274; Pagamento 100% seguro e criptografado</div>
+        <button class="cta-pulse" id="cta-btn" onclick="checkout()">🔓 QUERO MEU ACESSO IMEDIATO<br>POR R$ 19,90</button>
+        <div class="cta-sub-text">🔒 Pagamento 100% seguro e criptografado</div>
         <div class="seals-row">
-            <div class="seal"><div class="seal-icon">&#128272;</div><div class="seal-label">Compra 100% Segura</div></div>
-            <div class="seal"><div class="seal-icon">&#9889;</div><div class="seal-label">Acesso Imediato</div></div>
-            <div class="seal"><div class="seal-icon">&#128737;&#65039;</div><div class="seal-label">Garantia de 7 Dias</div></div>
+            <div class="seal"><div class="seal-icon">🔐</div><div class="seal-label">Compra 100% Segura</div></div>
+            <div class="seal"><div class="seal-icon">⚡</div><div class="seal-label">Acesso Imediato</div></div>
+            <div class="seal"><div class="seal-icon">🛡️</div><div class="seal-label">Garantia de 7 Dias</div></div>
         </div>
-        <div class="guarantee-box" style="margin-top:16px;"><div class="guarantee-icon">&#128737;&#65039;</div><div class="guarantee-title">Garantia Total de 7 Dias</div><div class="guarantee-desc">N&#227;o ficou satisfeito? Devolvemos 100% do seu dinheiro.<br>Sem perguntas, sem burocracia.</div></div>
+        <div class="guarantee-box" style="margin-top:16px;"><div class="guarantee-icon">🛡️</div><div class="guarantee-title">Garantia Total de 7 Dias</div><div class="guarantee-desc">Não ficou satisfeito? Devolvemos 100% do seu dinheiro.<br>Sem perguntas, sem burocracia.</div></div>
         <div class="cta-footer">Adquira agora e tenha sua masculinidade de volta em semanas</div>
-        <div style="text-align:center;margin-top:8px;font-size:11px;color:var(--text2);">&#128274; Pagamento 100% seguro e discreto</div>
+        <div style="text-align:center;margin-top:8px;font-size:11px;color:var(--text2);">🔒 Pagamento 100% seguro e discreto</div>
     </div>
 
 </div><!-- /main -->
 
+<!-- ═══════════════════════════════════════════════════════════
+     AJUSTE 2: Toda a lógica JS agora usa Firebase Compat SDK.
+     Sem type="module", sem import/export — compatível com
+     qualquer servidor estático ou abertura direta de arquivo.
+════════════════════════════════════════════════════════════ -->
 <script>
-// ════════════════════════════════════════════════════════
-// FIREBASE — Compat SDK (carregado via <script src> acima)
-// Sem type="module", sem imports, funciona em HTML simples
-// ════════════════════════════════════════════════════════
-var firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyB-GPkmK_iNQuu_96NsWBEmnZA1LhiSRR4",
-    authDomain: "alytics-metodo-alpha.firebaseapp.com",
-    projectId: "alytics-metodo-alpha",
-    storageBucket: "alytics-metodo-alpha.firebasestorage.app",
-    messagingSenderId: "389989039442",
-    appId: "1:389989039442:web:e897945ffbfe52da210e8b"
-});
-var db = firebase.firestore();
-
-// ── MAPA DE TELAS ──
-var SCREEN_MAP = {
-    1:'Tela 1 · Idade', 2:'Tela 2 · Prova Social', 3:'Tela 3 · Tipo de Corpo',
-    4:'Tela 4 · Objetivos', 5:'Tela 5 · Assoalho Pélvico', 6:'Tela 6 · Duração Relação',
-    7:'Tela 7 · Ejaculação Precoce', 8:'Tela 8 · Controle Ejaculação',
-    9:'Tela 9 · Treino Desempenho', 10:'Tela 10 · Imagem Método',
-    11:'Tela 11 · Força da Ereção', 12:'Tela 12 · Tempo Dificuldade',
-    13:'Tela 13 · Ereções Matinais', 14:'Tela 14 · Dificuldade Ereção',
-    '14b':'Tela 14b · Duas Vezes', 15:'Tela 15 · Músculo Bulbocavernoso',
-    16:'Tela 16 · Imagem Info', 17:'Tela 17 · Atividade Física',
-    18:'Tela 18 · Pornô', 19:'Tela 19 · Estado Civil',
-    20:'Tela 20 · Frequência Relações', 21:'Tela 21 · Libido',
-    22:'Tela 22 · Soluções Rápidas', '22b':'Tela 22b · Satisfação Tamanho',
-    23:'Tela 23 · Imagem Final', 24:'Tela 24 · Loading',
-    25:'Tela 25 · Resultado', 26:'Tela 26 · Oferta/Checkout'
-};
-
-// ── SESSION ID ──
-var sid = localStorage.getItem('alpha_sid');
-if (!sid) {
-    sid = 's_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
-    localStorage.setItem('alpha_sid', sid);
-}
-
-// ── CANAL ──
-var DOMAIN_CHANNEL_MAP = {
-    'method-alpha.vercel.app':  'cajado-supremo',
-    'metodo-alpha.vercel.app':  'doutor-cajado',
-    'metodo-alpha2.vercel.app': 'doutor-saude',
-    'method-alpha1.vercel.app': 'doutor-reginaldo',
-    'alpha-method.vercel.app':  'doutor-bigode'
-};
-var CHANNEL_NAMES = {
-    'cajado-supremo':'📱 Cajado Supremo','doutor-cajado':'📱 Doutor Cajado',
-    'doutor-saude':'📱 Doutor Saúde','doutor-reginaldo':'📱 Doutor Reginaldo',
-    'doutor-bigode':'📱 Doutor Bigode'
-};
-var currentChannel = DOMAIN_CHANNEL_MAP[window.location.hostname] || 'desconhecido';
-localStorage.setItem('tiktok_channel', currentChannel);
-
-var answers = {};
-
-// ── TRACK (Firestore via Compat SDK) ──
-function track(e, d) {
-    d = d || {};
-    var data = { lastActivity: firebase.firestore.FieldValue.serverTimestamp() };
-    data['events.' + e] = firebase.firestore.FieldValue.serverTimestamp();
-    Object.keys(d).forEach(function(k){ data[k] = d[k]; });
-    db.collection('sessions').doc(sid).set(data, { merge: true }).catch(function(){});
-}
-
-// ── INIT SESSION ──
-db.collection('sessions').doc(sid).set({
-    sessionId: sid,
-    enteredAt: firebase.firestore.FieldValue.serverTimestamp(),
-    lastActivity: firebase.firestore.FieldValue.serverTimestamp(),
-    currentStep: 'inicio',
-    channel: currentChannel,
-    channelName: CHANNEL_NAMES[currentChannel] || currentChannel,
-    domain: window.location.hostname,
-    answers: {},
-    'events.page_view': firebase.firestore.FieldValue.serverTimestamp()
-}, { merge: true }).catch(function(){});
-
-// ── UPDATE PROGRESS ──
-function updateProgress(n) {
-    var wrap = document.getElementById('progress-wrap');
-    var fill = document.getElementById('prog-fill');
-    var step = document.getElementById('prog-step');
-    var pct  = document.getElementById('prog-pct');
-    var quizScreens = [3,4,6,7,8,9,11,12,13,14,17,18,19,20,21,22];
-    if (quizScreens.indexOf(n) !== -1) {
-        if(wrap) wrap.classList.add('show');
-        var idx = quizScreens.indexOf(n) + 1;
-        var p = Math.round((idx / quizScreens.length) * 100);
-        if(fill) fill.style.width = p + '%';
-        if(step) step.textContent = 'Passo ' + idx + ' de ' + quizScreens.length;
-        if(pct)  pct.textContent  = p + '%';
-    } else {
-        if(wrap) wrap.classList.remove('show');
-    }
-}
-
-// ── goScreen ──
-function goScreen(n) {
-    document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
-    var el = document.getElementById('screen-' + n);
-    if (el) el.classList.add('active');
-    window.scrollTo(0, 0);
-
-    var logoBar = document.getElementById('logo-bar');
-    if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
-
-    var nNum = typeof n === 'number' ? n : parseInt(n);
-    updateProgress(isNaN(nNum) ? 99 : nNum);
-
-    var screenName = SCREEN_MAP[n] || ('Tela ' + n);
-    var screenNum  = typeof n === 'number' ? n : (parseInt(n) || n);
-    track('screen_' + n, {
-        currentStep:   screenName,
-        currentScreen: screenNum,
-        lastScreen:    screenNum,
-        screenName:    screenName
+    // ── Inicializa Firebase Compat ──
+    firebase.initializeApp({
+        apiKey:            "AIzaSyB-GPkmK_iNQuu_96NsWBEmnZA1LhiSRR4",
+        authDomain:        "alytics-metodo-alpha.firebaseapp.com",
+        projectId:         "alytics-metodo-alpha",
+        storageBucket:     "alytics-metodo-alpha.firebasestorage.app",
+        messagingSenderId: "389989039442",
+        appId:             "1:389989039442:web:e897945ffbfe52da210e8b"
     });
-}
 
-// ── QUESTION HANDLERS ──
-function selectOpt(el, key, val, currentScreen, nextScreen) {
-    var parent = el.closest('.options, .scale-row');
-    if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(function(b){ b.classList.remove('selected'); });
-    el.classList.add('selected');
-    answers[key] = val;
-    track('answer_' + key, { answer: val, answers: answers });
-    if (nextScreen !== null && nextScreen !== undefined) {
-        setTimeout(function(){ goScreen(nextScreen); }, 250);
-    }
-}
+    var db = firebase.firestore();
 
-function toggleMulti(el, key) {
-    el.classList.toggle('selected');
-    var cb = el.querySelector('.checkbox');
-    if(cb) cb.textContent = el.classList.contains('selected') ? '✓' : '';
-    if (!answers.goals) answers.goals = [];
-    if (el.classList.contains('selected')) {
-        if (answers.goals.indexOf(key) === -1) answers.goals.push(key);
-    } else {
-        answers.goals = answers.goals.filter(function(k){ return k !== key; });
-    }
-}
-
-function confirmMulti(containerId, currentS, nextS) {
-    if (!answers.goals || answers.goals.length === 0) {
-        alert('Por favor, selecione pelo menos uma opção.');
-        return;
-    }
-    track('goals_selected', { goals: answers.goals });
-    goScreen(nextS);
-}
-
-function selectAtividade(el, val, pct, msg) {
-    document.querySelectorAll('#atv-opts .opt').forEach(function(b){ b.classList.remove('selected'); });
-    el.classList.add('selected');
-    answers.atividade_fisica = val;
-    track('answer_atividade_fisica', { answer: val });
-    var pctEl = document.getElementById('atv-pct-text');
-    if (val === 'nao') { if(pctEl) pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!'; }
-    else { if(pctEl) pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários'; }
-    var msgEl = document.getElementById('atv-msg');
-    if(msgEl) msgEl.textContent = msg;
-    var fb = document.getElementById('atv-feedback');
-    if(fb) fb.style.display = 'block';
-    setTimeout(function(){ var f = document.getElementById('atv-feedback'); if(f) f.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
-}
-
-function selectSatisf(el, val) {
-    document.querySelectorAll('#satisf-opts .scale-btn').forEach(function(b){ b.classList.remove('selected'); });
-    el.classList.add('selected');
-    answers.satisfacao_tamanho = val;
-    track('answer_satisfacao', { answer: val });
-    var configs = {
-        1:{bg:'background:linear-gradient(135deg,#7f1d1d,#991b1b);border:1px solid rgba(239,68,68,0.4);',emoji:'😔',title:'Entendemos como isso pesa...',msg:'Muitos homens passam anos se sentindo assim sem saber que existe solução. No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁'},
-        2:{bg:'background:linear-gradient(135deg,#7c2d12,#9a3412);border:1px solid rgba(249,115,22,0.4);',emoji:'😕',title:'Você merece se sentir muito melhor...',msg:'Não precisa ser assim. Temos uma surpresa especial esperando por você. 🎁'},
-        3:{bg:'background:linear-gradient(135deg,#713f12,#854d0e);border:1px solid rgba(234,179,8,0.4);',emoji:'😐',title:'Bem no meio do caminho...',msg:'No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta. 🎁'},
-        4:{bg:'background:linear-gradient(135deg,#14532d,#166534);border:1px solid rgba(34,197,94,0.3);',emoji:'🙂',title:'Quase lá — mas o melhor ainda está por vir!',msg:'Existe um próximo patamar que poucos homens alcançam. No final tem uma surpresa. 🎁'},
-        5:{bg:'background:linear-gradient(135deg,#064e3b,#065f46);border:2px solid rgba(34,197,94,0.5);',emoji:'🏆',title:'Parabéns! Você vai se transformar em uma máquina! 🔥',msg:'Você já tem a mentalidade certa. Com o Protocolo Alpha vai potencializar ainda mais!'}
+    // ── MAPA DE TELAS ──
+    var SCREEN_MAP = {
+        1:'Tela 1 · Idade', 2:'Tela 2 · Prova Social', 3:'Tela 3 · Tipo de Corpo',
+        4:'Tela 4 · Objetivos', 5:'Tela 5 · Assoalho Pélvico', 6:'Tela 6 · Duração Relação',
+        7:'Tela 7 · Ejaculação Precoce', 8:'Tela 8 · Controle Ejaculação',
+        9:'Tela 9 · Treino Desempenho', 10:'Tela 10 · Imagem Método',
+        11:'Tela 11 · Força da Ereção', 12:'Tela 12 · Tempo Dificuldade',
+        13:'Tela 13 · Ereções Matinais', 14:'Tela 14 · Dificuldade Ereção',
+        '14b':'Tela 14b · Duas Vezes', 15:'Tela 15 · Músculo Bulbocavernoso',
+        16:'Tela 16 · Imagem Info', 17:'Tela 17 · Atividade Física',
+        18:'Tela 18 · Pornô', 19:'Tela 19 · Estado Civil',
+        20:'Tela 20 · Frequência Relações', 21:'Tela 21 · Libido',
+        22:'Tela 22 · Soluções Rápidas', '22b':'Tela 22b · Satisfação Tamanho',
+        23:'Tela 23 · Imagem Final', 24:'Tela 24 · Loading',
+        25:'Tela 25 · Resultado', 26:'Tela 26 · Oferta/Checkout'
     };
-    var c = configs[val];
-    var box = document.getElementById('satisf-box');
-    if(box) box.setAttribute('style', c.bg + ' padding:18px;');
-    document.getElementById('satisf-emoji').textContent = c.emoji;
-    document.getElementById('satisf-title').textContent = c.title;
-    document.getElementById('satisf-msg').textContent   = c.msg;
-    document.getElementById('satisf-feedback').style.display = 'block';
-    setTimeout(function(){ var f = document.getElementById('satisf-feedback'); if(f) f.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
-}
 
-function selectAge(range) {
-    answers.idade = range;
-    track('age_selected', { age: range });
-    goScreen(2);
-}
+    // ── SESSION ID ──
+    var sid = localStorage.getItem('alpha_sid');
+    if (!sid) {
+        sid = 's_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('alpha_sid', sid);
+    }
 
-function selectBody(type) {
-    document.querySelectorAll('.body-row-card').forEach(function(c){ c.style.borderColor = 'var(--border)'; c.style.background = '#fff'; });
-    if(event && event.currentTarget) { event.currentTarget.style.borderColor = '#16a34a'; event.currentTarget.style.background = '#f0fdf4'; }
-    answers.corpo = type;
-    track('body_selected', { body: type });
-    setTimeout(function(){ goScreen(4); }, 220);
-}
+    // ── CANAL ──
+    var DOMAIN_CHANNEL_MAP = {
+        'method-alpha.vercel.app':  'cajado-supremo',
+        'metodo-alpha.vercel.app':  'doutor-cajado',
+        'metodo-alpha2.vercel.app': 'doutor-saude',
+        'method-alpha1.vercel.app': 'doutor-reginaldo',
+        'alpha-method.vercel.app':  'doutor-bigode'
+    };
+    var CHANNEL_NAMES = {
+        'cajado-supremo':   '📱 Cajado Supremo',
+        'doutor-cajado':    '📱 Doutor Cajado',
+        'doutor-saude':     '📱 Doutor Saúde',
+        'doutor-reginaldo': '📱 Doutor Reginaldo',
+        'doutor-bigode':    '📱 Doutor Bigode'
+    };
+    var currentChannel = DOMAIN_CHANNEL_MAP[window.location.hostname] || 'desconhecido';
+    localStorage.setItem('tiktok_channel', currentChannel);
 
-// ── LOADING ──
-function startLoading() {
-    goScreen(24);
-    track('loading_started');
-    runAnalysis();
-}
+    var answers = {};
 
-function runAnalysis() {
-    var bars  = ['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'];
-    var steps = ['step-a1','step-a2','step-a3','step-a4','step-a5'];
-    var testis = ['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];
-    var tIdx = 0;
-    var TOTAL = 5000;
-    bars.forEach(function(barId, i) {
-        setTimeout(function() {
-            var bar = document.getElementById(barId);
-            if (bar) bar.style.width = '100%';
-            setTimeout(function() {
-                var step = document.getElementById(steps[i]);
-                if (step) step.classList.add('step-done');
-            }, 800);
-        }, i * (TOTAL / bars.length));
-    });
-    var mainBar = document.getElementById('main-progress-bar');
-    var pct = 0;
-    var progInterval = setInterval(function() {
-        pct += 1;
-        if (mainBar) mainBar.style.width = pct + '%';
-        if (pct >= 100) clearInterval(progInterval);
-    }, TOTAL / 100);
-    var testiInterval = setInterval(function() {
-        document.getElementById(testis[tIdx]).style.display = 'none';
-        tIdx = (tIdx + 1) % testis.length;
-        document.getElementById(testis[tIdx]).style.display = 'block';
-    }, 1250);
-    setTimeout(function() {
-        clearInterval(testiInterval);
-        clearInterval(progInterval);
-        track('loading_done');
-        goScreen(25);
-        animateResults();
-    }, TOTAL);
-}
+    // ── TRACK (Compat SDK usa .set com merge) ──
+    function track(e, d) {
+        d = d || {};
+        var payload = { lastActivity: firebase.firestore.FieldValue.serverTimestamp() };
+        payload['events.' + e] = firebase.firestore.FieldValue.serverTimestamp();
+        Object.keys(d).forEach(function(k){ payload[k] = d[k]; });
+        db.collection('sessions').doc(sid).set(payload, { merge: true }).catch(function(){});
+    }
 
-function animateResults() {
-    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-    setTimeout(function(){ document.getElementById('after-1').style.width = '90%'; }, 300);
-    setTimeout(function(){ document.getElementById('after-2').style.width = '87%'; }, 500);
-    setTimeout(function(){ document.getElementById('after-3').style.width = '91%'; }, 700);
-    track('result_shown');
-}
-
-// ── CHECKOUT ──
-// ✅ FIX 1: Firebase Compat SDK (sem type=module)
-// ✅ FIX 2: UTMify injeta parâmetros de rastreio antes do redirect
-function checkout() {
-    if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {}, { eventID: sid });
-    var ch = localStorage.getItem('tiktok_channel') || currentChannel;
+    // ── INIT SESSION ──
     db.collection('sessions').doc(sid).set({
-        'events.checkout': firebase.firestore.FieldValue.serverTimestamp(),
-        currentStep: 'checkout',
-        currentScreen: 26,
-        lastScreen: 26,
-        screenName: 'Tela 26 · Oferta/Checkout',
-        channel: ch,
-        channelName: CHANNEL_NAMES[ch] || ch,
-        lastActivity: firebase.firestore.FieldValue.serverTimestamp()
+        sessionId:    sid,
+        enteredAt:    firebase.firestore.FieldValue.serverTimestamp(),
+        lastActivity: firebase.firestore.FieldValue.serverTimestamp(),
+        currentStep:  'inicio',
+        channel:      currentChannel,
+        channelName:  CHANNEL_NAMES[currentChannel] || currentChannel,
+        domain:       window.location.hostname,
+        answers:      {},
+        'events.page_view': firebase.firestore.FieldValue.serverTimestamp()
     }, { merge: true }).catch(function(){});
 
-    var baseUrl = 'https://pay.wiapy.com/P3vfkw_B9?utm_source=' + sid + '&external_id=' + sid + '&event_id=' + sid;
-
-    setTimeout(function() {
-        if (window.utmify && typeof window.utmify.getTrackingUrl === 'function') {
-            // UTMify injeta src, sck, utm_campaign e demais parâmetros no link
-            window.location.href = window.utmify.getTrackingUrl(baseUrl);
+    // ── UPDATE PROGRESS ──
+    function updateProgress(n) {
+        var wrap = document.getElementById('progress-wrap');
+        var fill = document.getElementById('prog-fill');
+        var step = document.getElementById('prog-step');
+        var pct  = document.getElementById('prog-pct');
+        var quizScreens = [3,4,6,7,8,9,11,12,13,14,17,18,19,20,21,22];
+        if (quizScreens.indexOf(n) !== -1) {
+            if (wrap) wrap.classList.add('show');
+            var idx = quizScreens.indexOf(n) + 1;
+            var p = Math.round((idx / quizScreens.length) * 100);
+            if (fill) fill.style.width = p + '%';
+            if (step) step.textContent = 'Passo ' + idx + ' de ' + quizScreens.length;
+            if (pct)  pct.textContent  = p + '%';
         } else {
-            // Fallback: UTMify não carregou ainda, redireciona sem perder a venda
-            window.location.href = baseUrl;
+            if (wrap) wrap.classList.remove('show');
         }
-    }, 400);
-}
+    }
+
+    // ── goScreen ──
+    window.goScreen = function(n) {
+        document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+        var el = document.getElementById('screen-' + n);
+        if (el) el.classList.add('active');
+        window.scrollTo(0, 0);
+
+        var logoBar = document.getElementById('logo-bar');
+        if (logoBar) logoBar.style.display = (n === 1) ? 'none' : 'flex';
+
+        var nNum = typeof n === 'number' ? n : parseInt(n);
+        updateProgress(isNaN(nNum) ? 99 : nNum);
+
+        var screenName = SCREEN_MAP[n] || ('Tela ' + n);
+        var screenNum  = typeof n === 'number' ? n : (parseInt(n) || n);
+        track('screen_' + n, {
+            currentStep:   screenName,
+            currentScreen: screenNum,
+            lastScreen:    screenNum,
+            screenName:    screenName
+        });
+    };
+
+    // ── QUESTION HANDLERS ──
+    window.selectOpt = function(el, key, val, currentScreen, nextScreen) {
+        var parent = el.closest('.options, .scale-row');
+        if (parent) parent.querySelectorAll('.opt, .scale-btn').forEach(function(b){ b.classList.remove('selected'); });
+        el.classList.add('selected');
+        answers[key] = val;
+        track('answer_' + key, { answer: val, answers: Object.assign({}, answers) });
+        if (nextScreen !== null && nextScreen !== undefined) {
+            setTimeout(function(){ goScreen(nextScreen); }, 250);
+        }
+    };
+
+    window.toggleMulti = function(el, key) {
+        el.classList.toggle('selected');
+        var cb = el.querySelector('.checkbox');
+        if (cb) cb.textContent = el.classList.contains('selected') ? '✓' : '';
+        if (!answers.goals) answers.goals = [];
+        if (el.classList.contains('selected')) {
+            if (answers.goals.indexOf(key) === -1) answers.goals.push(key);
+        } else {
+            answers.goals = answers.goals.filter(function(k){ return k !== key; });
+        }
+    };
+
+    window.confirmMulti = function(containerId, currentS, nextS) {
+        if (!answers.goals || answers.goals.length === 0) {
+            alert('Por favor, selecione pelo menos uma opção.');
+            return;
+        }
+        track('goals_selected', { goals: answers.goals });
+        goScreen(nextS);
+    };
+
+    window.selectAtividade = function(el, val, pct, msg) {
+        document.querySelectorAll('#atv-opts .opt').forEach(function(b){ b.classList.remove('selected'); });
+        el.classList.add('selected');
+        answers.atividade_fisica = val;
+        track('answer_atividade_fisica', { answer: val });
+        var pctEl = document.getElementById('atv-pct-text');
+        if (val === 'nao') {
+            if (pctEl) pctEl.textContent = '💪 Não se preocupe — todo começo tem um ponto de partida!';
+        } else {
+            if (pctEl) pctEl.textContent = 'Você está à frente de ' + pct + '% dos usuários';
+        }
+        var msgEl = document.getElementById('atv-msg');
+        if (msgEl) msgEl.textContent = msg;
+        var fb = document.getElementById('atv-feedback');
+        if (fb) fb.style.display = 'block';
+        setTimeout(function(){
+            var f = document.getElementById('atv-feedback');
+            if (f) f.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    };
+
+    window.selectSatisf = function(el, val) {
+        document.querySelectorAll('#satisf-opts .scale-btn').forEach(function(b){ b.classList.remove('selected'); });
+        el.classList.add('selected');
+        answers.satisfacao_tamanho = val;
+        track('answer_satisfacao', { answer: val });
+        var configs = {
+            1:{bg:'background:linear-gradient(135deg,#7f1d1d,#991b1b);border:1px solid rgba(239,68,68,0.4);',emoji:'😔',title:'Entendemos como isso pesa...',msg:'Muitos homens passam anos se sentindo assim sem saber que existe solução. No final dessa avaliação temos uma surpresa especial preparada pra você. 🎁'},
+            2:{bg:'background:linear-gradient(135deg,#7c2d12,#9a3412);border:1px solid rgba(249,115,22,0.4);',emoji:'😕',title:'Você merece se sentir muito melhor...',msg:'Não precisa ser assim. Temos uma surpresa especial esperando por você. 🎁'},
+            3:{bg:'background:linear-gradient(135deg,#713f12,#854d0e);border:1px solid rgba(234,179,8,0.4);',emoji:'😐',title:'Bem no meio do caminho...',msg:'No final dessa avaliação temos uma surpresa que vai te mostrar exatamente o que falta. 🎁'},
+            4:{bg:'background:linear-gradient(135deg,#14532d,#166534);border:1px solid rgba(34,197,94,0.3);',emoji:'🙂',title:'Quase lá — mas o melhor ainda está por vir!',msg:'Existe um próximo patamar que poucos homens alcançam. No final tem uma surpresa. 🎁'},
+            5:{bg:'background:linear-gradient(135deg,#064e3b,#065f46);border:2px solid rgba(34,197,94,0.5);',emoji:'🏆',title:'Parabéns! Você vai se transformar em uma máquina! 🔥',msg:'Você já tem a mentalidade certa. Com o Protocolo Alpha vai potencializar ainda mais!'}
+        };
+        var c = configs[val];
+        var box = document.getElementById('satisf-box');
+        if (box) box.setAttribute('style', c.bg + ' padding:18px;');
+        document.getElementById('satisf-emoji').textContent  = c.emoji;
+        document.getElementById('satisf-title').textContent  = c.title;
+        document.getElementById('satisf-msg').textContent    = c.msg;
+        document.getElementById('satisf-feedback').style.display = 'block';
+        setTimeout(function(){
+            var f = document.getElementById('satisf-feedback');
+            if (f) f.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    };
+
+    window.selectAge = function(range) {
+        answers.idade = range;
+        track('age_selected', { age: range });
+        goScreen(2);
+    };
+
+    window.selectBody = function(type) {
+        document.querySelectorAll('.body-row-card').forEach(function(c){
+            c.style.borderColor = 'var(--border)';
+            c.style.background  = '#fff';
+        });
+        if (event && event.currentTarget) {
+            event.currentTarget.style.borderColor = '#16a34a';
+            event.currentTarget.style.background  = '#f0fdf4';
+        }
+        answers.corpo = type;
+        track('body_selected', { body: type });
+        setTimeout(function(){ goScreen(4); }, 220);
+    };
+
+    // ── LOADING ──
+    window.startLoading = function() {
+        goScreen(24);
+        track('loading_started');
+        runAnalysis();
+    };
+
+    function runAnalysis() {
+        var bars   = ['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'];
+        var steps  = ['step-a1','step-a2','step-a3','step-a4','step-a5'];
+        var testis = ['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];
+        var tIdx   = 0;
+        var TOTAL  = 5000;
+
+        bars.forEach(function(barId, i) {
+            setTimeout(function(){
+                var bar = document.getElementById(barId);
+                if (bar) bar.style.width = '100%';
+                setTimeout(function(){
+                    var step = document.getElementById(steps[i]);
+                    if (step) step.classList.add('step-done');
+                }, 800);
+            }, i * (TOTAL / bars.length));
+        });
+
+        var mainBar = document.getElementById('main-progress-bar');
+        var pct = 0;
+        var progInterval = setInterval(function(){
+            pct += 1;
+            if (mainBar) mainBar.style.width = pct + '%';
+            if (pct >= 100) clearInterval(progInterval);
+        }, TOTAL / 100);
+
+        var testiInterval = setInterval(function(){
+            document.getElementById(testis[tIdx]).style.display = 'none';
+            tIdx = (tIdx + 1) % testis.length;
+            document.getElementById(testis[tIdx]).style.display = 'block';
+        }, 1250);
+
+        setTimeout(function(){
+            clearInterval(testiInterval);
+            clearInterval(progInterval);
+            track('loading_done');
+            goScreen(25);
+            animateResults();
+        }, TOTAL);
+    }
+
+    function animateResults() {
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        setTimeout(function(){ document.getElementById('after-1').style.width = '90%'; }, 300);
+        setTimeout(function(){ document.getElementById('after-2').style.width = '87%'; }, 500);
+        setTimeout(function(){ document.getElementById('after-3').style.width = '91%'; }, 700);
+        track('result_shown');
+    }
+
+    // ══════════════════════════════════════════════════════════════════
+    // CHECKOUT com UTMify getTrackingUrl
+    //
+    // AJUSTE 3: console.log adicionado antes do redirecionamento para
+    // inspecionar se a UTMify está realmente alterando a URL final.
+    // Abra o DevTools (F12 → Console) e clique no botão de compra
+    // para ver a URL exata que será usada no redirect.
+    //
+    // AJUSTE 4: verificação defensiva completa de window.utmify para
+    // evitar erros de sintaxe/runtime caso o objeto não exista ainda.
+    // ══════════════════════════════════════════════════════════════════
+    window.checkout = function() {
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'InitiateCheckout', {}, { eventID: sid });
+        }
+
+        var ch = localStorage.getItem('tiktok_channel') || currentChannel;
+
+        db.collection('sessions').doc(sid).set({
+            'events.checkout': firebase.firestore.FieldValue.serverTimestamp(),
+            currentStep:       'checkout',
+            currentScreen:     26,
+            lastScreen:        26,
+            screenName:        'Tela 26 · Oferta/Checkout',
+            channel:           ch,
+            channelName:       CHANNEL_NAMES[ch] || ch,
+            lastActivity:      firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true }).catch(function(){});
+
+        var baseUrl = 'https://pay.wiapy.com/P3vfkw_B9?utm_source=' + sid
+                    + '&external_id=' + sid
+                    + '&event_id=' + sid;
+
+        setTimeout(function(){
+            var checkoutUrl;
+
+            // AJUSTE 4: verificação defensiva — garante que window.utmify
+            // existe, é um objeto, e expõe getTrackingUrl como função.
+            if (
+                window.utmify !== null &&
+                window.utmify !== undefined &&
+                typeof window.utmify === 'object' &&
+                typeof window.utmify.getTrackingUrl === 'function'
+            ) {
+                checkoutUrl = window.utmify.getTrackingUrl(baseUrl);
+            } else {
+                // Fallback: UTMify não carregou a tempo — usa URL base.
+                // Se isso aparecer no console, o script da UTMify ainda
+                // não inicializou. Verifique a rede e o atributo "async".
+                checkoutUrl = baseUrl;
+                console.warn('[UTMify] window.utmify não disponível. Redirecionando sem injeção de UTMs.');
+            }
+
+            // AJUSTE 3: debug — inspecione esta linha no console do DevTools
+            // para confirmar se os parâmetros UTM/xcod estão na URL final.
+            console.log('[Checkout] URL final do redirecionamento:', checkoutUrl);
+
+            window.location.href = checkoutUrl;
+        }, 400);
+    };
 </script>
 
 </body>
