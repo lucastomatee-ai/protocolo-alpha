@@ -392,10 +392,40 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div class="video-player-wrap">
         <vturb-smartplayer id="vid-6a152b3bd5f1680e510ad8c5" autoplay="false" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
         <script type="text/javascript">
+          // Carrega o player mas bloqueia autoplay
           var s=document.createElement("script");
           s.src="https://scripts.converteai.net/d8a1f353-ea4b-4454-88ea-19663408d700/players/6a152b3bd5f1680e510ad8c5/v4/player.js";
           s.async=!0;
           document.head.appendChild(s);
+
+          // Observa quando o player injeta elementos <video> e garante que não toquem automaticamente
+          function pauseVturbVideos(){
+            document.querySelectorAll('#screen-25 video, vturb-smartplayer video').forEach(function(v){
+              v.autoplay=false;
+              v.pause();
+            });
+            var vp=document.getElementById('vid-6a152b3bd5f1680e510ad8c5');
+            if(vp&&vp.shadowRoot){
+              vp.shadowRoot.querySelectorAll('video').forEach(function(v){v.autoplay=false;v.pause();});
+            }
+          }
+
+          // MutationObserver para capturar o vídeo assim que for inserido no DOM
+          var vturbObserver=new MutationObserver(function(){
+            var screen25=document.getElementById('screen-25');
+            if(!screen25||!screen25.classList.contains('active')){
+              pauseVturbVideos();
+            }
+          });
+          vturbObserver.observe(document.body,{childList:true,subtree:true});
+
+          // Também escuta o evento play e bloqueia se não estiver na tela 25 ativa
+          document.addEventListener('play',function(e){
+            var screen25=document.getElementById('screen-25');
+            if(screen25&&!screen25.classList.contains('active')){
+              e.target.pause();
+            }
+          },true);
         </script>
       </div>
     </div>
@@ -482,7 +512,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <!-- Urgência -->
 <div class="urgency-strip">
   <div class="urgency-icon">&#9203;</div>
-  <div class="urgency-text"><strong>Aten&ccedil;&atilde;o:</strong> Esta oferta com os 4 b&ocirc;nus est&aacute; dispon&iacute;vel <strong>apenas nesta p&aacute;gina</strong>. Ao sair, o desconto e os b&ocirc;nus s&atilde;o removidos automaticamente.</div>
+  <div class="urgency-text"><strong>Aten&ccedil;&atilde;o:</strong> Esta oferta com os 5 b&ocirc;nus est&aacute; dispon&iacute;vel <strong>apenas nesta p&aacute;gina</strong>. Ao sair, o desconto e os b&ocirc;nus s&atilde;o removidos automaticamente.</div>
 </div>
 
 <!-- TÍTULO DOS PLANOS -->
@@ -524,7 +554,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     <div class="plan-head">
       <div>
         <div class="plan-name">Premium</div>
-        <div class="plan-subdesc">Completo + 4 b&ocirc;nus</div>
+        <div class="plan-subdesc">Completo + 5 b&ocirc;nus</div>
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;147</div>
@@ -554,10 +584,13 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div class="bonus-mini-card">
         <div class="bmc-top"><span class="bmc-icon">&#128293;</span><div class="bmc-body"><div class="bmc-name">T&eacute;cnica do Bicarbonato</div><div class="bmc-desc">Receita viralizada que est&aacute; transformando os homens que j&aacute; usaram.</div></div><span class="bm-tag">GR&Aacute;TIS</span></div>
       </div>
+      <div class="bonus-mini-card">
+        <div class="bmc-top"><span class="bmc-icon">&#9889;</span><div class="bmc-body"><div class="bmc-name">C&oacute;digo da Testosterona Natural</div><div class="bmc-desc">Protocolo feito por especialistas, para trazer o bem estar que voc&ecirc; merece.</div></div><span class="bm-tag">GR&Aacute;TIS</span></div>
+      </div>
     </div>
     <button class="plan-cta gold-cta" onclick="checkout('premium')">
       &#127942; PLANO PREMIUM<br>
-      <span style="font-size:12px;opacity:.9;">R$ 37,90 + 4 b&ocirc;nus gr&aacute;tis</span>
+      <span style="font-size:12px;opacity:.9;">R$ 37,90 + 5 b&ocirc;nus gr&aacute;tis</span>
     </button>
   </div>
 
