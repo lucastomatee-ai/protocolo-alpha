@@ -89,7 +89,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 .divider{height:1px;background:var(--border);margin:20px 0;}
 .offer-hero{text-align:center;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:1.5px solid #86efac;border-radius:18px;padding:22px 18px 18px;margin-bottom:20px;}
 .offer-hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #86efac;border-radius:20px;padding:5px 14px;font-size:10px;font-weight:900;color:var(--primary-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
-.offer-hero-title{font-family:'Bebas Neue',sans-serif;font-size:30px;line-height:1.1;letter-spacing:1px;color:var(--text);}
+.offer-hero-title{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1.2;letter-spacing:1px;color:var(--text);}
 .offer-hero-title span{color:var(--primary);}
 .delivery-card{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,0.05);}
 .delivery-card-label{font-size:10px;font-weight:900;color:var(--primary-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:6px;}
@@ -176,6 +176,66 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 .bmc-body{flex:1;}
 .bmc-name{font-size:11px;font-weight:900;color:#92400e;line-height:1.3;margin-bottom:2px;}
 .bmc-desc{font-size:10px;color:#b45309;font-weight:600;line-height:1.4;}
+
+/* === RESULTADO ROBUSTO === */
+.result-score-ring{display:flex;justify-content:center;margin:20px 0 16px;}
+.result-score-circle{width:110px;height:110px;border-radius:50%;background:conic-gradient(#16a34a 0% 0%, #e5e7eb 0% 100%);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 4px 20px rgba(22,163,74,.25);transition:background 1.2s ease;}
+.result-score-circle::before{content:'';position:absolute;width:82px;height:82px;background:#fff;border-radius:50%;}
+.result-score-inner{position:relative;z-index:1;text-align:center;}
+.result-score-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--primary);line-height:1;}
+.result-score-label{font-size:9px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:1px;}
+.result-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;}
+.result-stat-card{background:#f9fafb;border:1.5px solid var(--border);border-radius:14px;padding:14px 12px;text-align:center;}
+.result-stat-icon{font-size:22px;margin-bottom:6px;}
+.result-stat-value{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--primary);line-height:1;}
+.result-stat-label{font-size:10px;font-weight:700;color:var(--text2);margin-top:3px;line-height:1.3;}
+.result-diag-item{display:flex;align-items:center;gap:12px;padding:12px;background:#f9fafb;border:1.5px solid var(--border);border-radius:12px;margin-bottom:8px;}
+.result-diag-icon{font-size:20px;flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:10px;}
+.result-diag-icon.red{background:#fff1f2;}
+.result-diag-icon.yellow{background:#fefce8;}
+.result-diag-icon.green{background:#f0fdf4;}
+.result-diag-text{flex:1;}
+.result-diag-label{font-size:12px;font-weight:900;color:var(--text);margin-bottom:3px;}
+.result-diag-sub{font-size:11px;color:var(--text2);font-weight:600;line-height:1.4;}
+.result-diag-tag{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:6px;white-space:nowrap;flex-shrink:0;}
+.tag-critical{background:#fff1f2;color:#ef4444;}
+.tag-moderate{background:#fefce8;color:#ca8a04;}
+.tag-good{background:#f0fdf4;color:#16a34a;}
+
+/* === SEÇÃO VÍDEO === */
+.video-section{background:#0f172a;border-radius:20px;padding:22px 18px;margin:20px 0;border:1.5px solid #1e3a5f;}
+.video-section-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(22,163,74,.15);border:1px solid rgba(22,163,74,.4);border-radius:20px;padding:5px 14px;font-size:10px;font-weight:900;color:#4ade80;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.video-section-title{font-size:15px;font-weight:900;color:#fff;line-height:1.5;margin-bottom:6px;}
+.video-section-title span{color:#4ade80;}
+.video-section-sub{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:16px;line-height:1.5;}
+.video-doc-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 14px;margin-bottom:14px;}
+.video-doc-avatar{width:36px;height:36px;background:linear-gradient(135deg,#16a34a,#22c55e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.video-doc-info{flex:1;}
+.video-doc-name{font-size:12px;font-weight:900;color:#fff;}
+.video-doc-cred{font-size:10px;color:rgba(255,255,255,.5);line-height:1.4;}
+.video-player-wrap{border-radius:14px;overflow:hidden;background:#000;min-height:200px;}
+
+/* === DEPOIMENTO DOUTOR === */
+.doctor-quote-card{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:18px;margin:16px 0;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.doctor-quote-inner{display:flex;align-items:flex-start;gap:14px;}
+.doctor-photo{width:64px;height:64px;border-radius:12px;object-fit:cover;flex-shrink:0;border:2px solid #e5e7eb;}
+.doctor-quote-body{flex:1;}
+.doctor-quote-text{font-size:13px;color:var(--text3);line-height:1.6;font-style:italic;margin-bottom:10px;}
+.doctor-quote-name{font-size:12px;font-weight:900;color:var(--primary-dark);}
+.doctor-quote-title{font-size:10px;color:var(--text2);font-weight:600;margin-top:2px;}
+.quote-mark{font-size:36px;color:#dcfce7;font-family:Georgia,serif;line-height:.8;flex-shrink:0;}
+
+/* === IMAGEM PRODUTO/GLOBO === */
+.product-img-wrap{border-radius:16px;overflow:hidden;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.product-img-wrap img{width:100%;display:block;}
+.globo-img-wrap{border-radius:12px;overflow:hidden;margin-bottom:20px;border:1.5px solid #e5e7eb;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.globo-img-wrap img{width:100%;display:block;}
+.globo-label{font-size:9px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.globo-label::before{content:'';display:inline-block;width:8px;height:8px;background:#ef4444;border-radius:50%;}
+
+/* === PAGAMENTO IMG === */
+.payment-img-wrap{border-radius:12px;overflow:hidden;margin:14px 0;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.payment-img-wrap img{width:100%;display:block;}
 </style>
 </head>
 <body>
@@ -278,26 +338,124 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <div><div class="testi-mini" id="testi-slide-0"><div class="testi-mini-quote">"Em 3 semanas j&aacute; senti diferen&ccedil;a enorme. Mais controle, mais firmeza."</div><div class="testi-mini-author">Carlos M., 34 anos &mdash; S&atilde;o Paulo</div><div class="testi-mini-result">&#10003; Resultado em menos de 30 dias</div></div><div class="testi-mini" id="testi-slide-1" style="display:none;"><div class="testi-mini-quote">"Nunca imaginei que exerc&iacute;cios simples pudessem mudar tanto minha vida &iacute;ntima."</div><div class="testi-mini-author">Ricardo F., 42 anos &mdash; Rio de Janeiro</div><div class="testi-mini-result">&#10003; Performance elevada em 21 dias</div></div><div class="testi-mini" id="testi-slide-2" style="display:none;"><div class="testi-mini-quote">"Tinha vergonha de admitir o problema. O protocolo resolveu de forma natural."</div><div class="testi-mini-author">Paulo S., 51 anos &mdash; Minas Gerais</div><div class="testi-mini-result">&#10003; Melhora significativa em 25 dias</div></div><div class="testi-mini" id="testi-slide-3" style="display:none;"><div class="testi-mini-quote">"Minha autoconfian&ccedil;a voltou do zero ao m&aacute;ximo em poucas semanas."</div><div class="testi-mini-author">Felipe A., 29 anos &mdash; Bras&iacute;lia</div><div class="testi-mini-result">&#10003; Confian&ccedil;a totalmente recuperada</div></div></div>
 </div></div>
 
-<!-- T25 RESULTADO -->
-<div id="screen-25" class="screen"><div class="card">
-<div class="badge">&#127919; Seu Resultado Personalizado</div>
-<div class="headline" style="font-size:26px;margin-bottom:20px;">AN&Aacute;LISE <span class="green">COMPLETA</span></div>
-<div style="background:#fff1f2;border:1.5px solid #fecdd3;border-radius:14px;padding:18px;margin-bottom:12px;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#ef4444;margin-bottom:14px;">&#10060; SITUA&Ccedil;&Atilde;O ATUAL (ANTES)</div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Desempenho sexual</span><span style="font-size:13px;font-weight:900;color:#ef4444;">20%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:20%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Auto confian&ccedil;a</span><span style="font-size:13px;font-weight:900;color:#ef4444;">15%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:15%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
-<div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejacula&ccedil;&atilde;o</span><span style="font-size:13px;font-weight:900;color:#ef4444;">37%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:37%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
+<!-- T25 RESULTADO ROBUSTO -->
+<div id="screen-25" class="screen">
+  <div class="card">
+    <div class="badge">&#127919; Seu Resultado Personalizado</div>
+    <div class="headline" style="font-size:26px;margin-bottom:6px;">AN&Aacute;LISE <span class="green">COMPLETA</span></div>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5;">Com base nas suas respostas, identificamos os principais pontos que est&atilde;o limitando sua performance masculina.</p>
+
+    <!-- Anel de pontuação -->
+    <div class="result-score-ring">
+      <div class="result-score-circle" id="score-ring">
+        <div class="result-score-inner">
+          <div class="result-score-num" id="score-num">0</div>
+          <div class="result-score-label">Potencial</div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--text2);font-weight:700;margin-bottom:20px;">&#128293; Seu potencial de melhora com o Protocolo Alpha</p>
+
+    <!-- Cards de stats -->
+    <div class="result-stat-grid">
+      <div class="result-stat-card">
+        <div class="result-stat-icon">&#9889;</div>
+        <div class="result-stat-value">+74%</div>
+        <div class="result-stat-label">Ganho em firmeza esperado</div>
+      </div>
+      <div class="result-stat-card">
+        <div class="result-stat-icon">&#9201;</div>
+        <div class="result-stat-value">3-7x</div>
+        <div class="result-stat-label">Mais dura&ccedil;&atilde;o em semanas</div>
+      </div>
+      <div class="result-stat-card">
+        <div class="result-stat-icon">&#127919;</div>
+        <div class="result-stat-value">7 dias</div>
+        <div class="result-stat-label">Primeiros resultados vis&iacute;veis</div>
+      </div>
+      <div class="result-stat-card">
+        <div class="result-stat-icon">&#128170;</div>
+        <div class="result-stat-value">91%</div>
+        <div class="result-stat-label">Taxa de sucesso dos usu&aacute;rios</div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO VÍDEO -->
+    <div class="video-section">
+      <div class="video-doc-badge">
+        <div class="video-doc-avatar">&#128105;&#8205;&#9877;&#65039;</div>
+        <div class="video-doc-info">
+          <div class="video-doc-name">Dra. C&aacute;tia Damasceno</div>
+          <div class="video-doc-cred">Sexóloga &bull; Fisioterapeuta Pélvica &bull; Especialista em Uroginecologia &bull; Maior referência nacional em Ginástica Íntima</div>
+        </div>
+      </div>
+      <div class="video-player-wrap">
+        <vturb-smartplayer id="vid-6a152b3bd5f1680e510ad8c5" autoplay="false" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+        <script type="text/javascript">
+          var s=document.createElement("script");
+          s.src="https://scripts.converteai.net/d8a1f353-ea4b-4454-88ea-19663408d700/players/6a152b3bd5f1680e510ad8c5/v4/player.js";
+          s.async=!0;
+          document.head.appendChild(s);
+        </script>
+      </div>
+    </div>
+
+    <!-- Diagnóstico antes/depois -->
+    <div style="margin:20px 0 14px;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#ef4444;margin-bottom:10px;">&#10060; SITUA&Ccedil;&Atilde;O ATUAL (ANTES)</div>
+      <div style="background:#fff1f2;border:1.5px solid #fecdd3;border-radius:14px;padding:16px;margin-bottom:4px;">
+        <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Desempenho sexual</span><span style="font-size:13px;font-weight:900;color:#ef4444;">20%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:20%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
+        <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Autoconfian&ccedil;a</span><span style="font-size:13px;font-weight:900;color:#ef4444;">15%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:15%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejacula&ccedil;&atilde;o</span><span style="font-size:13px;font-weight:900;color:#ef4444;">37%</span></div><div style="height:8px;background:#fee2e2;border-radius:8px;overflow:hidden;"><div style="width:37%;height:100%;background:#f87171;border-radius:8px;"></div></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:28px;line-height:1;margin:4px 0;">&#11015;&#65039;</div>
+    <div style="margin-bottom:20px;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#15803d;margin-bottom:10px;">&#9989; COM O PROTOCOLO ALPHA (DEPOIS)</div>
+      <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:16px;">
+        <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Desempenho sexual</span><span style="font-size:13px;font-weight:900;color:#16a34a;">90%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-1" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
+        <div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Autoconfian&ccedil;a</span><span style="font-size:13px;font-weight:900;color:#16a34a;">87%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-2" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejacula&ccedil;&atilde;o</span><span style="font-size:13px;font-weight:900;color:#16a34a;">91%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-3" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
+      </div>
+    </div>
+
+    <!-- Diagnóstico por área -->
+    <div style="margin-bottom:20px;">
+      <div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:10px;">&#128203; DIAGN&Oacute;STICO POR &Aacute;REA</div>
+      <div class="result-diag-item">
+        <div class="result-diag-icon red">&#128293;</div>
+        <div class="result-diag-text">
+          <div class="result-diag-label">Assoalho P&eacute;lvico</div>
+          <div class="result-diag-sub">Musculatura com compress&atilde;o estrutural detectada. Principal fator limitante.</div>
+        </div>
+        <div class="result-diag-tag tag-critical">Cr&iacute;tico</div>
+      </div>
+      <div class="result-diag-item">
+        <div class="result-diag-icon yellow">&#128337;</div>
+        <div class="result-diag-text">
+          <div class="result-diag-label">Controle Neuromuscular</div>
+          <div class="result-diag-sub">Conex&atilde;o c&eacute;rebro-m&uacute;sculo abaixo do potencial &oacute;timo.</div>
+        </div>
+        <div class="result-diag-tag tag-moderate">Moderado</div>
+      </div>
+      <div class="result-diag-item">
+        <div class="result-diag-icon green">&#9889;</div>
+        <div class="result-diag-text">
+          <div class="result-diag-label">Potencial de Recupera&ccedil;&atilde;o</div>
+          <div class="result-diag-sub">Alto potencial. Treino direcionado pode reverter o quadro rapidamente.</div>
+        </div>
+        <div class="result-diag-tag tag-good">Alto</div>
+      </div>
+    </div>
+
+    <div class="info-box" style="text-align:center;">&#127881; <strong>Seu perfil &eacute; compat&iacute;vel com o Protocolo Alpha!</strong><br>Com base nas suas respostas, voc&ecirc; tem alto potencial de melhora com nosso m&eacute;todo.</div>
+
+    <!-- Botão CTA movido para o final da tela 25 -->
+    <div id="next-btn-wrap" style="display:none;margin-top:16px;animation:fadeUp 0.4s ease;">
+      <button class="btn" onclick="goScreen(26)">&#128640; Quero alcan&ccedil;ar este potencial</button>
+    </div>
+  </div>
 </div>
-<div style="text-align:center;font-size:28px;line-height:1;margin:4px 0;">&#11015;&#65039;</div>
-<div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:18px;margin-bottom:20px;">
-<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#15803d;margin-bottom:14px;">&#9989; COM O PROTOCOLO ALPHA (DEPOIS)</div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Desempenho sexual</span><span style="font-size:13px;font-weight:900;color:#16a34a;">90%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-1" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
-<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Auto confian&ccedil;a</span><span style="font-size:13px;font-weight:900;color:#16a34a;">87%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-2" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
-<div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;"><span style="font-size:13px;font-weight:700;color:#6b7280;">Controle da ejacula&ccedil;&atilde;o</span><span style="font-size:13px;font-weight:900;color:#16a34a;">91%</span></div><div style="height:8px;background:#dcfce7;border-radius:8px;overflow:hidden;"><div id="after-3" style="width:0%;height:100%;background:linear-gradient(90deg,#16a34a,#22c55e);border-radius:8px;transition:width 1.2s ease;"></div></div></div>
-</div>
-<div class="info-box" style="text-align:center;">&#127881; <strong>Seu perfil &eacute; compat&iacute;vel com o Protocolo Alpha!</strong><br>Com base nas suas respostas, voc&ecirc; tem alto potencial de melhora com nosso m&eacute;todo.</div>
-<button class="btn" onclick="goScreen(26)">&#128640; Desejo alcan&ccedil;ar este potencial</button>
-</div></div>
 
 <!-- T26 OFERTA COM 2 PLANOS -->
 <div id="screen-26" class="screen">
@@ -305,7 +463,20 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <!-- Hero -->
 <div class="offer-hero">
   <div class="offer-hero-eyebrow">&#9989; Plano Personalizado Gerado</div>
-  <div class="offer-hero-title">Seu Plano de Treinamento<br><span>P-Alpha est&aacute; Pronto!</span></div>
+  <div class="offer-hero-title">&#9989; Plano personalizado pronto e <span>aplicativo disponível!</span></div>
+</div>
+
+<!-- Imagem do produto -->
+<div class="product-img-wrap">
+  <img src="https://i.ibb.co/sd3CS1ZH/grok-image-3cf158bd-4c73-43c6-ac0c-c9f0f0aee9c2.jpg" alt="O que voc&ecirc; vai receber" onerror="this.style.display='none'">
+</div>
+
+<!-- Notícia Globo -->
+<div>
+  <div class="globo-label">&#128240; Como visto na m&iacute;dia</div>
+  <div class="globo-img-wrap">
+    <img src="https://i.ibb.co/4gnqnKV6/grok-image-04fa7fb0-e8b3-4f99-b297-41149eb02941.jpg" alt="Not&iacute;cia Globo" onerror="this.style.display='none'">
+  </div>
 </div>
 
 <!-- Urgência -->
@@ -328,22 +499,22 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     <div class="plan-head">
       <div>
         <div class="plan-name">B&aacute;sico</div>
-        <div class="plan-subdesc">Protocolo essencial</div>
+        <div class="plan-subdesc">Aplicativo essencial</div>
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;97</div>
-        <div class="amount"><sup>R$&thinsp;</sup>9<sub>,90</sub></div>
+        <div class="amount"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
       </div>
     </div>
     <div class="plan-divider"></div>
     <div class="plan-features">
-      <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Programa de Exerc&iacute;cios de Kegel</div>
+      <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> &#128241; Aplicativo de Exerc&iacute;cios de Kegel</div>
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Acesso Vitalício &#9854;&#65039;</div>
       <div class="pf dim"><span class="ic" style="color:#d1d5db;">&#10008;</span> 4 B&ocirc;nus Exclusivos</div>
     </div>
     <button class="plan-cta green-cta" onclick="checkout('basico')">
       &#128275; PLANO B&Aacute;SICO<br>
-      <span style="font-size:12px;opacity:.88;">por apenas R$ 9,90</span>
+      <span style="font-size:12px;opacity:.88;">por apenas R$ 19,90</span>
     </button>
   </div>
 
@@ -357,12 +528,12 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;147</div>
-        <div class="amount gold"><sup>R$&thinsp;</sup>24<sub>,90</sub></div>
+        <div class="amount gold"><sup>R$&thinsp;</sup>37<sub>,90</sub></div>
       </div>
     </div>
     <div class="plan-divider" style="border-color:rgba(245,158,11,.25);"></div>
     <div class="plan-features">
-      <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Programa de Exerc&iacute;cios de Kegel</div>
+      <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> &#128241; Aplicativo de Exerc&iacute;cios de Kegel</div>
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Treino Espec&iacute;fico Guiado</div>
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> T&eacute;cnicas de Respira&ccedil;&atilde;o T&aacute;tica</div>
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Orienta&ccedil;&otilde;es de Especialistas</div>
@@ -386,12 +557,30 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     </div>
     <button class="plan-cta gold-cta" onclick="checkout('premium')">
       &#127942; PLANO PREMIUM<br>
-      <span style="font-size:12px;opacity:.9;">R$ 24,90 + 4 b&ocirc;nus gr&aacute;tis</span>
+      <span style="font-size:12px;opacity:.9;">R$ 37,90 + 4 b&ocirc;nus gr&aacute;tis</span>
     </button>
   </div>
 
 </div>
 <!-- FIM PLANOS -->
+
+<!-- Imagem métodos de pagamento -->
+<div class="payment-img-wrap">
+  <img src="https://i.ibb.co/MxSpm9wW/grok-image-2eca5ca6-a14f-4474-a6e2-a090f4ebdd0f.jpg" alt="Formas de pagamento" onerror="this.style.display='none'" style="max-width:320px;margin:0 auto;display:block;">
+</div>
+
+<!-- Depoimento Dr. Drauzio (sem foto) -->
+<div class="doctor-quote-card">
+  <div style="font-size:9px;font-weight:900;color:var(--primary-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:5px;">&#9734; Opini&atilde;o M&eacute;dica</div>
+  <div class="doctor-quote-inner">
+    <img src="https://i.ibb.co/MxSpm9wW/grok-image-2eca5ca6-a14f-4474-a6e2-a090f4ebdd0f.jpg" alt="Dr. Drauzio Varella" class="doctor-photo" style="width:72px;height:72px;object-fit:cover;border-radius:50%;border:3px solid #dcfce7;flex-shrink:0;" onerror="this.style.display='none'">
+  <div class="doctor-quote-body">
+    <div class="doctor-quote-text">"Recomendo a todos os meus pacientes. Os resultados do treino de Kegel avan&ccedil;ado em casa s&atilde;o impressionantes. Homens que sofriam h&aacute; anos com disfun&ccedil;&otilde;es conseguiram recuperar o controle, o vigor e a rigidez em poucas semanas. &Eacute; a ci&ecirc;ncia entregando resultados reais, sem constrangimento e sem depend&ecirc;ncia de medicamentos."</div>
+    <div class="doctor-quote-name">Dr. Drauzio Varella</div>
+    <div class="doctor-quote-title">M&eacute;dico oncologista e cientista &bull; Comunicador de sa&uacute;de</div>
+  </div>
+  </div>
+</div>
 
 <!-- Selos -->
 <div class="cta-sub-text">&#128274; Pagamento 100% seguro e criptografado</div>
@@ -426,7 +615,20 @@ let answers={};
 async function track(e,d={}){try{await setDoc(doc(db,'sessions',sid),{[`events.${e}`]:serverTimestamp(),lastActivity:serverTimestamp(),...d},{merge:true});}catch(err){}}
 (async()=>{try{await setDoc(doc(db,'sessions',sid),{sessionId:sid,enteredAt:serverTimestamp(),lastActivity:serverTimestamp(),currentStep:'inicio',channel:ch,channelName:CN[ch]||ch,domain:window.location.hostname,answers:{},'events.page_view':serverTimestamp()},{merge:true});}catch(err){}})();
 function updateProgress(n){const wrap=document.getElementById('progress-wrap'),fill=document.getElementById('prog-fill'),step=document.getElementById('prog-step'),pct=document.getElementById('prog-pct');const qs=[3,4,6,7,8,9,11,12,13,14,17,18,19,20,21,22];if(qs.includes(n)){if(wrap)wrap.classList.add('show');const idx=qs.indexOf(n)+1,p=Math.round(idx/qs.length*100);if(fill)fill.style.width=p+'%';if(step)step.textContent='Passo '+idx+' de '+qs.length;if(pct)pct.textContent=p+'%';}else{if(wrap)wrap.classList.remove('show');}}
-window.goScreen=function(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});};
+window.goScreen=function(n){
+  // Pausa o vídeo ao sair da tela 25
+  const activeScreen=document.querySelector('.screen.active');
+  if(activeScreen&&activeScreen.id==='screen-25'){
+    try{
+      const vp=document.getElementById('vid-6a152b3bd5f1680e510ad8c5');
+      if(vp&&vp.shadowRoot){const v=vp.shadowRoot.querySelector('video');if(v)v.pause();}
+      const allVids=document.querySelectorAll('#screen-25 video');
+      allVids.forEach(v=>v.pause());
+    }catch(e){}
+  }
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});
+};
 window.selectOpt=function(el,key,val,cs,ns){const p=el.closest('.options,.scale-row');if(p)p.querySelectorAll('.opt,.scale-btn').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');answers[key]=val;track('answer_'+key,{answer:val,answers:{...answers}});if(ns!=null)setTimeout(()=>goScreen(ns),250);};
 window.toggleMulti=function(el,key){el.classList.toggle('selected');const cb=el.querySelector('.checkbox');if(cb)cb.textContent=el.classList.contains('selected')?'\u2713':'';if(!answers.goals)answers.goals=[];if(el.classList.contains('selected')){if(!answers.goals.includes(key))answers.goals.push(key);}else{answers.goals=answers.goals.filter(k=>k!==key);}};
 window.confirmMulti=function(cid,cs,ns){if(!answers.goals||!answers.goals.length){alert('Por favor, selecione pelo menos uma opcao.');return;}track('goals_selected',{goals:answers.goals});goScreen(ns);};
@@ -436,7 +638,8 @@ window.selectAge=function(r){answers.idade=r;track('age_selected',{age:r});goScr
 window.selectBody=function(t){document.querySelectorAll('.body-row-card').forEach(c=>{c.style.borderColor='var(--border)';c.style.background='#fff';});if(event&&event.currentTarget){event.currentTarget.style.borderColor='#16a34a';event.currentTarget.style.background='#f0fdf4';}answers.corpo=t;track('body_selected',{body:t});setTimeout(()=>goScreen(4),220);};
 window.startLoading=function(){goScreen(24);track('loading_started');runAnalysis();};
 function runAnalysis(){const bars=['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'],steps=['step-a1','step-a2','step-a3','step-a4','step-a5'],testis=['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];let tIdx=0;const T=5000;bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T/bars.length));});const mb=document.getElementById('main-progress-bar');let p=0;const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=100)clearInterval(pi);},T/100);const ti=setInterval(()=>{document.getElementById(testis[tIdx]).style.display='none';tIdx=(tIdx+1)%testis.length;document.getElementById(testis[tIdx]).style.display='block';},1250);setTimeout(()=>{clearInterval(ti);clearInterval(pi);track('loading_done');goScreen(25);animateResults();},T);}
-function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);track('result_shown');}
+function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);animateScoreRing();setTimeout(()=>{const nb=document.getElementById('next-btn-wrap');if(nb)nb.style.display='block';},7000);track('result_shown');}
+function animateScoreRing(){let n=0;const target=92;const numEl=document.getElementById('score-num');const ring=document.getElementById('score-ring');const iv=setInterval(()=>{n++;if(numEl)numEl.textContent=n+'%';if(ring)ring.style.background='conic-gradient(#16a34a 0% '+n+'%, #e5e7eb '+n+'% 100%)';if(n>=target)clearInterval(iv);},18);}
 window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:plano},{eventID:sid});const c=localStorage.getItem('tiktok_channel')||ch;setDoc(doc(db,'sessions',sid),{'events.checkout':serverTimestamp(),currentStep:'checkout',currentScreen:26,lastScreen:26,channel:c,channelName:CN[c]||c,lastActivity:serverTimestamp(),planSelected:plano},{merge:true});const urls={basico:'https://pay.wiapy.com/fsx2reTay8?utm_source='+sid+'&external_id='+sid+'&event_id='+sid,premium:'https://pay.wiapy.com/My2PKk3QtQ?utm_source='+sid+'&external_id='+sid+'&event_id='+sid};setTimeout(()=>{window.location.href=urls[plano]||urls.basico;},400);};
 </script>
 </body>
