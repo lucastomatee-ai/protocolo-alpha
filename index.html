@@ -526,50 +526,24 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
   <div class="urgency-text"><strong>Aten&ccedil;&atilde;o:</strong> Esta oferta com os 4 b&ocirc;nus est&aacute; dispon&iacute;vel <strong>apenas nesta p&aacute;gina</strong>. Ao sair, o desconto e os b&ocirc;nus s&atilde;o removidos automaticamente.</div>
 </div>
 
-<!-- TÍTULO DOS PLANOS -->
+<!-- TÍTULO DO PLANO -->
 <div class="plans-title">
   <div class="pt-eyebrow">&#9889; Apenas hoje nesta p&aacute;gina</div>
-  <div class="pt-main">Escolha o seu plano</div>
+  <div class="pt-main">Garanta seu acesso agora</div>
 </div>
 
-<!-- GRID DOS PLANOS -->
-<div class="plans-grid">
-
-  <!-- PLANO BASICO -->
-  <div class="plan-box plan-basic">
-    <div class="plan-head">
-      <div>
-        <div class="plan-name">B&aacute;sico</div>
-        <div class="plan-subdesc">Aplicativo essencial</div>
-      </div>
-      <div class="plan-price">
-        <div class="from">De R$&thinsp;97</div>
-        <div class="amount"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
-      </div>
-    </div>
-    <div class="plan-divider"></div>
-    <div class="plan-features">
-      <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> &#128241; Aplicativo de Exerc&iacute;cios de Kegel</div>
-      <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Acesso Vitalício &#9854;&#65039;</div>
-      <div class="pf dim"><span class="ic" style="color:#d1d5db;">&#10008;</span> 4 B&ocirc;nus Exclusivos</div>
-    </div>
-    <button class="plan-cta green-cta" onclick="checkout('basico')">
-      &#128275; PLANO B&Aacute;SICO<br>
-      <span style="font-size:12px;opacity:.88;">por apenas R$ 19,90</span>
-    </button>
-  </div>
-
-  <!-- PLANO PREMIUM -->
-  <div class="plan-box plan-premium">
+<!-- PLANO ÚNICO -->
+<div style="margin-bottom:22px;">
+  <div class="plan-box plan-premium" style="max-width:100%;">
     <div class="plan-badge">&#11088; Mais Popular</div>
     <div class="plan-head">
       <div>
-        <div class="plan-name">Premium</div>
-        <div class="plan-subdesc">Completo + 4 b&ocirc;nus</div>
+        <div class="plan-name">Protocolo Alpha</div>
+        <div class="plan-subdesc">Completo + 4 b&ocirc;nus gr&aacute;tis</div>
       </div>
       <div class="plan-price">
-        <div class="from">De R$&thinsp;147</div>
-        <div class="amount gold"><sup>R$&thinsp;</sup>37<sub>,90</sub></div>
+        <div class="from">De R$&thinsp;97</div>
+        <div class="amount gold"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
       </div>
     </div>
     <div class="plan-divider" style="border-color:rgba(245,158,11,.25);"></div>
@@ -580,7 +554,6 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Orienta&ccedil;&otilde;es de Especialistas</div>
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Acesso Vitalício &#9854;&#65039;</div>
     </div>
-    <!-- Bônus com descrição -->
     <div class="bonus-mini-list">
       <div style="font-size:9px;font-weight:900;color:#b45309;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">&#127873; B&ocirc;nus inclu&iacute;dos:</div>
       <div class="bonus-mini-card">
@@ -596,14 +569,13 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
         <div class="bmc-top"><span class="bmc-icon">&#128293;</span><div class="bmc-body"><div class="bmc-name">T&eacute;cnica do Bicarbonato</div><div class="bmc-desc">Receita viralizada que est&aacute; transformando os homens que j&aacute; usaram.</div></div><span class="bm-tag">GR&Aacute;TIS</span></div>
       </div>
     </div>
-    <button class="plan-cta gold-cta" onclick="checkout('premium')">
-      &#127942; PLANO PREMIUM<br>
-      <span style="font-size:12px;opacity:.9;">R$ 37,90 + 4 b&ocirc;nus gr&aacute;tis</span>
+    <button class="plan-cta gold-cta" onclick="checkout('basico')">
+      &#128640; QUERO MEU ACESSO AGORA<br>
+      <span style="font-size:12px;opacity:.9;">por apenas R$ 19,90 + 4 b&ocirc;nus gr&aacute;tis</span>
     </button>
   </div>
-
 </div>
-<!-- FIM PLANOS -->
+<!-- FIM PLANO -->
 
 <!-- Imagem métodos de pagamento -->
 <div class="payment-img-wrap">
@@ -668,7 +640,7 @@ window.startLoading=function(){goScreen(24);track('loading_started');runAnalysis
 function runAnalysis(){const bars=['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'],steps=['step-a1','step-a2','step-a3','step-a4','step-a5'],testis=['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];let tIdx=0;const T=5000;bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T/bars.length));});const mb=document.getElementById('main-progress-bar');let p=0;const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=100)clearInterval(pi);},T/100);const ti=setInterval(()=>{document.getElementById(testis[tIdx]).style.display='none';tIdx=(tIdx+1)%testis.length;document.getElementById(testis[tIdx]).style.display='block';},1250);setTimeout(()=>{clearInterval(ti);clearInterval(pi);track('loading_done');goScreen(25);animateResults();},T);}
 function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);animateScoreRing();setTimeout(()=>{const nb=document.getElementById('next-btn-wrap');if(nb)nb.style.display='block';const nb2=document.getElementById('next-btn-bottom');if(nb2)nb2.style.display='block';},7000);track('result_shown');}
 function animateScoreRing(){let n=0;const target=92;const numEl=document.getElementById('score-num');const ring=document.getElementById('score-ring');const iv=setInterval(()=>{n++;if(numEl)numEl.textContent=n+'%';if(ring)ring.style.background='conic-gradient(#16a34a 0% '+n+'%, #e5e7eb '+n+'% 100%)';if(n>=target)clearInterval(iv);},18);}
-window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:plano},{eventID:sid});const c=localStorage.getItem('tiktok_channel')||ch;setDoc(doc(db,'sessions',sid),{'events.checkout':serverTimestamp(),currentStep:'checkout',currentScreen:26,lastScreen:26,channel:c,channelName:CN[c]||c,lastActivity:serverTimestamp(),planSelected:plano},{merge:true});const urls={basico:'https://pay.wiapy.com/fsx2reTay8?utm_source='+sid+'&external_id='+sid+'&event_id='+sid,premium:'https://pay.wiapy.com/My2PKk3QtQ?utm_source='+sid+'&external_id='+sid+'&event_id='+sid};setTimeout(()=>{window.location.href=urls[plano]||urls.basico;},400);};
+window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:plano},{eventID:sid});const c=localStorage.getItem('tiktok_channel')||ch;setDoc(doc(db,'sessions',sid),{'events.checkout':serverTimestamp(),currentStep:'checkout',currentScreen:26,lastScreen:26,channel:c,channelName:CN[c]||c,lastActivity:serverTimestamp(),planSelected:plano},{merge:true});const baseUrls={basico:'https://pay.wiapy.com/fsx2reTay8',premium:'https://pay.wiapy.com/My2PKk3QtQ'};const baseUrl=baseUrls[plano]||baseUrls.basico;const existingParams=new URLSearchParams(window.location.search);existingParams.set('utm_source',existingParams.get('utm_source')||sid);existingParams.set('external_id',sid);existingParams.set('event_id',sid);setTimeout(()=>{window.location.href=baseUrl+'?'+existingParams.toString();},400);};
 </script>
 </body>
 </html>
