@@ -489,6 +489,11 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     </div>
 
     <div class="info-box" style="text-align:center;">&#127881; <strong>Seu perfil &eacute; compat&iacute;vel com o Protocolo Alpha!</strong><br>Com base nas suas respostas, voc&ecirc; tem alto potencial de melhora com nosso m&eacute;todo.</div>
+
+    <!-- Botão CTA final da tela (mesmo id, aparece junto com o do topo) -->
+    <div id="next-btn-bottom" style="display:none;margin-top:16px;animation:fadeUp 0.4s ease;">
+      <button class="btn" onclick="goScreen(26)">&#128640; Quero alcan&ccedil;ar este potencial</button>
+    </div>
   </div>
 </div>
 
@@ -660,7 +665,7 @@ window.selectAge=function(r){answers.idade=r;track('age_selected',{age:r});goScr
 window.selectBody=function(t){document.querySelectorAll('.body-row-card').forEach(c=>{c.style.borderColor='var(--border)';c.style.background='#fff';});if(event&&event.currentTarget){event.currentTarget.style.borderColor='#16a34a';event.currentTarget.style.background='#f0fdf4';}answers.corpo=t;track('body_selected',{body:t});setTimeout(()=>goScreen(4),220);};
 window.startLoading=function(){goScreen(24);track('loading_started');runAnalysis();};
 function runAnalysis(){const bars=['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'],steps=['step-a1','step-a2','step-a3','step-a4','step-a5'],testis=['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];let tIdx=0;const T=5000;bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T/bars.length));});const mb=document.getElementById('main-progress-bar');let p=0;const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=100)clearInterval(pi);},T/100);const ti=setInterval(()=>{document.getElementById(testis[tIdx]).style.display='none';tIdx=(tIdx+1)%testis.length;document.getElementById(testis[tIdx]).style.display='block';},1250);setTimeout(()=>{clearInterval(ti);clearInterval(pi);track('loading_done');goScreen(25);animateResults();},T);}
-function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);animateScoreRing();setTimeout(()=>{const nb=document.getElementById('next-btn-wrap');if(nb)nb.style.display='block';},7000);track('result_shown');}
+function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);animateScoreRing();setTimeout(()=>{const nb=document.getElementById('next-btn-wrap');if(nb)nb.style.display='block';const nb2=document.getElementById('next-btn-bottom');if(nb2)nb2.style.display='block';},7000);track('result_shown');}
 function animateScoreRing(){let n=0;const target=92;const numEl=document.getElementById('score-num');const ring=document.getElementById('score-ring');const iv=setInterval(()=>{n++;if(numEl)numEl.textContent=n+'%';if(ring)ring.style.background='conic-gradient(#16a34a 0% '+n+'%, #e5e7eb '+n+'% 100%)';if(n>=target)clearInterval(iv);},18);}
 window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:plano},{eventID:sid});const c=localStorage.getItem('tiktok_channel')||ch;setDoc(doc(db,'sessions',sid),{'events.checkout':serverTimestamp(),currentStep:'checkout',currentScreen:26,lastScreen:26,channel:c,channelName:CN[c]||c,lastActivity:serverTimestamp(),planSelected:plano},{merge:true});const urls={basico:'https://pay.wiapy.com/fsx2reTay8?utm_source='+sid+'&external_id='+sid+'&event_id='+sid,premium:'https://pay.wiapy.com/My2PKk3QtQ?utm_source='+sid+'&external_id='+sid+'&event_id='+sid};setTimeout(()=>{window.location.href=urls[plano]||urls.basico;},400);};
 </script>
