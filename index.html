@@ -380,7 +380,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       </div>
     </div>
 
-    <!-- SEÇÃO VÍDEO -->
+    <!-- SEÇÃO VÍDEO (acima do antes/depois) -->
     <div class="video-section">
       <div class="video-doc-badge">
         <div class="video-doc-avatar">&#128105;&#8205;&#9877;&#65039;</div>
@@ -392,42 +392,52 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div class="video-player-wrap">
         <vturb-smartplayer id="vid-6a152b3bd5f1680e510ad8c5" autoplay="false" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
         <script type="text/javascript">
-          // Carrega o player mas bloqueia autoplay
+          // Carrega o script do player Vturb
           var s=document.createElement("script");
           s.src="https://scripts.converteai.net/d8a1f353-ea4b-4454-88ea-19663408d700/players/6a152b3bd5f1680e510ad8c5/v4/player.js";
           s.async=!0;
           document.head.appendChild(s);
 
-          // Observa quando o player injeta elementos <video> e garante que não toquem automaticamente
-          function pauseVturbVideos(){
-            document.querySelectorAll('#screen-25 video, vturb-smartplayer video').forEach(function(v){
-              v.autoplay=false;
-              v.pause();
-            });
-            var vp=document.getElementById('vid-6a152b3bd5f1680e510ad8c5');
-            if(vp&&vp.shadowRoot){
-              vp.shadowRoot.querySelectorAll('video').forEach(function(v){v.autoplay=false;v.pause();});
-            }
-          }
+          // Função central que para o vídeo por todas as vias possíveis
+          window.stopVturbPlayer = function(){
+            try {
+              // 1. API pública do Vturb (se disponível)
+              var vp = document.getElementById('vid-6a152b3bd5f1680e510ad8c5');
+              if(vp){
+                if(typeof vp.pause === 'function') vp.pause();
+                if(typeof vp.stop  === 'function') vp.stop();
+                // 2. Shadow DOM — Vturb injeta o <video> dentro do shadow root
+                var root = vp.shadowRoot || vp._shadowRoot;
+                if(root){
+                  root.querySelectorAll('video').forEach(function(v){
+                    v.pause(); v.currentTime = 0;
+                  });
+                }
+              }
+              // 3. Varredura geral — pega qualquer <video> solto na árvore
+              document.querySelectorAll('video').forEach(function(v){ v.pause(); });
+              // 4. Iframes do player (alguns players injetam iframe)
+              document.querySelectorAll('#screen-25 iframe, .video-player-wrap iframe').forEach(function(f){
+                try { f.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*'); } catch(e){}
+              });
+            } catch(e){}
+          };
 
-          // MutationObserver para capturar o vídeo assim que for inserido no DOM
-          var vturbObserver=new MutationObserver(function(){
-            var screen25=document.getElementById('screen-25');
-            if(!screen25||!screen25.classList.contains('active')){
-              pauseVturbVideos();
-            }
-          });
-          vturbObserver.observe(document.body,{childList:true,subtree:true});
-
-          // Também escuta o evento play e bloqueia se não estiver na tela 25 ativa
-          document.addEventListener('play',function(e){
-            var screen25=document.getElementById('screen-25');
-            if(screen25&&!screen25.classList.contains('active')){
+          // Intercepta qualquer evento "play" e bloqueia se a tela 25 não estiver ativa
+          document.addEventListener('play', function(e){
+            var s25 = document.getElementById('screen-25');
+            if(s25 && !s25.classList.contains('active')){
               e.target.pause();
+              e.stopPropagation();
             }
-          },true);
+          }, true);
         </script>
       </div>
+    </div>
+
+    <!-- Botão continuar (oculto, aparece após 7s) -->
+    <div id="next-btn-wrap" style="display:none;margin-top:16px;animation:fadeUp 0.4s ease;">
+      <button class="btn" onclick="goScreen(26)">&#128640; Quero alcan&ccedil;ar este potencial</button>
     </div>
 
     <!-- Diagnóstico antes/depois -->
@@ -479,11 +489,6 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     </div>
 
     <div class="info-box" style="text-align:center;">&#127881; <strong>Seu perfil &eacute; compat&iacute;vel com o Protocolo Alpha!</strong><br>Com base nas suas respostas, voc&ecirc; tem alto potencial de melhora com nosso m&eacute;todo.</div>
-
-    <!-- Botão CTA movido para o final da tela 25 -->
-    <div id="next-btn-wrap" style="display:none;margin-top:16px;animation:fadeUp 0.4s ease;">
-      <button class="btn" onclick="goScreen(26)">&#128640; Quero alcan&ccedil;ar este potencial</button>
-    </div>
   </div>
 </div>
 
@@ -512,7 +517,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <!-- Urgência -->
 <div class="urgency-strip">
   <div class="urgency-icon">&#9203;</div>
-  <div class="urgency-text"><strong>Aten&ccedil;&atilde;o:</strong> Esta oferta com os 5 b&ocirc;nus est&aacute; dispon&iacute;vel <strong>apenas nesta p&aacute;gina</strong>. Ao sair, o desconto e os b&ocirc;nus s&atilde;o removidos automaticamente.</div>
+  <div class="urgency-text"><strong>Aten&ccedil;&atilde;o:</strong> Esta oferta com os 4 b&ocirc;nus est&aacute; dispon&iacute;vel <strong>apenas nesta p&aacute;gina</strong>. Ao sair, o desconto e os b&ocirc;nus s&atilde;o removidos automaticamente.</div>
 </div>
 
 <!-- TÍTULO DOS PLANOS -->
@@ -554,7 +559,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     <div class="plan-head">
       <div>
         <div class="plan-name">Premium</div>
-        <div class="plan-subdesc">Completo + 5 b&ocirc;nus</div>
+        <div class="plan-subdesc">Completo + 4 b&ocirc;nus</div>
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;147</div>
@@ -584,13 +589,10 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div class="bonus-mini-card">
         <div class="bmc-top"><span class="bmc-icon">&#128293;</span><div class="bmc-body"><div class="bmc-name">T&eacute;cnica do Bicarbonato</div><div class="bmc-desc">Receita viralizada que est&aacute; transformando os homens que j&aacute; usaram.</div></div><span class="bm-tag">GR&Aacute;TIS</span></div>
       </div>
-      <div class="bonus-mini-card">
-        <div class="bmc-top"><span class="bmc-icon">&#9889;</span><div class="bmc-body"><div class="bmc-name">C&oacute;digo da Testosterona Natural</div><div class="bmc-desc">Protocolo feito por especialistas, para trazer o bem estar que voc&ecirc; merece.</div></div><span class="bm-tag">GR&Aacute;TIS</span></div>
-      </div>
     </div>
     <button class="plan-cta gold-cta" onclick="checkout('premium')">
       &#127942; PLANO PREMIUM<br>
-      <span style="font-size:12px;opacity:.9;">R$ 37,90 + 5 b&ocirc;nus gr&aacute;tis</span>
+      <span style="font-size:12px;opacity:.9;">R$ 37,90 + 4 b&ocirc;nus gr&aacute;tis</span>
     </button>
   </div>
 
@@ -602,16 +604,16 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
   <img src="https://i.ibb.co/MxSpm9wW/grok-image-2eca5ca6-a14f-4474-a6e2-a090f4ebdd0f.jpg" alt="Formas de pagamento" onerror="this.style.display='none'" style="max-width:320px;margin:0 auto;display:block;">
 </div>
 
-<!-- Depoimento Dr. Drauzio (sem foto) -->
+<!-- Depoimento Dr. Drauzio -->
 <div class="doctor-quote-card">
   <div style="font-size:9px;font-weight:900;color:var(--primary-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;display:flex;align-items:center;gap:5px;">&#9734; Opini&atilde;o M&eacute;dica</div>
   <div class="doctor-quote-inner">
-    <img src="https://i.ibb.co/MxSpm9wW/grok-image-2eca5ca6-a14f-4474-a6e2-a090f4ebdd0f.jpg" alt="Dr. Drauzio Varella" class="doctor-photo" style="width:72px;height:72px;object-fit:cover;border-radius:50%;border:3px solid #dcfce7;flex-shrink:0;" onerror="this.style.display='none'">
-  <div class="doctor-quote-body">
-    <div class="doctor-quote-text">"Recomendo a todos os meus pacientes. Os resultados do treino de Kegel avan&ccedil;ado em casa s&atilde;o impressionantes. Homens que sofriam h&aacute; anos com disfun&ccedil;&otilde;es conseguiram recuperar o controle, o vigor e a rigidez em poucas semanas. &Eacute; a ci&ecirc;ncia entregando resultados reais, sem constrangimento e sem depend&ecirc;ncia de medicamentos."</div>
-    <div class="doctor-quote-name">Dr. Drauzio Varella</div>
-    <div class="doctor-quote-title">M&eacute;dico oncologista e cientista &bull; Comunicador de sa&uacute;de</div>
-  </div>
+    <img src="https://i.ibb.co/MxSpm9wW/grok-image-2eca5ca6-a14f-4474-a6e2-a090f4ebdd0f.jpg" alt="Dr. Drauzio Varella" class="doctor-photo" style="width:90px;height:90px;object-fit:cover;border-radius:50%;border:3px solid #dcfce7;flex-shrink:0;" onerror="this.style.display='none'">
+    <div class="doctor-quote-body">
+      <div class="doctor-quote-text">"Recomendo a todos os meus pacientes. Os resultados do treino de Kegel avan&ccedil;ado em casa s&atilde;o impressionantes. Homens que sofriam h&aacute; anos com disfun&ccedil;&otilde;es conseguiram recuperar o controle, o vigor e a rigidez em poucas semanas. &Eacute; a ci&ecirc;ncia entregando resultados reais, sem constrangimento e sem depend&ecirc;ncia de medicamentos."</div>
+      <div class="doctor-quote-name">Dr. Drauzio Varella</div>
+      <div class="doctor-quote-title">M&eacute;dico oncologista e cientista &bull; Comunicador de sa&uacute;de</div>
+    </div>
   </div>
 </div>
 
@@ -648,20 +650,7 @@ let answers={};
 async function track(e,d={}){try{await setDoc(doc(db,'sessions',sid),{[`events.${e}`]:serverTimestamp(),lastActivity:serverTimestamp(),...d},{merge:true});}catch(err){}}
 (async()=>{try{await setDoc(doc(db,'sessions',sid),{sessionId:sid,enteredAt:serverTimestamp(),lastActivity:serverTimestamp(),currentStep:'inicio',channel:ch,channelName:CN[ch]||ch,domain:window.location.hostname,answers:{},'events.page_view':serverTimestamp()},{merge:true});}catch(err){}})();
 function updateProgress(n){const wrap=document.getElementById('progress-wrap'),fill=document.getElementById('prog-fill'),step=document.getElementById('prog-step'),pct=document.getElementById('prog-pct');const qs=[3,4,6,7,8,9,11,12,13,14,17,18,19,20,21,22];if(qs.includes(n)){if(wrap)wrap.classList.add('show');const idx=qs.indexOf(n)+1,p=Math.round(idx/qs.length*100);if(fill)fill.style.width=p+'%';if(step)step.textContent='Passo '+idx+' de '+qs.length;if(pct)pct.textContent=p+'%';}else{if(wrap)wrap.classList.remove('show');}}
-window.goScreen=function(n){
-  // Pausa o vídeo ao sair da tela 25
-  const activeScreen=document.querySelector('.screen.active');
-  if(activeScreen&&activeScreen.id==='screen-25'){
-    try{
-      const vp=document.getElementById('vid-6a152b3bd5f1680e510ad8c5');
-      if(vp&&vp.shadowRoot){const v=vp.shadowRoot.querySelector('video');if(v)v.pause();}
-      const allVids=document.querySelectorAll('#screen-25 video');
-      allVids.forEach(v=>v.pause());
-    }catch(e){}
-  }
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});
-};
+window.goScreen=function(n){if(typeof window.stopVturbPlayer==='function')window.stopVturbPlayer();document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});};
 window.selectOpt=function(el,key,val,cs,ns){const p=el.closest('.options,.scale-row');if(p)p.querySelectorAll('.opt,.scale-btn').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');answers[key]=val;track('answer_'+key,{answer:val,answers:{...answers}});if(ns!=null)setTimeout(()=>goScreen(ns),250);};
 window.toggleMulti=function(el,key){el.classList.toggle('selected');const cb=el.querySelector('.checkbox');if(cb)cb.textContent=el.classList.contains('selected')?'\u2713':'';if(!answers.goals)answers.goals=[];if(el.classList.contains('selected')){if(!answers.goals.includes(key))answers.goals.push(key);}else{answers.goals=answers.goals.filter(k=>k!==key);}};
 window.confirmMulti=function(cid,cs,ns){if(!answers.goals||!answers.goals.length){alert('Por favor, selecione pelo menos uma opcao.');return;}track('goals_selected',{goals:answers.goals});goScreen(ns);};
