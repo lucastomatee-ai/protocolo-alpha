@@ -10,6 +10,7 @@ fbq('init','1819107922060720');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1819107922060720&ev=PageView&noscript=1"/></noscript>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 <style>
 :root{--primary:#16a34a;--primary-light:#22c55e;--primary-dark:#15803d;--accent:#f0fdf4;--bg:#ffffff;--bg2:#f9fafb;--card:#ffffff;--border:#e5e7eb;--text:#111827;--text2:#6b7280;--text3:#374151;--shadow:0 4px 24px rgba(0,0,0,0.08);}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -579,7 +580,6 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Orienta&ccedil;&otilde;es de Especialistas</div>
       <div class="pf"><span class="ic" style="color:var(--primary);">&#10004;</span> Acesso Vitalício &#9854;&#65039;</div>
     </div>
-    <!-- Bônus com descrição -->
     <div class="bonus-mini-list">
       <div style="font-size:9px;font-weight:900;color:#b45309;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">&#127873; B&ocirc;nus inclu&iacute;dos:</div>
       <div class="bonus-mini-card">
@@ -667,7 +667,7 @@ window.startLoading=function(){goScreen(24);track('loading_started');runAnalysis
 function runAnalysis(){const bars=['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'],steps=['step-a1','step-a2','step-a3','step-a4','step-a5'],testis=['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];let tIdx=0;const T=5000;bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T/bars.length));});const mb=document.getElementById('main-progress-bar');let p=0;const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=100)clearInterval(pi);},T/100);const ti=setInterval(()=>{document.getElementById(testis[tIdx]).style.display='none';tIdx=(tIdx+1)%testis.length;document.getElementById(testis[tIdx]).style.display='block';},1250);setTimeout(()=>{clearInterval(ti);clearInterval(pi);track('loading_done');goScreen(25);animateResults();},T);}
 function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);animateScoreRing();setTimeout(()=>{const nb=document.getElementById('next-btn-wrap');if(nb)nb.style.display='block';const nb2=document.getElementById('next-btn-bottom');if(nb2)nb2.style.display='block';},7000);track('result_shown');}
 function animateScoreRing(){let n=0;const target=92;const numEl=document.getElementById('score-num');const ring=document.getElementById('score-ring');const iv=setInterval(()=>{n++;if(numEl)numEl.textContent=n+'%';if(ring)ring.style.background='conic-gradient(#16a34a 0% '+n+'%, #e5e7eb '+n+'% 100%)';if(n>=target)clearInterval(iv);},18);}
-window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:plano},{eventID:sid});const c=localStorage.getItem('tiktok_channel')||ch;setDoc(doc(db,'sessions',sid),{'events.checkout':serverTimestamp(),currentStep:'checkout',currentScreen:26,lastScreen:26,channel:c,channelName:CN[c]||c,lastActivity:serverTimestamp(),planSelected:plano},{merge:true});const urls={basico:'https://pay.wiapy.com/fsx2reTay8?utm_source='+sid+'&external_id='+sid+'&event_id='+sid,premium:'https://pay.wiapy.com/My2PKk3QtQ?utm_source='+sid+'&external_id='+sid+'&event_id='+sid};setTimeout(()=>{window.location.href=urls[plano]||urls.basico;},400);};
+window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{content_name:plano},{eventID:sid});const c=localStorage.getItem('tiktok_channel')||ch;setDoc(doc(db,'sessions',sid),{'events.checkout':serverTimestamp(),currentStep:'checkout',currentScreen:26,lastScreen:26,channel:c,channelName:CN[c]||c,lastActivity:serverTimestamp(),planSelected:plano},{merge:true});const baseUrls={basico:'https://pay.wiapy.com/fsx2reTay8',premium:'https://pay.wiapy.com/My2PKk3QtQ'};const baseUrl=baseUrls[plano]||baseUrls.basico;const existingParams=new URLSearchParams(window.location.search);existingParams.set('utm_source',existingParams.get('utm_source')||sid);existingParams.set('external_id',sid);existingParams.set('event_id',sid);setTimeout(()=>{window.location.href=baseUrl+'?'+existingParams.toString();},400);};
 </script>
 </body>
 </html>
