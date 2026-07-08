@@ -563,7 +563,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     &#9917; Promoção Copa do Mundo 2026
   </div>
   <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#fff;letter-spacing:1px;line-height:1.15;margin-bottom:8px;">
-    Enquanto o Brasil joga,<br><span style="color:#6ee7b7;">você se transforma.</span>
+    A Copa est&aacute; rolando,<br><span style="color:#6ee7b7;">voc&ecirc; se transforma.</span>
   </div>
   <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:14px;">
     Para celebrar a Copa, liberamos o Protocolo Alpha com <strong style="color:#fff;">desconto especial de Copa</strong> — só por tempo limitado, enquanto durar o torneio.
@@ -644,7 +644,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
         <div class="bmc-top"><span class="bmc-icon">&#128293;</span><div class="bmc-body"><div class="bmc-name">T&eacute;cnica do Bicarbonato</div><div class="bmc-desc">Receita viralizada que est&aacute; transformando os homens que j&aacute; usaram.</div></div><span class="bm-tag">GR&Aacute;TIS</span></div>
       </div>
     </div>
-    <button class="plan-cta gold-cta" onclick="checkout('basico')">
+    <button class="plan-cta gold-cta" id="cta-btn-1" onclick="checkout('basico')">
       &#128640; QUERO MEU ACESSO AGORA<br>
       <span style="font-size:12px;opacity:.9;">&#9917; Promo Copa: apenas R$&thinsp;19,90 + 4 b&ocirc;nus gr&aacute;tis</span>
     </button>
@@ -732,7 +732,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 
 <!-- SEGUNDO CTA FINAL -->
 <div style="margin-top:24px;">
-  <button class="plan-cta gold-cta" onclick="checkout('basico')" style="border-radius:14px;font-size:17px;padding:20px 16px;">
+  <button class="plan-cta gold-cta" id="cta-btn-2" onclick="checkout('basico')" style="border-radius:14px;font-size:17px;padding:20px 16px;">
     &#128640; GARANTIR MEU ACESSO AGORA<br>
     <span style="font-size:12px;opacity:.9;">&#9917; R$&thinsp;19,90 Promo Copa &bull; Acesso imediato &bull; + 4 b&ocirc;nus gr&aacute;tis</span>
   </button>
@@ -740,6 +740,15 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
   <div style="text-align:center;font-size:11px;color:var(--text2);margin-top:4px;">Adquira agora e tenha sua masculinidade de volta em semanas</div>
 </div>
 
+<div style="height:76px;"></div>
+
+</div>
+
+<!-- BARRA STICKY MOBILE -->
+<div id="sticky-cta" style="position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1.5px solid var(--border);padding:10px 16px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(0,0,0,.1);display:none;z-index:200;">
+  <button class="plan-cta gold-cta" onclick="checkout('basico')" style="border-radius:12px;font-size:14px;padding:14px 16px;display:flex;align-items:center;justify-content:center;gap:8px;">
+    &#128640; Garantir por R$&thinsp;19,90 &rarr;
+  </button>
 </div>
 
 </div>
@@ -759,7 +768,7 @@ let answers={};
 async function track(e,d={}){try{await setDoc(doc(db,'sessions',sid),{[`events.${e}`]:serverTimestamp(),lastActivity:serverTimestamp(),...d},{merge:true});}catch(err){}}
 (async()=>{try{await setDoc(doc(db,'sessions',sid),{sessionId:sid,enteredAt:serverTimestamp(),lastActivity:serverTimestamp(),currentStep:'inicio',channel:ch,channelName:CN[ch]||ch,domain:window.location.hostname,answers:{},'events.page_view':serverTimestamp()},{merge:true});}catch(err){}})();
 function updateProgress(n){const wrap=document.getElementById('progress-wrap'),fill=document.getElementById('prog-fill'),step=document.getElementById('prog-step'),pct=document.getElementById('prog-pct');const qs=[3,4,6,7,9,11,14,17,19,21,22];if(qs.includes(n)){if(wrap)wrap.classList.add('show');const idx=qs.indexOf(n)+1,p=Math.round(idx/qs.length*100);if(fill)fill.style.width=p+'%';if(step)step.textContent='Passo '+idx+' de '+qs.length;if(pct)pct.textContent=p+'%';}else{if(wrap)wrap.classList.remove('show');}}
-window.goScreen=function(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});};
+window.goScreen=function(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});if(n===26){initStickyCta();}};
 window.selectOpt=function(el,key,val,cs,ns){const p=el.closest('.options,.scale-row');if(p)p.querySelectorAll('.opt,.scale-btn').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');answers[key]=val;track('answer_'+key,{answer:val,answers:{...answers}});if(ns!=null)setTimeout(()=>goScreen(ns),250);};
 window.toggleMulti=function(el,key){el.classList.toggle('selected');const cb=el.querySelector('.checkbox');if(cb)cb.textContent=el.classList.contains('selected')?'\u2713':'';if(!answers.goals)answers.goals=[];if(el.classList.contains('selected')){if(!answers.goals.includes(key))answers.goals.push(key);}else{answers.goals=answers.goals.filter(k=>k!==key);}};
 window.confirmMulti=function(cid,cs,ns){if(!answers.goals||!answers.goals.length){alert('Por favor, selecione pelo menos uma opcao.');return;}track('goals_selected',{goals:answers.goals});goScreen(ns);};
@@ -793,6 +802,22 @@ window.checkout=function(plano){if(typeof fbq!=='undefined')fbq('track','Initiat
   tick();
   const iv=setInterval(tick,1000);
 })();
+// STICKY CTA MOBILE (tela 26 - oferta): aparece ao rolar, some perto do rodape final
+let stickyCtaInit=false;
+function initStickyCta(){
+  if(stickyCtaInit)return;
+  stickyCtaInit=true;
+  const bar=document.getElementById('sticky-cta');
+  const screen26=document.getElementById('screen-26');
+  function onScroll(){
+    if(!bar||!screen26||!screen26.classList.contains('active')){if(bar)bar.style.display='none';return;}
+    const scrolled=window.scrollY>320;
+    const nearBottom=(window.innerHeight+window.scrollY)>=document.body.offsetHeight-80;
+    bar.style.display=(scrolled&&!nearBottom)?'block':'none';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+}
 </script>
 </body>
 </html>
