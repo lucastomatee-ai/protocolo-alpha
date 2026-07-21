@@ -245,6 +245,29 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 .depo-tag{font-size:10px;font-weight:800;background:#f0fdf4;border:1px solid #86efac;color:var(--primary-dark);padding:3px 9px;border-radius:6px;}
 .depo-label{font-size:9px;font-weight:900;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
 .depo-label::before{content:'✓';display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;background:var(--primary);color:#fff;border-radius:50%;font-size:8px;}
+/* === CONFIRM MODAL (loading micro-commitment, pop-up style) === */
+.confirm-overlay{position:fixed;inset:0;background:rgba(15,23,42,.72);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
+.confirm-overlay.show{display:flex;animation:fadeInOverlay .25s ease;}
+@keyframes fadeInOverlay{from{opacity:0;}to{opacity:1;}}
+.confirm-modal{background:#fff;border:2px solid #86efac;border-radius:20px;padding:28px 24px;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+@keyframes popIn{from{transform:scale(.82);opacity:0;}to{transform:scale(1);opacity:1;}}
+.confirm-modal-icon{font-size:38px;margin-bottom:10px;animation:pulse-icon 1.4s ease-in-out infinite;}
+.confirm-box-text{font-size:16px;font-weight:900;color:var(--text);line-height:1.4;margin-bottom:16px;}
+.confirm-box-sub{font-size:11px;color:var(--text2);font-weight:600;margin-top:10px;}
+
+/* === SCRATCH CARD === */
+.scratch-wrap{position:relative;width:100%;max-width:440px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.12);min-height:220px;}
+.scratch-underlay{background:linear-gradient(135deg,#0f172a,#1e1b4b);padding:30px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px;}
+.scratch-label{font-size:11px;font-weight:900;color:#c4b5fd;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;text-align:center;}
+.scratch-prices{text-align:center;}
+.sp-old{font-size:15px;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:4px;}
+.sp-mid{font-size:17px;color:rgba(255,255,255,.75);font-weight:800;margin-bottom:8px;}
+.sp-final{font-family:'Bebas Neue',sans-serif;font-size:38px;color:#4ade80;line-height:1;margin-bottom:10px;}
+.sp-tag{display:inline-block;background:linear-gradient(135deg,#dc2626,#ef4444);color:#fff;font-weight:900;font-size:18px;padding:8px 20px;border-radius:10px;letter-spacing:.5px;box-shadow:0 4px 16px rgba(239,68,68,.5);animation:pulse-tag 1.4s ease-in-out infinite;}
+@keyframes pulse-tag{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
+#scratch-canvas{position:absolute;top:0;left:0;width:100%;height:100%;touch-action:none;cursor:pointer;}
+.scratch-hint{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;font-weight:800;color:#fff;pointer-events:none;text-shadow:0 1px 4px rgba(0,0,0,.4);animation:pulse-icon 1.4s ease-in-out infinite;}
+
 </style>
 </head>
 <body>
@@ -454,6 +477,14 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <div class="analysis-step" id="step-a4"><div class="step-icon">&#128203;</div><span style="flex:1;font-size:13px;font-weight:700;">Calculando potencial de crescimento</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a4"></div></div><div class="step-check">&#9989;</div></div>
 <div class="analysis-step" id="step-a5"><div class="step-icon">&#127942;</div><span style="flex:1;font-size:13px;font-weight:700;">Finalizando seu plano exclusivo</span><div class="step-bar-wrap"><div class="step-bar" id="bar-a5"></div></div><div class="step-check">&#9989;</div></div>
 </div>
+<div class="confirm-overlay" id="confirm-box">
+  <div class="confirm-modal">
+    <div class="confirm-modal-icon">&#127919;</div>
+    <div class="confirm-box-text">Antes de continuar... voc&ecirc; est&aacute; realmente pronto para recuperar o controle, a firmeza e a confian&ccedil;a?</div>
+    <button class="btn" onclick="confirmChange()">&#9989; Sim, estou pronto para mudar</button>
+    <div class="confirm-box-sub">Sua resposta personaliza os pr&oacute;ximos passos do seu plano</div>
+  </div>
+</div>
 <div><div class="testi-mini" id="testi-slide-0"><div class="testi-mini-quote">"Em 3 semanas j&aacute; senti diferen&ccedil;a enorme. Mais controle, mais firmeza."</div><div class="testi-mini-author">Carlos M., 34 anos &mdash; S&atilde;o Paulo</div><div class="testi-mini-result">&#10003; Resultado em menos de 30 dias</div></div><div class="testi-mini" id="testi-slide-1" style="display:none;"><div class="testi-mini-quote">"Nunca imaginei que exerc&iacute;cios simples pudessem mudar tanto minha vida &iacute;ntima."</div><div class="testi-mini-author">Ricardo F., 42 anos &mdash; Rio de Janeiro</div><div class="testi-mini-result">&#10003; Performance elevada em 21 dias</div></div><div class="testi-mini" id="testi-slide-2" style="display:none;"><div class="testi-mini-quote">"Tinha vergonha de admitir o problema. O protocolo resolveu de forma natural."</div><div class="testi-mini-author">Paulo S., 51 anos &mdash; Minas Gerais</div><div class="testi-mini-result">&#10003; Melhora significativa em 25 dias</div></div><div class="testi-mini" id="testi-slide-3" style="display:none;"><div class="testi-mini-quote">"Com o m&eacute;todo &aacute;rabe cresci 4 cm. Minha esposa n&atilde;o consegue mais acompanhar!"</div><div class="testi-mini-author">Felipe A., 29 anos &mdash; Bras&iacute;lia</div><div class="testi-mini-result">&#10003; +4 cm com m&eacute;todo &aacute;rabe</div></div></div>
 </div></div>
 
@@ -547,30 +578,52 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     <div class="info-box" style="text-align:center;">&#127881; <strong>Seu perfil &eacute; compat&iacute;vel com o Protocolo Alpha!</strong><br>Com base nas suas respostas, voc&ecirc; tem alto potencial de melhora com nosso m&eacute;todo.</div>
 
     <div id="next-btn-bottom" style="display:none;margin-top:16px;animation:fadeUp 0.4s ease;">
-      <button class="btn" onclick="goScreen(26)">&#128640; Quero alcan&ccedil;ar este potencial</button>
+      <button class="btn" onclick="goScreen('25b')">&#128640; Quero alcan&ccedil;ar este potencial</button>
     </div>
   </div>
 </div>
 
+<!-- T25b RASPADINHA -->
+<div id="screen-25b" class="screen"><div class="card" style="text-align:center;padding:28px 22px;">
+  <div class="badge" style="margin-bottom:14px;">&#127881; Desconto Exclusivo Liberado</div>
+  <div class="headline" style="font-size:24px;margin-bottom:8px;">RASPE E <span class="green">REVELE</span></div>
+  <p style="font-size:13px;color:var(--text2);margin-bottom:22px;line-height:1.5;">Voc&ecirc; desbloqueou uma raspadinha exclusiva por completar sua avalia&ccedil;&atilde;o. Raspe abaixo para ver seu desconto.</p>
+
+  <div class="scratch-wrap" id="scratch-wrap">
+    <div class="scratch-underlay">
+      <div class="scratch-label">&#127942; Seu Desconto Exclusivo</div>
+      <div class="scratch-prices">
+        <div class="sp-old">De <s>R$&thinsp;97,00</s></div>
+        <div class="sp-mid">Por <s>R$&thinsp;51,00</s></div>
+        <div class="sp-final">Apenas <strong>R$&thinsp;19,90</strong></div>
+        <div class="sp-tag">-61% OFF</div>
+      </div>
+    </div>
+    <canvas id="scratch-canvas"></canvas>
+    <div class="scratch-hint" id="scratch-hint">&#128072; Raspe aqui com o dedo</div>
+  </div>
+
+  <div id="scratch-cta-wrap" style="display:none;margin-top:20px;animation:fadeUp 0.4s ease;">
+    <button class="btn" onclick="goScreen(26)">&#128640; Quero garantir esse desconto &rarr;</button>
+  </div>
+</div></div>
+
 <!-- T26 OFERTA -->
 <div id="screen-26" class="screen">
 
-<!-- BANNER COPA DO MUNDO -->
+<!-- BANNER PROMOÇÃO -->
 <div style="background:linear-gradient(135deg,#065f46,#047857);border-radius:20px;padding:20px 18px 16px;margin-bottom:12px;text-align:center;position:relative;overflow:hidden;border:2px solid #34d399;">
-  <div style="position:absolute;top:-18px;right:-18px;font-size:80px;opacity:0.12;line-height:1;">&#127942;</div>
-  <div style="position:absolute;bottom:-18px;left:-18px;font-size:80px;opacity:0.12;line-height:1;">&#9917;</div>
   <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:5px 14px;font-size:10px;font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">
-    &#9917; Promoção Copa do Mundo 2026
+    &#128293; Oferta por Tempo Limitado
   </div>
   <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:#fff;letter-spacing:1px;line-height:1.15;margin-bottom:8px;">
-    A Copa est&aacute; rolando,<br><span style="color:#6ee7b7;">voc&ecirc; se transforma.</span>
+    Chegou a hora de<br><span style="color:#6ee7b7;">voc&ecirc; se transformar.</span>
   </div>
   <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:14px;">
-    Para celebrar a Copa, liberamos o Protocolo Alpha com <strong style="color:#fff;">desconto especial de Copa</strong> — só por tempo limitado, enquanto durar o torneio.
+    Liberamos o Protocolo Alpha com <strong style="color:#fff;">condi&ccedil;&atilde;o especial</strong> — s&oacute; por tempo limitado.
   </div>
   <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
     <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.6);text-decoration:line-through;">R$&thinsp;97,00</div>
-    <div style="font-size:11px;font-weight:900;background:#fbbf24;color:#713f12;border-radius:6px;padding:3px 10px;">-80% OFF</div>
     <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fbbf24;line-height:1;">R$&thinsp;19,90</div>
   </div>
 </div>
@@ -584,7 +637,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 
 <!-- COUNTDOWN TIMER -->
 <div style="background:#fff;border:2px solid #fca5a5;border-radius:16px;padding:16px;margin-bottom:16px;text-align:center;">
-  <div style="font-size:11px;font-weight:900;color:#ef4444;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">&#9917; Oferta Copa expira em:</div>
+  <div style="font-size:11px;font-weight:900;color:#ef4444;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">&#9203; Oferta expira em:</div>
   <div style="display:flex;justify-content:center;gap:10px;margin-bottom:8px;">
     <div style="background:#ef4444;border-radius:10px;padding:10px 14px;min-width:52px;">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;line-height:1;" id="timer-min">15</div>
@@ -596,7 +649,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.8);text-transform:uppercase;">seg</div>
     </div>
   </div>
-  <div style="font-size:11px;font-weight:700;color:#6b7280;">Promoção válida apenas durante a Copa do Mundo 2026 — ao expirar, o preço volta a R$&thinsp;97</div>
+  <div style="font-size:11px;font-weight:700;color:#6b7280;">Promoção por tempo limitado — ao expirar, o preço volta a R$&thinsp;97</div>
 </div>
 
 <!-- NOTICIA GLOBO -->
@@ -614,7 +667,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     <div class="plan-head">
       <div>
         <div class="plan-name">Protocolo Alpha</div>
-        <div class="plan-subdesc">&#9917; Promo Copa + 4 b&ocirc;nus gr&aacute;tis</div>
+        <div class="plan-subdesc">&#128293; Oferta especial + 4 b&ocirc;nus gr&aacute;tis</div>
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;97</div>
@@ -646,7 +699,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     </div>
     <button class="plan-cta gold-cta" id="cta-btn-1" onclick="checkout('basico')">
       &#128640; QUERO MEU ACESSO AGORA<br>
-      <span style="font-size:12px;opacity:.9;">&#9917; Promo Copa: apenas R$&thinsp;19,90 + 4 b&ocirc;nus gr&aacute;tis</span>
+      <span style="font-size:12px;opacity:.9;">&#128293; Oferta especial: apenas R$&thinsp;19,90 + 4 b&ocirc;nus gr&aacute;tis</span>
     </button>
     <div style="text-align:center;font-size:11px;color:#92400e;font-weight:700;margin-top:10px;">&#128274; Pagamento seguro &bull; Acesso imediato &bull; Garantia de 7 dias</div>
   </div>
@@ -734,7 +787,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <div style="margin-top:24px;">
   <button class="plan-cta gold-cta" id="cta-btn-2" onclick="checkout('basico')" style="border-radius:14px;font-size:17px;padding:20px 16px;">
     &#128640; GARANTIR MEU ACESSO AGORA<br>
-    <span style="font-size:12px;opacity:.9;">&#9917; R$&thinsp;19,90 Promo Copa &bull; Acesso imediato &bull; + 4 b&ocirc;nus gr&aacute;tis</span>
+    <span style="font-size:12px;opacity:.9;">&#128293; R$&thinsp;19,90 por tempo limitado &bull; Acesso imediato &bull; + 4 b&ocirc;nus gr&aacute;tis</span>
   </button>
   <div style="text-align:center;font-size:12px;color:var(--text2);font-weight:700;margin-top:10px;">&#128274; Pagamento 100% seguro e discreto</div>
   <div style="text-align:center;font-size:11px;color:var(--text2);margin-top:4px;">Adquira agora e tenha sua masculinidade de volta em semanas</div>
@@ -758,7 +811,7 @@ import{initializeApp}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-app
 import{getFirestore,doc,setDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 const app=initializeApp({apiKey:"AIzaSyB-GPkmK_iNQuu_96NsWBEmnZA1LhiSRR4",authDomain:"alytics-metodo-alpha.firebaseapp.com",projectId:"alytics-metodo-alpha",storageBucket:"alytics-metodo-alpha.firebasestorage.app",messagingSenderId:"389989039442",appId:"1:389989039442:web:e897945ffbfe52da210e8b"});
 const db=getFirestore(app);
-const SCREEN_MAP={1:'T1-Idade',2:'T2-Prova',3:'T3-Corpo',4:'T4-Objetivos',5:'T5-Assoalho',6:'T6-Duracao',7:'T7-EjacPrecoce','7b':'T7b-Masturbacao',8:'T8-ControleEjac',9:'T9-TreinoDesempenho',10:'T10-Img',11:'T11-ForcaErecao',14:'T14-DificErecao',15:'T15-Bulbocavernoso',16:'T16-Img',17:'T17-Atividade',19:'T19-EstadoCivil',21:'T21-Libido',22:'T22-SolucoesRapidas','22p':'T22p-Parceira','22b':'T22b-Satisfacao','22c':'T22c-TamanhoCm',23:'T23-Img',24:'T24-Loading',25:'T25-Resultado',26:'T26-Oferta'};
+const SCREEN_MAP={1:'T1-Idade',2:'T2-Prova',3:'T3-Corpo',4:'T4-Objetivos',5:'T5-Assoalho',6:'T6-Duracao',7:'T7-EjacPrecoce','7b':'T7b-Masturbacao',8:'T8-ControleEjac',9:'T9-TreinoDesempenho',10:'T10-Img',11:'T11-ForcaErecao',14:'T14-DificErecao',15:'T15-Bulbocavernoso',16:'T16-Img',17:'T17-Atividade',19:'T19-EstadoCivil',21:'T21-Libido',22:'T22-SolucoesRapidas','22p':'T22p-Parceira','22b':'T22b-Satisfacao','22c':'T22c-TamanhoCm',23:'T23-Img',24:'T24-Loading',25:'T25-Resultado','25b':'T25b-Raspadinha',26:'T26-Oferta'};
 let sid=localStorage.getItem('alpha_sid');
 if(!sid){sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);localStorage.setItem('alpha_sid',sid);}
 const DCM={'method-alpha.vercel.app':'cajado-supremo','metodo-alpha.vercel.app':'doutor-cajado','metodo-alpha2.vercel.app':'doutor-saude','method-alpha1.vercel.app':'doutor-reginaldo','alpha-method.vercel.app':'doutor-bigode'};
@@ -768,7 +821,7 @@ let answers={};
 async function track(e,d={}){try{await setDoc(doc(db,'sessions',sid),{[`events.${e}`]:serverTimestamp(),lastActivity:serverTimestamp(),...d},{merge:true});}catch(err){}}
 (async()=>{try{await setDoc(doc(db,'sessions',sid),{sessionId:sid,enteredAt:serverTimestamp(),lastActivity:serverTimestamp(),currentStep:'inicio',channel:ch,channelName:CN[ch]||ch,domain:window.location.hostname,answers:{},'events.page_view':serverTimestamp()},{merge:true});}catch(err){}})();
 function updateProgress(n){const wrap=document.getElementById('progress-wrap'),fill=document.getElementById('prog-fill'),step=document.getElementById('prog-step'),pct=document.getElementById('prog-pct');const qs=[3,4,6,7,9,11,14,17,19,21,22];if(qs.includes(n)){if(wrap)wrap.classList.add('show');const idx=qs.indexOf(n)+1,p=Math.round(idx/qs.length*100);if(fill)fill.style.width=p+'%';if(step)step.textContent='Passo '+idx+' de '+qs.length;if(pct)pct.textContent=p+'%';}else{if(wrap)wrap.classList.remove('show');}}
-window.goScreen=function(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});if(n===26){initStickyCta();}};
+window.goScreen=function(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const el=document.getElementById('screen-'+n);if(el)el.classList.add('active');window.scrollTo(0,0);const lb=document.getElementById('logo-bar');if(lb)lb.style.display=(n===1)?'none':'flex';const nNum=typeof n==='number'?n:parseInt(n);updateProgress(isNaN(nNum)?99:nNum);const sName=SCREEN_MAP[n]||('Tela '+n),sNum=typeof n==='number'?n:(parseInt(n)||n);track('screen_'+n,{currentStep:sName,currentScreen:sNum,lastScreen:sNum,screenName:sName});if(n===26){initStickyCta();}if(n==='25b'){setTimeout(initScratchCard,80);}};
 window.selectOpt=function(el,key,val,cs,ns){const p=el.closest('.options,.scale-row');if(p)p.querySelectorAll('.opt,.scale-btn').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');answers[key]=val;track('answer_'+key,{answer:val,answers:{...answers}});if(ns!=null)setTimeout(()=>goScreen(ns),250);};
 window.toggleMulti=function(el,key){el.classList.toggle('selected');const cb=el.querySelector('.checkbox');if(cb)cb.textContent=el.classList.contains('selected')?'\u2713':'';if(!answers.goals)answers.goals=[];if(el.classList.contains('selected')){if(!answers.goals.includes(key))answers.goals.push(key);}else{answers.goals=answers.goals.filter(k=>k!==key);}};
 window.confirmMulti=function(cid,cs,ns){if(!answers.goals||!answers.goals.length){alert('Por favor, selecione pelo menos uma opcao.');return;}track('goals_selected',{goals:answers.goals});goScreen(ns);};
@@ -779,7 +832,87 @@ window.confirmCm=function(){const inp=document.getElementById('cm-input');const 
 window.selectAge=function(r){answers.idade=r;track('age_selected',{age:r});goScreen(2);};
 window.selectBody=function(t){document.querySelectorAll('.body-row-card').forEach(c=>{c.style.borderColor='var(--border)';c.style.background='#fff';});if(event&&event.currentTarget){event.currentTarget.style.borderColor='#16a34a';event.currentTarget.style.background='#f0fdf4';}answers.corpo=t;track('body_selected',{body:t});setTimeout(()=>goScreen(4),220);};
 window.startLoading=function(){goScreen(24);track('loading_started');runAnalysis();};
-function runAnalysis(){const bars=['bar-a1','bar-a2','bar-a3','bar-a4','bar-a5'],steps=['step-a1','step-a2','step-a3','step-a4','step-a5'],testis=['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];let tIdx=0;const T=5000;bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T/bars.length));});const mb=document.getElementById('main-progress-bar');let p=0;const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=100)clearInterval(pi);},T/100);const ti=setInterval(()=>{document.getElementById(testis[tIdx]).style.display='none';tIdx=(tIdx+1)%testis.length;document.getElementById(testis[tIdx]).style.display='block';},1250);setTimeout(()=>{clearInterval(ti);clearInterval(pi);track('loading_done');goScreen(25);animateResults();},T);}
+let _testiInterval=null;
+function runAnalysis(){
+  const bars=['bar-a1','bar-a2','bar-a3'],steps=['step-a1','step-a2','step-a3'];
+  const testis=['testi-slide-0','testi-slide-1','testi-slide-2','testi-slide-3'];
+  let tIdx=0;
+  const T1=3000,target1=60;
+  bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T1/bars.length));});
+  const mb=document.getElementById('main-progress-bar');
+  let p=0;
+  const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=target1)clearInterval(pi);},T1/target1);
+  _testiInterval=setInterval(()=>{document.getElementById(testis[tIdx]).style.display='none';tIdx=(tIdx+1)%testis.length;document.getElementById(testis[tIdx]).style.display='block';},1250);
+  setTimeout(()=>{
+    const box=document.getElementById('confirm-box');
+    if(box)box.classList.add('show');
+    track('confirm_box_shown');
+  },T1);
+}
+window.confirmChange=function(){
+  track('change_confirmed');
+  const box=document.getElementById('confirm-box');
+  if(box)box.classList.remove('show');
+  const bars=['bar-a4','bar-a5'],steps=['step-a4','step-a5'];
+  const T2=2000;
+  bars.forEach((bid,i)=>{setTimeout(()=>{const b=document.getElementById(bid);if(b)b.style.width='100%';setTimeout(()=>{const s=document.getElementById(steps[i]);if(s)s.classList.add('step-done');},800);},i*(T2/bars.length));});
+  const mb=document.getElementById('main-progress-bar');
+  let p=60;
+  const pi=setInterval(()=>{p++;if(mb)mb.style.width=p+'%';if(p>=100)clearInterval(pi);},T2/40);
+  setTimeout(()=>{
+    if(_testiInterval)clearInterval(_testiInterval);
+    track('loading_done');
+    goScreen(25);
+    animateResults();
+  },T2);
+};
+function initScratchCard(){
+  const canvas=document.getElementById('scratch-canvas');
+  if(!canvas||canvas.dataset.init)return;
+  canvas.dataset.init='1';
+  const wrap=document.getElementById('scratch-wrap');
+  const ctx=canvas.getContext('2d');
+  function draw(){
+    ctx.globalCompositeOperation='source-over';
+    const g=ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+    g.addColorStop(0,'#9ca3af');g.addColorStop(1,'#6b7280');
+    ctx.fillStyle=g;ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='rgba(255,255,255,.15)';
+    for(let i=0;i<40;i++){ctx.beginPath();ctx.arc(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*30,0,Math.PI*2);ctx.fill();}
+  }
+  function size(){const r=wrap.getBoundingClientRect();canvas.width=r.width;canvas.height=r.height;draw();}
+  size();
+  window.addEventListener('resize',size);
+  let drawing=false,checking=false;
+  function pos(e){const r=canvas.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+  function scratch(e){const p=pos(e);ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(p.x,p.y,26,0,Math.PI*2);ctx.fill();if(!checking)checkReveal();}
+  function checkReveal(){
+    checking=true;
+    setTimeout(()=>{
+      try{
+        const data=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+        let cleared=0,total=0;
+        for(let i=3;i<data.length;i+=40){total++;if(data[i]<50)cleared++;}
+        checking=false;
+        if(total&&cleared/total>0.45){revealAll();}
+      }catch(err){checking=false;}
+    },30);
+  }
+  function revealAll(){
+    canvas.style.transition='opacity .5s ease';
+    canvas.style.opacity='0';
+    const hint=document.getElementById('scratch-hint');if(hint)hint.style.display='none';
+    setTimeout(()=>{canvas.style.display='none';},500);
+    const cta=document.getElementById('scratch-cta-wrap');if(cta)cta.style.display='block';
+    track('scratch_revealed');
+  }
+  canvas.addEventListener('mousedown',e=>{drawing=true;scratch(e);});
+  canvas.addEventListener('mousemove',e=>{if(drawing)scratch(e);});
+  window.addEventListener('mouseup',()=>{drawing=false;});
+  canvas.addEventListener('touchstart',e=>{drawing=true;scratch(e);},{passive:true});
+  canvas.addEventListener('touchmove',e=>{if(drawing)scratch(e);},{passive:true});
+  canvas.addEventListener('touchend',()=>{drawing=false;});
+}
 function animateResults(){if(typeof fbq!=='undefined')fbq('track','Lead');setTimeout(()=>{document.getElementById('after-1').style.width='90%';},300);setTimeout(()=>{document.getElementById('after-2').style.width='87%';},500);setTimeout(()=>{document.getElementById('after-3').style.width='91%';},700);animateScoreRing();animateCmResult();const nb=document.getElementById('next-btn-wrap');if(nb)nb.style.display='block';const nb2=document.getElementById('next-btn-bottom');if(nb2)nb2.style.display='block';track('result_shown');}
 function animateCmResult(){const cmBefore=parseInt(localStorage.getItem('alpha_cm')||answers.tamanho_cm||14);const cmAfter=cmBefore+5;const bvEl=document.getElementById('cm-before-val');const avEl=document.getElementById('cm-after-val');const tEl=document.getElementById('cm-target-text');const barBefore=document.getElementById('cm-bar-before');const barAfter=document.getElementById('cm-bar-after');if(bvEl)bvEl.textContent=cmBefore+'cm';if(avEl)avEl.textContent=cmAfter+'cm';if(tEl)tEl.textContent=cmAfter;const maxH=120;const minH=40;const maxCm=25;const scale=v=>Math.max(minH,Math.min(maxH,minH+(v/maxCm)*(maxH-minH)));if(barBefore)barBefore.style.height=scale(cmBefore)+'px';setTimeout(()=>{if(barAfter)barAfter.style.height=scale(cmAfter)+'px';},400);}
 function animateScoreRing(){let n=0;const target=92;const numEl=document.getElementById('score-num');const ring=document.getElementById('score-ring');const iv=setInterval(()=>{n++;if(numEl)numEl.textContent=n+'%';if(ring)ring.style.background='conic-gradient(#16a34a 0% '+n+'%, #e5e7eb '+n+'% 100%)';if(n>=target)clearInterval(iv);},18);}
