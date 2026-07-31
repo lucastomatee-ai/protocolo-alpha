@@ -253,26 +253,16 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 .depo-label{font-size:9px;font-weight:900;color:var(--primary);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:flex;align-items:center;gap:5px;}
 .depo-label::before{content:'✓';display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;background:var(--primary);color:#fff;border-radius:50%;font-size:8px;}
 /* === CONFIRM MODAL (loading micro-commitment, pop-up style) === */
-.confirm-overlay{position:fixed;inset:0;background:rgba(8,15,30,.78);backdrop-filter:blur(4px);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
-.confirm-overlay.show{display:flex;animation:fadeInOverlay .3s ease;}
+.confirm-overlay{position:fixed;inset:0;background:rgba(15,23,42,.72);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
+.confirm-overlay.show{display:flex;animation:fadeInOverlay .25s ease;}
 @keyframes fadeInOverlay{from{opacity:0;}to{opacity:1;}}
+.confirm-modal{background:linear-gradient(180deg,#ffffff,#f7fdf9);border:1.5px solid #bbf7d0;border-radius:22px;padding:30px 26px 26px;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35),0 0 0 6px rgba(34,197,94,.08);position:relative;overflow:hidden;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+.confirm-modal::before{content:'';position:absolute;top:-50px;right:-50px;width:140px;height:140px;background:radial-gradient(circle,rgba(34,197,94,.18),transparent 70%);border-radius:50%;}
 @keyframes popIn{from{transform:scale(.82);opacity:0;}to{transform:scale(1);opacity:1;}}
-.confirm-modal{background:linear-gradient(180deg,#ffffff,#f7fdf9);border-radius:20px;padding:2px;max-width:340px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 0 1px rgba(134,239,172,.4);animation:popIn .35s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;background-image:linear-gradient(180deg,#ffffff,#f7fdf9),linear-gradient(135deg,#22c55e,#15803d,#22c55e);background-origin:border-box;background-clip:padding-box,border-box;}
-.confirm-modal-inner{position:relative;padding:20px 18px 18px;text-align:center;}
-.confirm-modal::before{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:160px;height:160px;background:radial-gradient(circle,rgba(34,197,94,.16),transparent 70%);pointer-events:none;}
-.confirm-icon-ring{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#22c55e);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;position:relative;box-shadow:0 6px 16px rgba(22,163,74,.4);}
-.confirm-icon-ring::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(34,197,94,.35);animation:ringPulse 1.8s ease-out infinite;}
-@keyframes ringPulse{0%{transform:scale(.9);opacity:1;}100%{transform:scale(1.3);opacity:0;}}
-.confirm-modal-icon{font-size:22px;position:relative;z-index:1;}
-.confirm-eyebrow{display:inline-flex;align-items:center;gap:5px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:20px;padding:3px 10px;font-size:9px;font-weight:900;color:var(--primary-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-.confirm-box-text{font-family:'Bebas Neue',sans-serif;font-size:19px;color:var(--text);line-height:1.2;letter-spacing:.2px;margin-bottom:4px;}
-.confirm-box-text span{color:var(--primary);}
-.confirm-box-desc{font-size:11px;color:var(--text2);font-weight:600;line-height:1.5;margin-bottom:12px;}
-.confirm-benefits{display:flex;gap:5px;margin-bottom:12px;}
-.confirm-benefit-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:#f9fafb;border:1px solid var(--border);border-radius:10px;padding:8px 4px;}
-.confirm-benefit-icon{width:20px;height:20px;background:#dcfce7;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
-.confirm-benefit-text{font-size:9px;font-weight:800;color:var(--text3);line-height:1.25;text-align:center;}
-.confirm-box-sub{font-size:10px;color:var(--text2);font-weight:600;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:4px;}
+.confirm-modal-icon{width:64px;height:64px;margin:0 auto 14px;background:linear-gradient(135deg,#16a34a,#22c55e);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:0 8px 20px rgba(22,163,74,.35);animation:pulse-icon 1.4s ease-in-out infinite;position:relative;z-index:1;}
+.confirm-box-text{font-size:17px;font-weight:900;color:#111827;line-height:1.45;margin-bottom:18px;position:relative;z-index:1;}
+.confirm-box-sub{font-size:11px;color:#6b7280;font-weight:700;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:5px;position:relative;z-index:1;}
+.confirm-box-sub::before{content:'🔒';font-size:11px;}
 
 /* === SCRATCH CARD === */
 .scratch-wrap{position:relative;width:100%;max-width:440px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.12);min-height:220px;}
@@ -290,7 +280,10 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 /* === ROLETA (exit-intent / inatividade) === */
 .roulette-overlay{position:fixed;inset:0;background:rgba(10,8,25,.86);backdrop-filter:blur(3px);z-index:400;display:none;align-items:center;justify-content:center;padding:16px;}
 .roulette-overlay.show{display:flex;animation:fadeInOverlay .3s ease;}
-.roulette-modal{background:linear-gradient(165deg,#241b4d,#0f0a26);border-radius:26px;padding:3px;max-width:390px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(167,139,250,.25);animation:popIn .45s cubic-bezier(.34,1.56,.64,1);position:relative;background-image:linear-gradient(165deg,#241b4d,#0f0a26),linear-gradient(135deg,#a78bfa,#4c1d95,#a78bfa);background-origin:border-box;background-clip:padding-box,border-box;overflow:hidden;}
+.roulette-modal-glow{position:relative;border-radius:27px;padding:3px;max-width:390px;width:100%;animation:popIn .45s cubic-bezier(.34,1.56,.64,1);}
+.roulette-modal-glow::before{content:'';position:absolute;inset:-2px;border-radius:29px;background:conic-gradient(from 0deg,#a78bfa,#f472b6,#fbbf24,#4ade80,#60a5fa,#a78bfa);animation:spinGlow 4s linear infinite;filter:blur(1px);}
+@keyframes spinGlow{to{transform:rotate(360deg);}}
+.roulette-modal{background:linear-gradient(165deg,#241b4d,#0f0a26);border-radius:26px;max-width:390px;width:100%;padding:26px 22px 22px;box-shadow:0 30px 80px rgba(0,0,0,.6);position:relative;overflow:hidden;z-index:1;}
 .roulette-modal::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:220px;height:220px;background:radial-gradient(circle,rgba(139,92,246,.35),transparent 70%);pointer-events:none;}
 .roulette-modal-inner{position:relative;padding:24px 22px 22px;text-align:center;}
 .roulette-close{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);color:rgba(255,255,255,.6);font-size:16px;font-weight:900;cursor:pointer;line-height:1;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
@@ -303,8 +296,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 .wheel-wrap::before{content:'';position:absolute;inset:-14px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.35),transparent 72%);z-index:0;}
 .wheel-pointer{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-top:22px solid #fbbf24;z-index:5;filter:drop-shadow(0 3px 5px rgba(0,0,0,.45));animation:pointerTap 1.8s ease-in-out infinite;}
 @keyframes pointerTap{0%,100%{transform:translateX(-50%) rotate(0deg);}50%{transform:translateX(-50%) rotate(8deg);}}
-.wheel{width:100%;height:100%;border-radius:50%;position:relative;z-index:1;border:6px solid transparent;background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 10px 40px rgba(0,0,0,.4),inset 0 0 0 2px rgba(255,255,255,.15);transition:transform 4.8s cubic-bezier(.12,.68,.1,1);}
-.wheel-label-win{font-size:12px;text-shadow:0 0 8px rgba(251,191,36,.9),0 1px 3px rgba(0,0,0,.6);}
+.wheel{width:100%;height:100%;border-radius:50%;position:relative;z-index:1;border:6px solid transparent;background-image:conic-gradient(#6d28d9 0deg 60deg,#db2777 60deg 120deg,#0891b2 120deg 180deg,#16a34a 180deg 240deg,#7c3aed 240deg 300deg,#d97706 300deg 360deg),linear-gradient(135deg,#fde68a,#fbbf24 45%,#fde68a);background-origin:border-box;background-clip:padding-box,border-box;box-shadow:0 10px 40px rgba(0,0,0,.4),inset 0 0 0 2px rgba(255,255,255,.15);transition:transform 4.5s cubic-bezier(.15,.65,.1,1);}
 .wheel::after{content:'';position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(rgba(255,255,255,.22) 0deg 1.5deg,transparent 1.5deg 60deg);pointer-events:none;}
 .wheel-label{position:absolute;top:50%;left:50%;width:100px;text-align:center;font-size:11px;font-weight:900;color:#fff;line-height:1.25;text-shadow:0 1px 3px rgba(0,0,0,.6);transform-origin:0 0;pointer-events:none;letter-spacing:.5px;}
 .wheel-center{position:absolute;top:50%;left:50%;width:50px;height:50px;transform:translate(-50%,-50%);background:linear-gradient(135deg,#fde68a,#fbbf24);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 3px 14px rgba(0,0,0,.35),0 0 0 4px #241b4d;z-index:4;animation:centerPulse 1.8s ease-in-out infinite;}
@@ -531,19 +523,10 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 </div>
 <div class="confirm-overlay" id="confirm-box">
   <div class="confirm-modal">
-    <div class="confirm-modal-inner">
-      <div class="confirm-eyebrow">&#9203; &Uacute;ltima etapa da an&aacute;lise</div>
-      <div class="confirm-icon-ring"><span class="confirm-modal-icon">&#127919;</span></div>
-      <div class="confirm-box-text">Voc&ecirc; est&aacute; pronto pra <span>mudar de verdade?</span></div>
-      <div class="confirm-box-desc">Confirme abaixo para liberarmos seu plano personalizado com base em tudo que voc&ecirc; respondeu.</div>
-      <div class="confirm-benefits">
-        <div class="confirm-benefit-item"><div class="confirm-benefit-icon">&#127919;</div><div class="confirm-benefit-text">Personalizado</div></div>
-        <div class="confirm-benefit-item"><div class="confirm-benefit-icon">&#9889;</div><div class="confirm-benefit-text">Resultado r&aacute;pido</div></div>
-        <div class="confirm-benefit-item"><div class="confirm-benefit-icon">&#128274;</div><div class="confirm-benefit-text">100% privado</div></div>
-      </div>
-      <button class="btn" onclick="confirmChange()">&#9989; Sim, estou pronto para mudar</button>
-      <div class="confirm-box-sub">&#128272; Sua resposta personaliza os pr&oacute;ximos passos do seu plano</div>
-    </div>
+    <div class="confirm-modal-icon">🎯</div>
+    <div class="confirm-box-text">Antes de continuar... voc&ecirc; est&aacute; realmente pronto para recuperar o controle, a firmeza e a confian&ccedil;a?</div>
+    <button class="btn" onclick="confirmChange()">&#9989; Sim, estou pronto para mudar</button>
+    <div class="confirm-box-sub">Sua resposta personaliza os pr&oacute;ximos passos do seu plano</div>
   </div>
 </div>
 <div><div class="testi-mini" id="testi-slide-0"><div class="testi-mini-quote">"Em 3 semanas j&aacute; senti diferen&ccedil;a enorme. Mais controle, mais firmeza."</div><div class="testi-mini-author">Carlos M., 34 anos &mdash; S&atilde;o Paulo</div><div class="testi-mini-result">&#10003; Resultado em menos de 30 dias</div></div><div class="testi-mini" id="testi-slide-1" style="display:none;"><div class="testi-mini-quote">"Nunca imaginei que exerc&iacute;cios simples pudessem mudar tanto minha vida &iacute;ntima."</div><div class="testi-mini-author">Ricardo F., 42 anos &mdash; Rio de Janeiro</div><div class="testi-mini-result">&#10003; Performance elevada em 21 dias</div></div><div class="testi-mini" id="testi-slide-2" style="display:none;"><div class="testi-mini-quote">"Tinha vergonha de admitir o problema. O protocolo resolveu de forma natural."</div><div class="testi-mini-author">Paulo S., 51 anos &mdash; Minas Gerais</div><div class="testi-mini-result">&#10003; Melhora significativa em 25 dias</div></div><div class="testi-mini" id="testi-slide-3" style="display:none;"><div class="testi-mini-quote">"Com o m&eacute;todo &aacute;rabe cresci 4 cm. Minha esposa n&atilde;o consegue mais acompanhar!"</div><div class="testi-mini-author">Felipe A., 29 anos &mdash; Bras&iacute;lia</div><div class="testi-mini-result">&#10003; +4 cm com m&eacute;todo &aacute;rabe</div></div></div>
@@ -667,13 +650,13 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <!-- HEADLINE FORTE -->
 <div style="background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:20px;padding:24px 20px;margin-bottom:16px;text-align:center;">
   <div style="font-size:10px;font-weight:900;color:#4ade80;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;">&#9989; An&aacute;lise conclu&iacute;da — plano gerado</div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:1px;line-height:1.2;margin-bottom:10px;">Seu corpo <span style="color:#4ade80;">tem solução.</span><br>E o Dia dos Pais é a desculpa perfeita pra começar.</div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:1px;line-height:1.2;margin-bottom:10px;">Seu corpo <span style="color:#4ade80;">tem solução.</span><br>E ela cabe no seu bolso.</div>
   <div style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Com base nas suas respostas, montamos um protocolo <strong style="color:#fff;">100% personalizado</strong> para voc&ecirc; recuperar o controle, a firmeza e a confian&ccedil;a — em menos de 3 semanas.</div>
 </div>
 
 <!-- COUNTDOWN TIMER -->
 <div style="background:#fff;border:2px solid #fca5a5;border-radius:16px;padding:16px;margin-bottom:16px;text-align:center;">
-  <div style="font-size:11px;font-weight:900;color:#ef4444;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">&#127873; Oferta de Dia dos Pais expira em:</div>
+  <div style="font-size:11px;font-weight:900;color:#ef4444;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">&#9203; Oferta expira em:</div>
   <div style="display:flex;justify-content:center;gap:10px;margin-bottom:8px;">
     <div style="background:#ef4444;border-radius:10px;padding:10px 14px;min-width:52px;">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;line-height:1;" id="timer-min">15</div>
@@ -685,7 +668,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       <div style="font-size:9px;font-weight:800;color:rgba(255,255,255,0.8);text-transform:uppercase;">seg</div>
     </div>
   </div>
-  <div style="font-size:11px;font-weight:700;color:#6b7280;">Promo&ccedil;&atilde;o especial de Dia dos Pais — ao expirar, o pre&ccedil;o volta a R$&thinsp;97</div>
+  <div style="font-size:11px;font-weight:700;color:#6b7280;">Promo&ccedil;&atilde;o por tempo limitado — ao expirar, o pre&ccedil;o volta a R$&thinsp;97</div>
 </div>
 
 <!-- NOTICIA GLOBO -->
@@ -703,7 +686,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     <div class="plan-head">
       <div>
         <div class="plan-name">Protocolo Alpha</div>
-        <div class="plan-subdesc">&#127873; Oferta de Dia dos Pais + 5 b&ocirc;nus gr&aacute;tis</div>
+        <div class="plan-subdesc">&#128293; Oferta especial + 5 b&ocirc;nus gr&aacute;tis</div>
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;97</div>
@@ -737,7 +720,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       </div>
     </div>
     <button class="plan-cta gold-cta" id="cta-btn-1" onclick="checkout('cheio')">
-      &#127873; QUERO MEU PRESENTE DE DIA DOS PAIS<br>
+      &#128640; QUERO MEU ACESSO AGORA<br>
       <span style="font-size:12px;opacity:.9;">&#128293; Oferta especial: apenas R$&thinsp;24,90 + 5 b&ocirc;nus gr&aacute;tis</span>
     </button>
     <div style="text-align:center;font-size:11px;color:#92400e;font-weight:700;margin-top:10px;">&#128274; Pagamento seguro &bull; Acesso imediato &bull; Garantia de 7 dias</div>
@@ -825,11 +808,11 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <!-- SEGUNDO CTA FINAL -->
 <div style="margin-top:24px;">
   <button class="plan-cta gold-cta" id="cta-btn-2" onclick="checkout('cheio')" style="border-radius:14px;font-size:17px;padding:20px 16px;">
-    &#127873; GARANTIR MEU PRESENTE AGORA<br>
+    &#128640; GARANTIR MEU ACESSO AGORA<br>
     <span style="font-size:12px;opacity:.9;">&#128293; R$&thinsp;24,90 por tempo limitado &bull; Acesso imediato &bull; + 5 b&ocirc;nus gr&aacute;tis</span>
   </button>
   <div style="text-align:center;font-size:12px;color:var(--text2);font-weight:700;margin-top:10px;">&#128274; Pagamento 100% seguro e discreto</div>
-  <div style="text-align:center;font-size:11px;color:var(--text2);margin-top:4px;">Garanta agora e tenha sua masculinidade de volta antes do Dia dos Pais</div>
+  <div style="text-align:center;font-size:11px;color:var(--text2);margin-top:4px;">Adquira agora e tenha sua masculinidade de volta em semanas</div>
 </div>
 
 <div style="height:76px;"></div>
@@ -838,11 +821,13 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 
 <!-- ROLETA (inatividade / exit-intent) -->
 <div class="roulette-overlay" id="roulette-overlay">
+ <div class="roulette-modal-glow">
   <div class="roulette-modal">
     <button class="roulette-close" onclick="closeRoulette()">&times;</button>
     <div id="roulette-step-spin">
+      <div class="roulette-badge">🎁 Bônus exclusivo</div>
       <div class="roulette-title">Espera! Gire e <span>desbloqueie</span> seu desconto</div>
-      <div class="roulette-sub">Antes de sair, gire a roda e garanta 20% OFF no Protocolo Alpha.</div>
+      <div class="roulette-sub">Antes de sair, gire a roda e garanta o seu desconto no Protocolo Alpha.</div>
       <div class="wheel-wrap">
         <div class="wheel-pointer">&#9660;</div>
         <div class="wheel" id="wheel"></div>
@@ -858,12 +843,13 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     </div>
     <button class="roulette-skip" onclick="closeRoulette()">Não, obrigado, prefiro continuar sem bônus</button>
   </div>
+ </div>
 </div>
 
 <!-- BARRA STICKY MOBILE -->
 <div id="sticky-cta" style="position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1.5px solid var(--border);padding:10px 16px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(0,0,0,.1);display:none;z-index:200;">
   <button class="plan-cta gold-cta" onclick="checkout('cheio')" style="border-radius:12px;font-size:14px;padding:14px 16px;display:flex;align-items:center;justify-content:center;gap:8px;">
-    &#127873; Garantir presente por R$&thinsp;24,90 &rarr;
+    &#128640; Garantir por R$&thinsp;24,90 &rarr;
   </button>
 </div>
 
@@ -1018,15 +1004,15 @@ function initStickyCta(){
 
 // ROLETA (inatividade + exit-intent) — tela 26
 const ROULETTE_PRIZES=[
-  {label:'3%\nOFF',value:3,color:'#4c1d95',win:false},
-  {label:'8%\nOFF',value:8,color:'#6d28d9',win:false},
-  {label:'20%\nOFF',value:20,color:'#f59e0b',win:true,title:'20% de desconto liberado!',desc:'Seu Protocolo Alpha sai de R$24,90 por apenas R$19,90 — só nessa rodada.',icon:'🎉'},
-  {label:'5%\nOFF',value:5,color:'#7c3aed',win:false},
-  {label:'12%\nOFF',value:12,color:'#5b21b6',win:false},
-  {label:'15%\nOFF',value:15,color:'#9333ea',win:false},
-  {label:'10%\nOFF',value:10,color:'#8b5cf6',win:false},
-  {label:'6%\nOFF',value:6,color:'#6d28d9',win:false},
+  {label:'5%\nOFF',icon:'🎯'},
+  {label:'8%\nOFF',icon:'🎯'},
+  {label:'12%\nOFF',icon:'🎯'},
+  {label:'10%\nOFF',icon:'🎯'},
+  {label:'15%\nOFF',icon:'🎯'},
+  {label:'20%\nOFF',icon:'🏆'}
 ];
+const ROULETTE_WIN_INDEX=5;
+const ROULETTE_WIN_RESULT={title:'Prêmio máximo liberado!',desc:'Seu Protocolo Alpha sai de R$24,90 por apenas R$19,90 — o maior desconto da roleta.',icon:'🏆'};
 let rouletteInit=false,rouletteShown=false,idleTimeoutId=null;
 function initRouletteTriggers(){
   if(rouletteInit)return;
@@ -1060,14 +1046,12 @@ function buildWheelLabels(){
   const wheel=document.getElementById('wheel');
   if(!wheel||wheel.dataset.built)return;
   wheel.dataset.built='1';
-  const n=ROULETTE_PRIZES.length,seg=360/n;
-  const stops=ROULETTE_PRIZES.map((p,i)=>`${p.color} ${(seg*i).toFixed(2)}deg ${(seg*(i+1)).toFixed(2)}deg`).join(',');
-  wheel.style.backgroundImage=`conic-gradient(${stops}),linear-gradient(135deg,#fde68a,#fbbf24 45%,#fde68a)`;
+  const n=ROULETTE_PRIZES.length,seg=360/n,R=78;
   ROULETTE_PRIZES.forEach((p,i)=>{
     const angle=seg*i+seg/2;
     const lbl=document.createElement('div');
-    lbl.className='wheel-label'+(p.win?' wheel-label-win':'');
-    lbl.style.transform=`rotate(${angle}deg) translate(45px,-58px) rotate(${-angle}deg)`;
+    lbl.className='wheel-label';
+    lbl.style.transform=`rotate(${angle}deg) translate(45px,-50px) rotate(${-angle}deg)`;
     lbl.style.marginLeft='-50px';
     lbl.innerHTML=p.label.replace('\n','<br>');
     wheel.appendChild(lbl);
@@ -1079,8 +1063,8 @@ window.spinWheel=function(){
   if(btn.dataset.spun)return;
   btn.dataset.spun='1';
   btn.style.opacity='.6';btn.style.pointerEvents='none';
-  const idx=ROULETTE_PRIZES.findIndex(p=>p.win);
-  roulettePicked=ROULETTE_PRIZES[idx];
+  const idx=ROULETTE_WIN_INDEX;
+  roulettePicked=ROULETTE_WIN_RESULT;
   const n=ROULETTE_PRIZES.length,seg=360/n;
   const segCenter=seg*idx+seg/2;
   const jitter=(Math.random()*seg*0.5)-(seg*0.25);
@@ -1095,8 +1079,26 @@ window.spinWheel=function(){
     document.getElementById('rr-title').textContent=roulettePicked.title;
     document.getElementById('rr-desc').textContent=roulettePicked.desc;
     document.getElementById('roulette-result').classList.add('show');
+    launchConfetti();
   },4700);
 };
+function launchConfetti(){
+  const modal=document.querySelector('.roulette-modal');
+  if(!modal)return;
+  const colors=['#fbbf24','#a78bfa','#4ade80','#f472b6','#60a5fa'];
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div');
+    const size=6+Math.random()*6;
+    p.style.cssText=`position:absolute;top:${20+Math.random()*20}%;left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${colors[i%colors.length]};border-radius:${Math.random()>0.5?'50%':'2px'};pointer-events:none;z-index:6;opacity:1;transform:rotate(${Math.random()*360}deg);transition:transform 1.4s cubic-bezier(.25,.46,.45,.94),top 1.4s cubic-bezier(.25,.46,.45,.94),opacity 1.4s ease;`;
+    modal.appendChild(p);
+    requestAnimationFrame(()=>{
+      p.style.top=(80+Math.random()*20)+'%';
+      p.style.transform=`translateX(${(Math.random()-0.5)*120}px) rotate(${360+Math.random()*360}deg)`;
+      p.style.opacity='0';
+    });
+    setTimeout(()=>p.remove(),1500);
+  }
+}
 window.claimRoulette=function(){
   track('roulette_claimed',{prize:roulettePicked?roulettePicked.title:''});
   const ov=document.getElementById('roulette-overlay');
