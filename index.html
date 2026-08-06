@@ -312,6 +312,13 @@ body{font-family:'Nunito',sans-serif;background:var(--bg2);color:var(--text);min
 .roulette-result-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:22px;padding:0 4px;}
 .roulette-skip{display:block;margin-top:14px;font-size:11px;color:rgba(255,255,255,.35);font-weight:700;background:none;border:none;cursor:pointer;text-decoration:underline;}
 
+/* === TOAST DE AVISO (antes da roleta) === */
+.surprise-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-30px);background:linear-gradient(135deg,#241b4d,#0f0a26);border:1.5px solid rgba(167,139,250,.5);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:410;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease;max-width:92%;}
+.surprise-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.surprise-toast-icon{width:38px;height:38px;background:rgba(167,139,250,.2);border:1px solid rgba(167,139,250,.4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;animation:pulse-icon 1s ease-in-out infinite;}
+.surprise-toast-text{font-size:13px;font-weight:800;color:#fff;line-height:1.35;white-space:nowrap;}
+.surprise-toast-sub{font-size:11px;color:rgba(255,255,255,.55);font-weight:600;margin-top:2px;}
+
 </style>
 </head>
 <body>
@@ -643,7 +650,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
   </div>
   <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
     <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.6);text-decoration:line-through;">R$&thinsp;97,00</div>
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fbbf24;line-height:1;">R$&thinsp;24,90</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fbbf24;line-height:1;">R$&thinsp;19,90</div>
   </div>
 </div>
 
@@ -690,7 +697,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
       </div>
       <div class="plan-price">
         <div class="from">De R$&thinsp;97</div>
-        <div class="amount gold"><sup>R$&thinsp;</sup>24<sub>,90</sub></div>
+        <div class="amount gold"><sup>R$&thinsp;</sup>19<sub>,90</sub></div>
       </div>
     </div>
     <div class="plan-divider" style="border-color:rgba(245,158,11,.25);"></div>
@@ -721,7 +728,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
     </div>
     <button class="plan-cta gold-cta" id="cta-btn-1" onclick="checkout('cheio')">
       &#128640; QUERO MEU ACESSO AGORA<br>
-      <span style="font-size:12px;opacity:.9;">&#128293; Oferta especial: apenas R$&thinsp;24,90 + 5 b&ocirc;nus gr&aacute;tis</span>
+      <span style="font-size:12px;opacity:.9;">&#128293; Oferta especial: apenas R$&thinsp;19,90 + 5 b&ocirc;nus gr&aacute;tis</span>
     </button>
     <div style="text-align:center;font-size:11px;color:#92400e;font-weight:700;margin-top:10px;">&#128274; Pagamento seguro &bull; Acesso imediato &bull; Garantia de 7 dias</div>
   </div>
@@ -809,7 +816,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <div style="margin-top:24px;">
   <button class="plan-cta gold-cta" id="cta-btn-2" onclick="checkout('cheio')" style="border-radius:14px;font-size:17px;padding:20px 16px;">
     &#128640; GARANTIR MEU ACESSO AGORA<br>
-    <span style="font-size:12px;opacity:.9;">&#128293; R$&thinsp;24,90 por tempo limitado &bull; Acesso imediato &bull; + 5 b&ocirc;nus gr&aacute;tis</span>
+    <span style="font-size:12px;opacity:.9;">&#128293; R$&thinsp;19,90 por tempo limitado &bull; Acesso imediato &bull; + 5 b&ocirc;nus gr&aacute;tis</span>
   </button>
   <div style="text-align:center;font-size:12px;color:var(--text2);font-weight:700;margin-top:10px;">&#128274; Pagamento 100% seguro e discreto</div>
   <div style="text-align:center;font-size:11px;color:var(--text2);margin-top:4px;">Adquira agora e tenha sua masculinidade de volta em semanas</div>
@@ -817,6 +824,15 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 
 <div style="height:76px;"></div>
 
+</div>
+
+<!-- TOAST DE AVISO (antes da roleta) -->
+<div class="surprise-toast" id="surprise-toast">
+  <div class="surprise-toast-icon">🎁</div>
+  <div>
+    <div class="surprise-toast-text">Você desbloqueou um bônus surpresa!</div>
+    <div class="surprise-toast-sub">Preparando sua recompensa...</div>
+  </div>
 </div>
 
 <!-- ROLETA (inatividade / exit-intent) -->
@@ -849,7 +865,7 @@ Voc&ecirc; foi <span style="background:#fef08a;color:#713f12;font-weight:900;pad
 <!-- BARRA STICKY MOBILE -->
 <div id="sticky-cta" style="position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1.5px solid var(--border);padding:10px 16px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(0,0,0,.1);display:none;z-index:200;">
   <button class="plan-cta gold-cta" onclick="checkout('cheio')" style="border-radius:12px;font-size:14px;padding:14px 16px;display:flex;align-items:center;justify-content:center;gap:8px;">
-    &#128640; Garantir por R$&thinsp;24,90 &rarr;
+    &#128640; Garantir por R$&thinsp;19,90 &rarr;
   </button>
 </div>
 
@@ -1012,13 +1028,13 @@ const ROULETTE_PRIZES=[
   {label:'20%\nOFF',icon:'🏆'}
 ];
 const ROULETTE_WIN_INDEX=5;
-const ROULETTE_WIN_RESULT={title:'Prêmio máximo liberado!',desc:'Seu Protocolo Alpha sai de R$24,90 por apenas R$19,90 — o maior desconto da roleta.',icon:'🏆'};
+const ROULETTE_WIN_RESULT={title:'Prêmio máximo liberado!',desc:'Seu Protocolo Alpha sai de R$19,90 por apenas R$14,90 — o maior desconto da roleta.',icon:'🏆'};
 let rouletteInit=false,rouletteShown=false,idleTimeoutId=null;
 function initRouletteTriggers(){
   if(rouletteInit)return;
   rouletteInit=true;
   buildWheelLabels();
-  const IDLE_MS=20000;
+  const IDLE_MS=40000;
   function resetIdle(){
     if(rouletteShown)return;
     clearTimeout(idleTimeoutId);
@@ -1033,6 +1049,18 @@ function maybeShowRoulette(){
   if(rouletteShown||!s26||!s26.classList.contains('active'))return;
   rouletteShown=true;
   clearTimeout(idleTimeoutId);
+  showSurpriseToast();
+}
+function showSurpriseToast(){
+  const toast=document.getElementById('surprise-toast');
+  if(toast)toast.classList.add('show');
+  track('surprise_toast_shown');
+  setTimeout(()=>{
+    if(toast)toast.classList.remove('show');
+    openRouletteModal();
+  },1800);
+}
+function openRouletteModal(){
   const ov=document.getElementById('roulette-overlay');
   if(ov)ov.classList.add('show');
   track('roulette_shown');
